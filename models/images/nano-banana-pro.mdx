@@ -1,0 +1,68 @@
+---
+title: "Nano Banana Pro"
+description: "Professional-grade fast image generation with enhanced quality"
+---
+
+<img src="https://i.ibb.co/0p60DSpj/nano-banana-pro.png" alt="Nano Banana Pro" />
+
+## Overview
+
+Nano Banana Pro is the professional version of Nano Banana, offering enhanced quality while maintaining impressive speed. It's the perfect balance between performance and output quality.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="Fast Generation" icon="bolt">
+    Professional results in 4-6 seconds
+  </Card>
+  <Card title="Enhanced Quality" icon="star">
+    Superior detail and clarity
+  </Card>
+  <Card title="Professional" icon="briefcase">
+    Suitable for commercial use
+  </Card>
+  <Card title="Reliable" icon="shield-check">
+    Consistent high-quality output
+  </Card>
+</Columns>
+
+## Specifications
+
+| Feature | Details |
+|---------|---------|
+| Max Resolution | 1536x1536 |
+| Aspect Ratios | All standard ratios |
+| Generation Time | 4-6 seconds |
+| Styles | Professional, Commercial |
+| Best For | Business, marketing content |
+
+## Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "nano-banana-pro",
+        "prompt": "Professional product photography of smartphone",
+        "size": "1536x1536",
+        "quality": "hd"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+## Best Use Cases
+
+- **Marketing Materials**: Ads and promotional content
+- **Product Photography**: E-commerce images
+- **Business Presentations**: Professional visuals
+- **Brand Content**: Consistent brand imagery
+
+## Support
+
+- Email: support@megsyai.com
+- [Help Center](https://megsyai.com/help)
