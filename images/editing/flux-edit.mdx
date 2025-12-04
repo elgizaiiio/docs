@@ -1,0 +1,65 @@
+---
+title: "Flux Edit"
+description: "Flexible image editing with adaptive intelligence"
+icon: "wand-magic"
+---
+
+<img src="https://i.ibb.co/spGKHcPz/flux-edit.png" alt="Flux Edit" />
+
+## Overview
+
+Flux Edit combines flexibility with intelligence to provide adaptive image editing that understands context and delivers optimal results automatically.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Adaptive AI" icon="brain">
+    Automatically adjusts to image content
+  </Card>
+  <Card title="Smart Edits" icon="lightbulb">
+    Intelligent suggestions and improvements
+  </Card>
+  <Card title="Flexible Control" icon="sliders">
+    Balance between auto and manual control
+  </Card>
+  <Card title="Quality Output" icon="gem">
+    Professional results with minimal effort
+  </Card>
+</CardGroup>
+
+## How to Use
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")},
+    data={
+        "model": "flux-edit",
+        "instruction": "Enhance and improve overall quality",
+        "auto_optimize": True
+    }
+)
+```
+
+## Smart Features
+
+- Auto enhancement
+- Intelligent cropping
+- Smart object removal
+- Adaptive color correction
+- Context-aware editing
+
+## Pricing
+
+| Mode | Price |
+|------|-------|
+| Auto | $0.06 |
+| Manual | $0.08 |
+| Hybrid | $0.10 |
+
+## Support
+
+- Email: support@megsyai.com
