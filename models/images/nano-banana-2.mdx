@@ -1,0 +1,72 @@
+---
+title: "Nano Banana 2"
+description: "Fast and efficient image generation model for quick results"
+---
+
+<img src="https://i.ibb.co/HL72mHfG/nano-banana-2.png" alt="Nano Banana 2" />
+
+## Overview
+
+Nano Banana 2 is a lightweight yet powerful image generation model designed for speed and efficiency. Perfect for rapid prototyping and quick iterations, it delivers quality results in minimal time.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="Ultra Fast" icon="rocket">
+    Generate images in 2-4 seconds
+  </Card>
+  <Card title="Efficient" icon="gauge">
+    Optimized for low resource consumption
+  </Card>
+  <Card title="Versatile" icon="wand-magic-sparkles">
+    Handles various styles and subjects
+  </Card>
+  <Card title="Affordable" icon="coins">
+    Cost-effective for high-volume generation
+  </Card>
+</Columns>
+
+## Specifications
+
+| Feature | Details |
+|---------|---------|
+| Max Resolution | 1024x1024 |
+| Aspect Ratios | Square, 16:9, 9:16 |
+| Generation Time | 2-4 seconds |
+| Styles | Realistic, Cartoon, Anime |
+| Best For | Quick iterations, prototypes |
+
+## Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "nano-banana-2",
+        "prompt": "A cute cartoon character in a forest",
+        "size": "1024x1024",
+        "num_images": 1
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+## Best Use Cases
+
+- **Rapid Prototyping**: Quick concept visualization
+- **Batch Generation**: Creating multiple variations fast
+- **Testing Ideas**: Experimenting with different prompts
+- **Social Media**: Quick content for posts and stories
+
+## Pricing
+
+Lower cost per image compared to premium models, making it ideal for high-volume generation.
+
+## Support
+
+- Email: support@megsyai.com
+- [Help Center](https://megsyai.com/help)
