@@ -1,0 +1,363 @@
+---
+title: "Flux.2 Flex"
+description: "Flexible and adaptive image generation with dynamic control"
+icon: "wand-magic-sparkles"
+---
+
+<img src="https://i.ibb.co/xqWh6NjQ/flux-2-flex.png" alt="Flux.2 Flex" />
+
+## Overview
+
+Flux.2 Flex is a highly flexible image generation model that adapts to your creative needs. With dynamic control over style, composition, and artistic direction, it's perfect for creators who need versatility and precision.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Adaptive Generation" icon="shuffle">
+    Dynamically adjusts to different styles and requirements
+  </Card>
+  <Card title="Precise Control" icon="crosshairs">
+    Fine-grained control over every aspect of generation
+  </Card>
+  <Card title="Style Flexibility" icon="palette">
+    Seamlessly switches between artistic styles
+  </Card>
+  <Card title="Composition Control" icon="grid">
+    Advanced layout and composition options
+  </Card>
+</CardGroup>
+
+## How to Use
+
+### Basic Generation
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "flux-2-flex",
+        "prompt": "A serene Japanese garden with cherry blossoms",
+        "size": "1024x1024"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+### Advanced Flex Control
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "flux-2-flex",
+        "prompt": "Futuristic cityscape at night",
+        "negative_prompt": "blurry, low quality",
+        "size": "1792x1024",
+        "flex_mode": "adaptive",
+        "style_strength": 0.8,
+        "composition_guide": "rule-of-thirds",
+        "color_palette": "vibrant",
+        "lighting_mode": "dramatic"
+    }
+)
+```
+
+## Flex Modes
+
+### Adaptive Mode
+Automatically adjusts parameters for optimal results:
+```python
+{"flex_mode": "adaptive"}  # Recommended for most uses
+```
+
+### Precise Mode
+Strict adherence to your specifications:
+```python
+{"flex_mode": "precise"}  # For exact requirements
+```
+
+### Creative Mode
+More artistic freedom and interpretation:
+```python
+{"flex_mode": "creative"}  # For experimental results
+```
+
+## Style Control
+
+### Style Strength
+Controls how strongly the style is applied (0.0 - 1.0):
+```python
+{
+    "style_strength": 0.3,  # Subtle style
+    "style_strength": 0.6,  # Balanced (recommended)
+    "style_strength": 0.9   # Strong style
+}
+```
+
+### Style Mixing
+Combine multiple styles:
+```python
+{
+    "styles": [
+        {"name": "photographic", "weight": 0.6},
+        {"name": "cinematic", "weight": 0.4}
+    ]
+}
+```
+
+## Composition Guides
+
+```python
+composition_guides = [
+    "rule-of-thirds",      # Classic photography rule
+    "golden-ratio",        # Fibonacci spiral
+    "centered",            # Centered composition
+    "diagonal",            # Dynamic diagonal lines
+    "symmetrical",         # Mirror symmetry
+    "asymmetrical",        # Balanced asymmetry
+    "frame-within-frame"   # Natural framing
+]
+```
+
+## Color Control
+
+### Color Palettes
+```python
+color_palettes = {
+    "vibrant": "Bold, saturated colors",
+    "muted": "Soft, desaturated tones",
+    "monochrome": "Single color variations",
+    "complementary": "Opposite color wheel",
+    "analogous": "Adjacent color wheel",
+    "warm": "Warm color temperature",
+    "cool": "Cool color temperature",
+    "pastel": "Soft pastel colors"
+}
+```
+
+### Custom Color Palette
+```python
+{
+    "custom_palette": {
+        "primary": "#FF6B6B",
+        "secondary": "#4ECDC4",
+        "accent": "#45B7D1"
+    }
+}
+```
+
+## Lighting Modes
+
+```python
+lighting_modes = {
+    "natural": "Soft, natural daylight",
+    "dramatic": "High contrast, dramatic shadows",
+    "studio": "Professional studio lighting",
+    "golden-hour": "Warm sunset/sunrise light",
+    "blue-hour": "Cool twilight atmosphere",
+    "neon": "Vibrant neon lighting",
+    "ambient": "Soft ambient lighting",
+    "backlit": "Strong backlighting"
+}
+```
+
+## Advanced Features
+
+### Region Control
+Control specific areas of the image:
+```python
+{
+    "regions": [
+        {
+            "area": "foreground",
+            "focus": "high",
+            "detail": "maximum"
+        },
+        {
+            "area": "background",
+            "focus": "soft",
+            "detail": "medium"
+        }
+    ]
+}
+```
+
+### Depth Control
+Manage depth of field:
+```python
+{
+    "depth_of_field": {
+        "enabled": True,
+        "focus_point": "center",
+        "blur_strength": 0.7
+    }
+}
+```
+
+## Example Prompts
+
+### Landscape Photography
+```python
+{
+    "prompt": "Mountain landscape at golden hour",
+    "composition_guide": "rule-of-thirds",
+    "color_palette": "warm",
+    "lighting_mode": "golden-hour",
+    "depth_of_field": {"enabled": True, "blur_strength": 0.3}
+}
+```
+
+### Portrait
+```python
+{
+    "prompt": "Professional portrait of a person",
+    "composition_guide": "centered",
+    "lighting_mode": "studio",
+    "depth_of_field": {"enabled": True, "focus_point": "center"},
+    "style_strength": 0.7
+}
+```
+
+### Abstract Art
+```python
+{
+    "prompt": "Abstract geometric composition",
+    "flex_mode": "creative",
+    "color_palette": "vibrant",
+    "composition_guide": "symmetrical",
+    "style_strength": 0.9
+}
+```
+
+### Architectural
+```python
+{
+    "prompt": "Modern architecture exterior",
+    "composition_guide": "diagonal",
+    "lighting_mode": "dramatic",
+    "color_palette": "monochrome",
+    "style_strength": 0.6
+}
+```
+
+## Best Practices
+
+<Steps>
+  <Step title="Choose Right Flex Mode">
+    Select the mode that matches your creative intent
+  </Step>
+  <Step title="Use Composition Guides">
+    Apply composition rules for better visual balance
+  </Step>
+  <Step title="Control Color Palette">
+    Define color scheme for cohesive results
+  </Step>
+  <Step title="Set Lighting Mode">
+    Specify lighting to match desired mood
+  </Step>
+  <Step title="Adjust Style Strength">
+    Fine-tune how strongly styles are applied
+  </Step>
+</Steps>
+
+## Use Cases
+
+<Tabs>
+  <Tab title="Photography">
+    Simulate professional photography with full control
+  </Tab>
+  <Tab title="Graphic Design">
+    Create designs with precise composition and color
+  </Tab>
+  <Tab title="Concept Art">
+    Flexible tool for concept development
+  </Tab>
+  <Tab title="Marketing">
+    Generate on-brand marketing visuals
+  </Tab>
+</Tabs>
+
+## Pricing
+
+| Configuration | Price per Image |
+|---------------|-----------------|
+| Basic (Adaptive) | $0.03 |
+| Advanced (Precise) | $0.05 |
+| Creative (Full Control) | $0.06 |
+| HD Quality | +$0.02 |
+
+## Performance
+
+- **Generation Time**: 6-10 seconds
+- **Flexibility Score**: 9.5/10
+- **Control Precision**: 9/10
+- **Success Rate**: 95%
+
+## API Reference
+
+### Complete Example
+
+```python
+import requests
+
+def generate_flex_image(prompt, **options):
+    payload = {
+        "model": "flux-2-flex",
+        "prompt": prompt,
+        "negative_prompt": options.get("negative_prompt", ""),
+        "size": options.get("size", "1024x1024"),
+        "flex_mode": options.get("flex_mode", "adaptive"),
+        "style_strength": options.get("style_strength", 0.6),
+        "composition_guide": options.get("composition_guide"),
+        "color_palette": options.get("color_palette"),
+        "lighting_mode": options.get("lighting_mode"),
+        "depth_of_field": options.get("depth_of_field")
+    }
+    
+    response = requests.post(
+        "https://api.megsyai.com/v1/images/generate",
+        headers={"Authorization": "Bearer YOUR_API_KEY"},
+        json=payload
+    )
+    
+    return response.json()
+
+# Usage
+result = generate_flex_image(
+    "Sunset over ocean",
+    flex_mode="adaptive",
+    composition_guide="rule-of-thirds",
+    color_palette="warm",
+    lighting_mode="golden-hour"
+)
+```
+
+### Response Format
+
+```json
+{
+  "data": [{
+    "url": "https://cdn.megsyai.com/images/...",
+    "flex_settings": {
+      "mode": "adaptive",
+      "style_strength": 0.6,
+      "composition": "rule-of-thirds"
+    }
+  }],
+  "model": "flux-2-flex",
+  "generation_time": 8.5
+}
+```
+
+## Support
+
+Need help with Flux.2 Flex?
+- Email: support@megsyai.com
+- Live chat: 24/7
+- [Advanced Guide](https://megsyai.com/docs/flux-2-flex)
+- [Community](https://community.megsyai.com)
