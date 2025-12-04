@@ -1,0 +1,254 @@
+---
+title: "AuraSR"
+description: "Super-resolution AI for photorealistic image enhancement"
+---
+
+<img src="https://i.ibb.co/LDHyPs1Z/aurasr.png" alt="AuraSR" />
+
+## Overview
+
+AuraSR is a state-of-the-art super-resolution AI model that specializes in creating photorealistic high-resolution images from low-resolution inputs. It excels at recovering fine details and textures.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="Photorealistic" icon="camera">
+    Natural, realistic enhancement
+  </Card>
+  <Card title="Detail Recovery" icon="magnifying-glass">
+    Recover lost details and textures
+  </Card>
+  <Card title="Texture Synthesis" icon="grid">
+    Generate realistic textures
+  </Card>
+  <Card title="Face Enhancement" icon="user">
+    Specialized face and portrait enhancement
+  </Card>
+</Columns>
+
+## Advanced Capabilities
+
+- **Photorealistic Enhancement**: Natural-looking results
+- **Texture Reconstruction**: Recreate realistic textures
+- **Face Restoration**: Enhance facial features and details
+- **Edge Preservation**: Maintain sharp, clean edges
+- **Artifact Removal**: Eliminate compression artifacts
+- **Color Enhancement**: Improve color vibrancy and accuracy
+
+## Usage
+
+### Basic Enhancement
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/enhance",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("photo.jpg", "rb")},
+    data={
+        "tool": "aurasr",
+        "scale": 4,
+        "mode": "photorealistic"
+    }
+)
+
+enhanced_image_url = response.json()["data"]["url"]
+```
+
+### Portrait Enhancement
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/enhance",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("portrait.jpg", "rb")},
+    data={
+        "tool": "aurasr",
+        "scale": 4,
+        "mode": "portrait",
+        "enhance_face": True,
+        "skin_smoothing": 0.3
+    }
+)
+```
+
+### Advanced Settings
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/enhance",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.jpg", "rb")},
+    data={
+        "tool": "aurasr",
+        "scale": 4,
+        "mode": "photorealistic",
+        "texture_strength": 0.8,
+        "detail_level": "high",
+        "color_enhancement": True,
+        "artifact_removal": True
+    }
+)
+```
+
+## Enhancement Modes
+
+### Photorealistic Mode
+Best for general photography and realistic images
+```python
+{"mode": "photorealistic", "texture_strength": 0.7}
+```
+
+### Portrait Mode
+Optimized for faces and people
+```python
+{"mode": "portrait", "enhance_face": True, "skin_smoothing": 0.3}
+```
+
+### Landscape Mode
+Ideal for nature and outdoor scenes
+```python
+{"mode": "landscape", "detail_level": "high"}
+```
+
+### Product Mode
+Perfect for product photography
+```python
+{"mode": "product", "edge_sharpness": "high"}
+```
+
+## Specialized Features
+
+### Face Enhancement
+```python
+face_options = {
+    "enhance_face": True,
+    "skin_smoothing": 0.3,      # 0.0 - 1.0
+    "eye_enhancement": True,
+    "detail_preservation": True
+}
+```
+
+### Texture Control
+```python
+texture_settings = {
+    "texture_strength": 0.8,    # 0.0 - 1.0
+    "texture_type": "natural",  # natural, smooth, detailed
+    "grain_reduction": 0.5
+}
+```
+
+## Best Use Cases
+
+<Columns cols={2}>
+  <Card title="Portrait Photography" icon="user-circle">
+    Enhance faces and portraits naturally
+  </Card>
+  <Card title="Product Photos" icon="box">
+    Improve product image quality
+  </Card>
+  <Card title="Real Estate" icon="house">
+    Enhance property photos
+  </Card>
+  <Card title="Photo Restoration" icon="clock">
+    Restore old photographs
+  </Card>
+</Columns>
+
+## Quality Comparison
+
+| Feature | Standard Upscaler | AuraSR |
+|---------|------------------|---------|
+| Photorealism | Good | Excellent |
+| Face Enhancement | Basic | Advanced |
+| Texture Quality | Standard | Superior |
+| Detail Recovery | Good | Exceptional |
+| Processing Time | Fast | Moderate |
+
+## Tips for Best Results
+
+<Steps>
+  <Step title="Choose Right Mode">
+    Select the mode that matches your image type
+  </Step>
+  <Step title="Adjust Texture">
+    Fine-tune texture strength for natural results
+  </Step>
+  <Step title="Face Enhancement">
+    Use portrait mode for images with people
+  </Step>
+  <Step title="Test Settings">
+    Experiment with different parameters
+  </Step>
+</Steps>
+
+## Example Workflows
+
+### Portrait Enhancement
+```python
+# Step 1: Upscale with face enhancement
+response = requests.post(
+    "https://api.megsyai.com/v1/images/enhance",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("portrait.jpg", "rb")},
+    data={
+        "tool": "aurasr",
+        "scale": 4,
+        "mode": "portrait",
+        "enhance_face": True,
+        "skin_smoothing": 0.2,
+        "eye_enhancement": True
+    }
+)
+```
+
+### Product Photography
+```python
+# Enhance product details
+response = requests.post(
+    "https://api.megsyai.com/v1/images/enhance",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("product.jpg", "rb")},
+    data={
+        "tool": "aurasr",
+        "scale": 4,
+        "mode": "product",
+        "edge_sharpness": "high",
+        "color_enhancement": True
+    }
+)
+```
+
+## Performance
+
+| Scale | Resolution | Processing Time |
+|-------|------------|-----------------|
+| 2x | Up to 2048x2048 | 5-8 seconds |
+| 4x | Up to 4096x4096 | 15-25 seconds |
+| 8x | Up to 8192x8192 | 40-60 seconds |
+
+## Pricing
+
+Premium tool with higher quality results:
+
+| Plan | Enhancements/Month | Max Scale |
+|------|-------------------|-----------|
+| Free | 5 | 2x |
+| Basic | 50 | 4x |
+| Pro | 200 | 8x |
+| Enterprise | Unlimited | 8x |
+
+## Technical Details
+
+- **Model Architecture**: Advanced GAN-based super-resolution
+- **Training Data**: Millions of high-quality images
+- **Supported Formats**: JPG, PNG, WebP
+- **Max Input Size**: 4096x4096
+- **Output Quality**: Lossless PNG or high-quality JPG
+
+## Support
+
+- Email: support@megsyai.com
+- [Help Center](https://megsyai.com/help)
+- [Enhancement Guide](https://megsyai.com/help/enhancement)
