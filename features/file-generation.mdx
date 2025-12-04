@@ -1,0 +1,467 @@
+---
+title: "إنشاء الملفات بالذكاء الاصطناعي"
+description: "أنشئ وعدّل الملفات بأنواعها المختلفة باستخدام الذكاء الاصطناعي"
+---
+
+## نظرة عامة
+
+يوفر Megsy AI أدوات متقدمة لإنشاء ومعالجة الملفات بأنواعها المختلفة. من المستندات النصية إلى جداول البيانات والعروض التقديمية.
+
+## أنواع الملفات المدعومة
+
+<Columns cols={2}>
+  <Card title="المستندات" icon="file-lines">
+    Word, PDF, TXT, Markdown
+  </Card>
+  <Card title="جداول البيانات" icon="table">
+    Excel, CSV, Google Sheets
+  </Card>
+  <Card title="العروض التقديمية" icon="presentation">
+    PowerPoint, Google Slides
+  </Card>
+  <Card title="الأكواد البرمجية" icon="code">
+    Python, JavaScript, Java, وغيرها
+  </Card>
+</Columns>
+
+## إنشاء المستندات
+
+### مستند Word
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "document",
+        "format": "docx",
+        "content": {
+            "title": "تقرير المبيعات الشهري",
+            "sections": [
+                {
+                    "heading": "ملخص تنفيذي",
+                    "content": "نظرة عامة على أداء المبيعات..."
+                },
+                {
+                    "heading": "التحليل التفصيلي",
+                    "content": "تحليل مفصل للبيانات..."
+                }
+            ]
+        },
+        "style": {
+            "font": "Arial",
+            "font_size": 12,
+            "line_spacing": 1.5
+        }
+    }
+)
+
+file_url = response.json()["file_url"]
+```
+
+### ملف PDF
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "pdf",
+        "content": "محتوى المستند...",
+        "options": {
+            "page_size": "A4",
+            "orientation": "portrait",
+            "margins": {"top": 20, "bottom": 20, "left": 20, "right": 20}
+        }
+    }
+)
+```
+
+## إنشاء جداول البيانات
+
+### ملف Excel
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "spreadsheet",
+        "format": "xlsx",
+        "sheets": [
+            {
+                "name": "المبيعات",
+                "data": [
+                    ["المنتج", "الكمية", "السعر", "الإجمالي"],
+                    ["منتج 1", 10, 100, 1000],
+                    ["منتج 2", 5, 200, 1000]
+                ],
+                "formulas": {
+                    "D2": "=B2*C2",
+                    "D3": "=B3*C3"
+                }
+            }
+        ],
+        "formatting": {
+            "header_style": {
+                "bold": True,
+                "background_color": "#4472C4",
+                "font_color": "#FFFFFF"
+            }
+        }
+    }
+)
+```
+
+### ملف CSV
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "csv",
+        "data": [
+            ["الاسم", "البريد الإلكتروني", "الهاتف"],
+            ["أحمد محمد", "ahmed@example.com", "0123456789"],
+            ["سارة علي", "sara@example.com", "0987654321"]
+        ],
+        "delimiter": ",",
+        "encoding": "utf-8"
+    }
+)
+```
+
+## إنشاء العروض التقديمية
+
+### PowerPoint
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "presentation",
+        "format": "pptx",
+        "slides": [
+            {
+                "layout": "title",
+                "content": {
+                    "title": "عرض تقديمي عن Megsy AI",
+                    "subtitle": "منصة الذكاء الاصطناعي الشاملة"
+                }
+            },
+            {
+                "layout": "content",
+                "content": {
+                    "title": "الميزات الرئيسية",
+                    "bullets": [
+                        "توليد الصور",
+                        "توليد الفيديوهات",
+                        "الشات الذكي",
+                        "إنشاء التطبيقات"
+                    ]
+                }
+            }
+        ],
+        "theme": "modern"
+    }
+)
+```
+
+## إنشاء الأكواد البرمجية
+
+### ملف Python
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "code",
+        "language": "python",
+        "description": "دالة لحساب أعداد فيبوناتشي",
+        "requirements": [
+            "يجب أن تكون الدالة فعالة",
+            "إضافة docstring",
+            "إضافة type hints"
+        ]
+    }
+)
+
+code = response.json()["code"]
+```
+
+### مشروع كامل
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate-project",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "web_app",
+        "framework": "flask",
+        "description": "تطبيق ويب بسيط لإدارة المهام",
+        "features": [
+            "إضافة مهام",
+            "تعديل مهام",
+            "حذف مهام",
+            "قاعدة بيانات SQLite"
+        ]
+    }
+)
+
+project_files = response.json()["files"]
+```
+
+## معالجة الملفات
+
+### استخراج النص من PDF
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/extract",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.pdf", "rb")},
+    data={"extract_type": "text"}
+)
+
+extracted_text = response.json()["text"]
+```
+
+### تحويل صيغة الملف
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/convert",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.docx", "rb")},
+    data={
+        "from_format": "docx",
+        "to_format": "pdf"
+    }
+)
+
+converted_file_url = response.json()["file_url"]
+```
+
+### تلخيص المستندات
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/summarize",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("long_document.pdf", "rb")},
+    data={
+        "summary_length": "medium",  # short, medium, long
+        "language": "ar"
+    }
+)
+
+summary = response.json()["summary"]
+```
+
+## تحليل البيانات
+
+### تحليل ملف Excel
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/analyze",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("sales_data.xlsx", "rb")},
+    data={
+        "analysis_type": "statistical",
+        "generate_charts": True
+    }
+)
+
+analysis = response.json()["analysis"]
+charts = response.json()["charts"]
+```
+
+### إنشاء تقرير من البيانات
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate-report",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"data": open("data.csv", "rb")},
+    data={
+        "report_type": "sales",
+        "include_charts": True,
+        "format": "pdf"
+    }
+)
+
+report_url = response.json()["report_url"]
+```
+
+## القوالب الجاهزة
+
+### قوالب المستندات
+```python
+templates = [
+    "business_proposal",
+    "invoice",
+    "contract",
+    "resume",
+    "cover_letter",
+    "report"
+]
+
+response = requests.post(
+    "https://api.megsyai.com/v1/files/from-template",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "template": "invoice",
+        "data": {
+            "invoice_number": "INV-001",
+            "date": "2024-01-01",
+            "client_name": "شركة ABC",
+            "items": [
+                {"description": "خدمة 1", "quantity": 1, "price": 1000}
+            ]
+        }
+    }
+)
+```
+
+### قوالب العروض التقديمية
+```python
+presentation_templates = [
+    "business_pitch",
+    "product_launch",
+    "quarterly_review",
+    "training_session"
+]
+```
+
+## الترجمة
+
+### ترجمة مستند
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/translate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.pdf", "rb")},
+    data={
+        "from_language": "en",
+        "to_language": "ar",
+        "preserve_formatting": True
+    }
+)
+
+translated_file_url = response.json()["file_url"]
+```
+
+## التحقق والمراجعة
+
+### التدقيق اللغوي
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/proofread",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.docx", "rb")},
+    data={
+        "language": "ar",
+        "check_grammar": True,
+        "check_spelling": True,
+        "suggest_improvements": True
+    }
+)
+
+corrections = response.json()["corrections"]
+```
+
+### تحسين الأسلوب
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/improve",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.docx", "rb")},
+    data={
+        "style": "professional",  # casual, professional, academic
+        "tone": "formal"
+    }
+)
+
+improved_file_url = response.json()["file_url"]
+```
+
+## الدمج والتقسيم
+
+### دمج ملفات PDF
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/merge",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={
+        "file1": open("doc1.pdf", "rb"),
+        "file2": open("doc2.pdf", "rb"),
+        "file3": open("doc3.pdf", "rb")
+    }
+)
+
+merged_file_url = response.json()["file_url"]
+```
+
+### تقسيم ملف PDF
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/split",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("large_document.pdf", "rb")},
+    data={
+        "split_by": "pages",  # pages, size, sections
+        "pages_per_file": 10
+    }
+)
+
+split_files = response.json()["files"]
+```
+
+## الأمان والخصوصية
+
+### تشفير الملفات
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/encrypt",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("sensitive.pdf", "rb")},
+    data={
+        "password": "secure_password",
+        "encryption_level": "high"
+    }
+)
+```
+
+### إضافة علامة مائية
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/watermark",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.pdf", "rb")},
+    data={
+        "text": "سري - Megsy AI",
+        "position": "center",
+        "opacity": 0.3
+    }
+)
+```
+
+## الأسعار
+
+التكلفة تعتمد على:
+- نوع الملف
+- حجم الملف
+- نوع المعالجة
+- عدد الملفات
+
+راجع [صفحة الأسعار](/pricing) للتفاصيل.
+
+## حدود الاستخدام
+
+| الباقة | حجم الملف | عدد الملفات/شهر |
+|--------|-----------|-----------------|
+| مجاني | 10 MB | 50 |
+| أساسي | 50 MB | 500 |
+| احترافي | 200 MB | 2000 |
+| مؤسسات | 1 GB | غير محدود |
+
+## الدعم
+
+تواصل معنا:
+- support@megsyai.com
+- الدردشة المباشرة
+- [مركز المساعدة](https://megsyai.com/help)
