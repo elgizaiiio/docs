@@ -17,7 +17,6 @@
             "group": "Getting Started",
             "pages": [
               "index",
-              "quickstart",
               "pricing"
             ]
           },
@@ -30,31 +29,6 @@
               "features/video-generation",
               "features/app-builder",
               "features/file-generation"
-            ]
-          },
-          {
-            "group": "Development",
-            "pages": [
-              "development",
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing Content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI Tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
             ]
           }
         ]
