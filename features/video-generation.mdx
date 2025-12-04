@@ -1,33 +1,33 @@
 ---
-title: "توليد الفيديوهات بالذكاء الاصطناعي"
-description: "أنشئ فيديوهات مذهلة من النصوص باستخدام أحدث تقنيات الذكاء الاصطناعي"
+title: "AI Video Generation"
+description: "Create stunning videos from text using the latest AI technologies"
 ---
 
-## نظرة عامة
+## Overview
 
-يوفر Megsy AI تقنيات متقدمة لتوليد الفيديوهات من النصوص باستخدام أحدث نماذج الذكاء الاصطناعي. يمكنك إنشاء فيديوهات قصيرة، تحريك الصور، وإنتاج محتوى فيديو احترافي بسهولة.
+Megsy AI provides advanced technologies for generating videos from text using the latest AI models. You can create short videos, animate images, and produce professional video content with ease.
 
-## النماذج المدعومة
+## Supported Models
 
 <Columns cols={2}>
   <Card title="Runway Gen-3" icon="film">
-    نموذج متقدم لتوليد فيديوهات عالية الجودة
+    Advanced model for high-quality video generation
   </Card>
   <Card title="Sora" icon="video">
-    نموذج OpenAI لتوليد فيديوهات واقعية
+    OpenAI's model for realistic video generation
   </Card>
   <Card title="Pika Labs" icon="clapperboard">
-    نموذج متخصص في تحريك الصور
+    Specialized model for image animation
   </Card>
   <Card title="Megsy Video" icon="sparkles">
-    نموذجنا الخاص المحسّن للغة العربية
+    Our proprietary model optimized for Arabic language
   </Card>
 </Columns>
 
-## الميزات
+## Features
 
-### توليد من النص
-أنشئ فيديو من وصف نصي:
+### Text-to-Video
+Create videos from text descriptions:
 
 ```python
 import requests
@@ -37,7 +37,7 @@ response = requests.post(
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
         "model": "runway-gen3",
-        "prompt": "موجات البحر تتكسر على الشاطئ عند الغروب، حركة بطيئة",
+        "prompt": "Ocean waves crashing on the beach at sunset, slow motion",
         "duration": 5,
         "resolution": "1080p",
         "fps": 24
@@ -48,8 +48,8 @@ video_url = response.json()["data"]["url"]
 print(f"Video URL: {video_url}")
 ```
 
-### تحريك الصور
-حوّل صورة ثابتة إلى فيديو متحرك:
+### Image Animation
+Convert a static image into an animated video:
 
 ```python
 response = requests.post(
@@ -57,14 +57,14 @@ response = requests.post(
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     files={"image": open("image.png", "rb")},
     data={
-        "motion_prompt": "الكاميرا تتحرك ببطء من اليسار إلى اليمين",
+        "motion_prompt": "Camera slowly moves from left to right",
         "duration": 3
     }
 )
 ```
 
-### تحرير الفيديو
-عدّل فيديو موجود بإضافة تأثيرات:
+### Video Editing
+Edit existing videos with effects:
 
 ```python
 response = requests.post(
@@ -72,74 +72,74 @@ response = requests.post(
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     files={"video": open("video.mp4", "rb")},
     data={
-        "edit_prompt": "أضف تأثير الحركة البطيئة",
+        "edit_prompt": "Add slow motion effect",
         "start_time": 2,
         "end_time": 5
     }
 )
 ```
 
-## المواصفات التقنية
+## Technical Specifications
 
-### الدقة المتاحة
+### Available Resolutions
 
-| الدقة | الأبعاد | الاستخدام |
-|-------|---------|-----------|
-| SD | 480p | معاينة سريعة |
-| HD | 720p | جودة جيدة |
-| Full HD | 1080p | جودة عالية |
-| 4K | 2160p | جودة احترافية |
+| Resolution | Dimensions | Use Case |
+|------------|------------|----------|
+| SD | 480p | Quick preview |
+| HD | 720p | Good quality |
+| Full HD | 1080p | High quality |
+| 4K | 2160p | Professional quality |
 
-### المدة الزمنية
+### Duration
 
-- **قصير**: 1-3 ثواني
-- **متوسط**: 3-5 ثواني
-- **طويل**: 5-10 ثواني
-- **ممتد**: حتى 30 ثانية (للباقات المتقدمة)
+- **Short**: 1-3 seconds
+- **Medium**: 3-5 seconds
+- **Long**: 5-10 seconds
+- **Extended**: Up to 30 seconds (for advanced plans)
 
-### معدل الإطارات (FPS)
+### Frame Rate (FPS)
 
 ```python
 fps_options = [
-    24,  # سينمائي
-    30,  # قياسي
-    60   # سلس
+    24,  # Cinematic
+    30,  # Standard
+    60   # Smooth
 ]
 ```
 
-## أنواع الحركة
+## Motion Types
 
-### حركة الكاميرا
+### Camera Movement
 ```python
 camera_movements = [
-    "zoom-in",        # تقريب
-    "zoom-out",       # إبعاد
-    "pan-left",       # تحريك يسار
-    "pan-right",      # تحريك يمين
-    "tilt-up",        # إمالة لأعلى
-    "tilt-down",      # إمالة لأسفل
-    "orbit",          # دوران
-    "static"          # ثابت
+    "zoom-in",        # Zoom in
+    "zoom-out",       # Zoom out
+    "pan-left",       # Pan left
+    "pan-right",      # Pan right
+    "tilt-up",        # Tilt up
+    "tilt-down",      # Tilt down
+    "orbit",          # Orbit
+    "static"          # Static
 ]
 ```
 
-### سرعة الحركة
+### Motion Speed
 ```python
 motion_speeds = [
-    "slow",           # بطيء
-    "normal",         # عادي
-    "fast",           # سريع
-    "time-lapse"      # تصوير متسارع
+    "slow",           # Slow
+    "normal",         # Normal
+    "fast",           # Fast
+    "time-lapse"      # Time-lapse
 ]
 ```
 
-## أمثلة عملية
+## Practical Examples
 
-### فيديو منتج
+### Product Video
 ```python
 prompt = """
-فيديو احترافي لساعة ذهبية فاخرة تدور ببطء على خلفية سوداء،
-إضاءة استوديو، حركة سلسة 360 درجة، جودة 4K
+Professional video of a luxury gold watch rotating slowly on black background,
+studio lighting, smooth 360-degree motion, 4K quality
 """
 
 response = requests.post(
@@ -154,49 +154,49 @@ response = requests.post(
 )
 ```
 
-### فيديو طبيعة
+### Nature Video
 ```python
 prompt = """
-منظر طبيعي خلاب لشلال في غابة استوائية،
-الماء يتدفق بقوة، أشعة الشمس تخترق الأشجار،
-حركة كاميرا بطيئة من الأسفل للأعلى
+Stunning landscape of a waterfall in a tropical forest,
+water flowing powerfully, sunlight streaming through trees,
+slow camera movement from bottom to top
 """
 ```
 
-### فيديو تسويقي
+### Marketing Video
 ```python
 prompt = """
-فيديو ترويجي لتطبيق موبايل، شاشة الهاتف تعرض واجهة التطبيق،
-انتقالات سلسة بين الشاشات، خلفية حديثة وملونة
+Promotional video for a mobile app, phone screen displaying app interface,
+smooth transitions between screens, modern colorful background
 """
 ```
 
-## التأثيرات المتاحة
+## Available Effects
 
-### تأثيرات بصرية
+### Visual Effects
 ```python
 effects = {
-    "slow_motion": True,      # حركة بطيئة
-    "color_grade": "cinematic",  # تدرج لوني
-    "blur": "motion",         # ضبابية الحركة
-    "lighting": "dramatic"    # إضاءة درامية
+    "slow_motion": True,      # Slow motion
+    "color_grade": "cinematic",  # Color grading
+    "blur": "motion",         # Motion blur
+    "lighting": "dramatic"    # Dramatic lighting
 }
 ```
 
-### تأثيرات الانتقال
+### Transitions
 ```python
 transitions = [
-    "fade",           # تلاشي
-    "dissolve",       # ذوبان
-    "wipe",           # مسح
-    "zoom",           # تكبير
-    "slide"           # انزلاق
+    "fade",           # Fade
+    "dissolve",       # Dissolve
+    "wipe",           # Wipe
+    "zoom",           # Zoom
+    "slide"           # Slide
 ]
 ```
 
-## معالجة متقدمة
+## Advanced Processing
 
-### إضافة نص
+### Add Text
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/videos/add-text",
@@ -213,7 +213,7 @@ response = requests.post(
 )
 ```
 
-### إضافة موسيقى
+### Add Music
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/videos/add-audio",
@@ -230,7 +230,7 @@ response = requests.post(
 )
 ```
 
-### دمج الفيديوهات
+### Merge Videos
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/videos/merge",
@@ -246,62 +246,62 @@ response = requests.post(
 )
 ```
 
-## نصائح للحصول على أفضل النتائج
+## Tips for Best Results
 
 <Steps>
-  <Step title="وصف دقيق">
-    اكتب وصفاً تفصيلياً للمشهد والحركة المطلوبة
+  <Step title="Detailed Description">
+    Write a detailed description of the scene and desired motion
   </Step>
-  <Step title="حدد الحركة">
-    اذكر نوع حركة الكاميرا وسرعتها
+  <Step title="Specify Movement">
+    Mention the type and speed of camera movement
   </Step>
-  <Step title="الإضاءة والألوان">
-    حدد نوع الإضاءة والمزاج العام للفيديو
+  <Step title="Lighting & Colors">
+    Specify the lighting type and overall mood of the video
   </Step>
-  <Step title="المدة المناسبة">
-    ابدأ بفيديوهات قصيرة (3-5 ثواني) للحصول على أفضل جودة
+  <Step title="Appropriate Duration">
+    Start with short videos (3-5 seconds) for best quality
   </Step>
 </Steps>
 
-## حالات الاستخدام
+## Use Cases
 
 <Columns cols={2}>
-  <Card title="التسويق" icon="bullhorn">
-    إنشاء إعلانات ومحتوى ترويجي
+  <Card title="Marketing" icon="bullhorn">
+    Create ads and promotional content
   </Card>
-  <Card title="وسائل التواصل" icon="share-nodes">
-    محتوى لـ Instagram و TikTok و YouTube
+  <Card title="Social Media" icon="share-nodes">
+    Content for Instagram, TikTok, and YouTube
   </Card>
-  <Card title="التعليم" icon="graduation-cap">
-    فيديوهات تعليمية وشروحات
+  <Card title="Education" icon="graduation-cap">
+    Educational videos and tutorials
   </Card>
-  <Card title="الترفيه" icon="masks-theater">
-    محتوى إبداعي وفني
+  <Card title="Entertainment" icon="masks-theater">
+    Creative and artistic content
   </Card>
 </Columns>
 
-## الأسعار
+## Pricing
 
-تختلف تكلفة توليد الفيديوهات حسب:
-- النموذج المستخدم
-- الدقة والجودة
-- المدة الزمنية
-- التأثيرات المضافة
+Video generation cost varies based on:
+- Model used
+- Resolution and quality
+- Duration
+- Added effects
 
-راجع [صفحة الأسعار](/pricing) للتفاصيل الكاملة.
+See the [pricing page](/pricing) for complete details.
 
-## حدود الاستخدام
+## Usage Limits
 
-| الباقة | دقائق الفيديو/شهر | الدقة القصوى |
-|--------|-------------------|---------------|
-| مجاني | 5 دقائق | 720p |
-| أساسي | 30 دقيقة | 1080p |
-| احترافي | 120 دقيقة | 4K |
-| مؤسسات | غير محدود | 4K |
+| Plan | Video Minutes/month | Max Resolution |
+|------|---------------------|----------------|
+| Free | 5 minutes | 720p |
+| Basic | 30 minutes | 1080p |
+| Pro | 120 minutes | 4K |
+| Enterprise | Unlimited | 4K |
 
-## الدعم الفني
+## Technical Support
 
-هل تحتاج مساعدة؟
-- البريد الإلكتروني: support@megsyai.com
-- الدردشة المباشرة
-- [مركز المساعدة](https://megsyai.com/help)
+Need help?
+- Email: support@megsyai.com
+- Live chat
+- [Help Center](https://megsyai.com/help)
