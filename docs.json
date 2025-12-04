@@ -17,46 +17,93 @@
             "group": "Getting Started",
             "pages": [
               "index",
+              "quickstart",
               "pricing"
             ]
           },
           {
             "group": "Image Generation Models",
             "pages": [
-              "images/generation/megsy-images",
-              "images/generation/nano-banana-2",
-              "images/generation/seedream4",
-              "images/generation/nano-banana-pro",
-              "images/generation/flux-2-flex",
-              "images/generation/ideogram-v3",
-              "images/generation/flux-pro-ultra"
+              "models/images/megsy-images",
+              "models/images/nano-banana-2",
+              "models/images/seedream4",
+              "models/images/nano-banana-pro",
+              "models/images/flux-2-flex",
+              "models/images/ideogram-v3",
+              "models/images/flux-pro-ultra"
             ]
           },
           {
             "group": "Image Editing Models",
             "pages": [
-              "images/editing/qwen-edit",
-              "images/editing/nano-banana-edit-pro",
-              "images/editing/seed-edit",
-              "images/editing/nano-banana-edit",
-              "images/editing/flux-edit"
+              "models/editing/qwen-edit",
+              "models/editing/nano-banana-edit-pro",
+              "models/editing/seed-edit",
+              "models/editing/nano-banana-edit",
+              "models/editing/flux-edit"
             ]
           },
           {
             "group": "Image Tools",
             "pages": [
-              "images/tools/clarity-upscaler",
-              "images/tools/aurasr"
+              "tools/clarity-upscaler",
+              "tools/aurasr"
             ]
           },
           {
-            "group": "Other Features",
+            "group": "Features",
             "pages": [
               "features/megsy-models",
               "features/chat",
+              "features/image-generation",
               "features/video-generation",
               "features/app-builder",
               "features/file-generation"
+            ]
+          },
+          {
+            "group": "Development",
+            "pages": [
+              "development",
+              "essentials/settings",
+              "essentials/navigation"
+            ]
+          },
+          {
+            "group": "Writing Content",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/reusable-snippets"
+            ]
+          },
+          {
+            "group": "AI Tools",
+            "pages": [
+              "ai-tools/cursor",
+              "ai-tools/claude-code",
+              "ai-tools/windsurf"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint Examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete",
+              "api-reference/endpoint/webhook"
             ]
           }
         ]
