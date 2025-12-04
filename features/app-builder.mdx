@@ -1,214 +1,189 @@
 ---
-title: "Website & App Builder with AI"
-description: "Build complete websites and applications using artificial intelligence"
+title: "AI Code Generation & App Builder"
+description: "Build complete applications with 0v, Supabase, and GitHub integration"
 ---
 
 ## Overview
 
-Megsy AI provides advanced tools for creating complete websites and applications using artificial intelligence. From idea to ready-to-use application in minutes.
+Megsy AI provides a complete AI-powered development environment for building full-stack applications. Write code with 0v, deploy backends with Supabase, manage repositories with GitHub, and preview everything in real-time.
 
 ## Key Features
 
 <Columns cols={2}>
-  <Card title="Code Generation" icon="code">
-    Generate complete, ready-to-use code
+  <Card title="0v Integration" icon="code">
+    AI-powered code generation and assistance
   </Card>
-  <Card title="UI Design" icon="palette">
-    Design professional user interfaces
+  <Card title="Supabase Backend" icon="database">
+    Automatic backend and database setup
   </Card>
-  <Card title="Databases" icon="database">
-    Create and manage databases
+  <Card title="GitHub Integration" icon="github">
+    Direct repository management and deployment
   </Card>
-  <Card title="API Integration" icon="plug">
-    Connect apps to external services
+  <Card title="Live Preview" icon="eye">
+    Real-time preview of your changes
+  </Card>
+  <Card title="Deployment System" icon="rocket">
+    One-click project deployment
+  </Card>
+  <Card title="Custom Domains" icon="globe">
+    Add your own custom domain
   </Card>
 </Columns>
 
-## Create a Website
+## 0v Code Generation
 
-### From Text Description
+### What is 0v?
+
+0v is an advanced AI coding assistant that helps you write, debug, and optimize code across multiple programming languages and frameworks.
+
+### Generate Code
+
 ```python
 import requests
 
 response = requests.post(
-    "https://api.megsyai.com/v1/apps/generate",
+    "https://api.megsyai.com/v1/code/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "type": "website",
-        "description": """
-        A restaurant website displaying menu, table booking system,
-        photo gallery, and contact form. Modern and attractive design
-        """,
+        "service": "0v",
+        "prompt": "Create a React component for a user profile card with avatar, name, and bio",
+        "language": "javascript",
+        "framework": "react"
+    }
+)
+
+code = response.json()["code"]
+print(code)
+```
+
+### Supported Languages
+
+<Columns cols={3}>
+  <Card title="JavaScript" icon="js">
+    React, Vue, Node.js
+  </Card>
+  <Card title="Python" icon="python">
+    Django, Flask, FastAPI
+  </Card>
+  <Card title="TypeScript" icon="code">
+    Next.js, Angular
+  </Card>
+  <Card title="HTML/CSS" icon="html5">
+    Tailwind, Bootstrap
+  </Card>
+  <Card title="Go" icon="golang">
+    Gin, Echo
+  </Card>
+  <Card title="Rust" icon="rust">
+    Actix, Rocket
+  </Card>
+</Columns>
+
+## Supabase Integration
+
+### Automatic Backend Generation
+
+Megsy AI automatically generates complete backends with Supabase:
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/projects/create",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "name": "My App",
+        "description": "E-commerce platform",
         "features": [
-            "menu_display",
-            "booking_system",
-            "gallery",
-            "contact_form"
+            "user_authentication",
+            "product_catalog",
+            "shopping_cart",
+            "payment_processing"
         ],
-        "style": "modern",
-        "colors": ["#FF6B6B", "#4ECDC4", "#45B7D1"]
+        "backend": {
+            "provider": "supabase",
+            "auto_setup": True
+        }
     }
 )
 
 project_id = response.json()["project_id"]
-download_url = response.json()["download_url"]
+supabase_url = response.json()["backend"]["supabase_url"]
+supabase_key = response.json()["backend"]["supabase_anon_key"]
 ```
 
-### Customize Design
+### Database Schema Generation
+
 ```python
+# Generate database schema
 response = requests.post(
-    f"https://api.megsyai.com/v1/apps/{project_id}/customize",
+    f"https://api.megsyai.com/v1/projects/{project_id}/database/schema",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "theme": {
-            "primary_color": "#FF6B6B",
-            "secondary_color": "#4ECDC4",
-            "font_family": "Inter",
-            "layout": "modern"
-        },
-        "components": {
-            "navbar": "sticky",
-            "footer": "minimal",
-            "buttons": "rounded"
-        }
-    }
-)
-```
-
-## Create Mobile App
-
-### iOS/Android App
-```python
-response = requests.post(
-    "https://api.megsyai.com/v1/apps/generate",
-    headers={"Authorization": "Bearer YOUR_API_KEY"},
-    json={
-        "type": "mobile_app",
-        "platform": ["ios", "android"],
-        "description": """
-        Food delivery app including:
-        - Browse restaurants and menus
-        - Order system and shopping cart
-        - Order tracking
-        - Secure payment system
-        """,
-        "framework": "react-native"
-    }
-)
-```
-
-### App Features
-```python
-features = {
-    "authentication": {
-        "methods": ["email", "phone", "social"],
-        "providers": ["google", "facebook", "apple"]
-    },
-    "notifications": {
-        "push": True,
-        "in_app": True
-    },
-    "offline_mode": True,
-    "analytics": True,
-    "crash_reporting": True
-}
-```
-
-## Supported App Types
-
-### Websites
-- Corporate websites
-- E-commerce stores
-- Blogs
-- Portfolios
-- Landing pages
-
-### Mobile Apps
-- E-commerce apps
-- Social media apps
-- Productivity apps
-- Gaming apps
-- Service apps
-
-### Web Applications
-- Dashboards
-- Content Management Systems (CMS)
-- SaaS tools
-- E-learning platforms
-
-## Supported Technologies
-
-### Frontend
-```javascript
-frameworks = [
-    "React",
-    "Vue.js",
-    "Angular",
-    "Next.js",
-    "Svelte"
-]
-```
-
-### Backend
-```javascript
-backends = [
-    "Node.js",
-    "Python (Django/Flask)",
-    "PHP (Laravel)",
-    "Ruby on Rails",
-    "Go"
-]
-```
-
-### Databases
-```javascript
-databases = [
-    "PostgreSQL",
-    "MySQL",
-    "MongoDB",
-    "Firebase",
-    "Supabase"
-]
-```
-
-## Practical Example: E-commerce Store
-
-### Step 1: Create Project
-```python
-response = requests.post(
-    "https://api.megsyai.com/v1/apps/generate",
-    headers={"Authorization": "Bearer YOUR_API_KEY"},
-    json={
-        "type": "ecommerce",
-        "name": "My Store",
-        "description": "E-commerce store for selling clothing",
-        "features": [
-            "product_catalog",
-            "shopping_cart",
-            "checkout",
-            "payment_gateway",
-            "order_tracking",
-            "admin_panel"
+        "tables": [
+            {
+                "name": "users",
+                "columns": [
+                    {"name": "id", "type": "uuid", "primary": True},
+                    {"name": "email", "type": "text", "unique": True},
+                    {"name": "name", "type": "text"},
+                    {"name": "created_at", "type": "timestamp"}
+                ]
+            },
+            {
+                "name": "products",
+                "columns": [
+                    {"name": "id", "type": "uuid", "primary": True},
+                    {"name": "name", "type": "text"},
+                    {"name": "price", "type": "decimal"},
+                    {"name": "description", "type": "text"},
+                    {"name": "image_url", "type": "text"}
+                ]
+            }
         ]
     }
 )
 ```
 
-### Step 2: Add Products
+### Authentication Setup
+
 ```python
-products_api = requests.post(
-    f"https://api.megsyai.com/v1/apps/{project_id}/generate-api",
+# Setup authentication with Supabase
+response = requests.post(
+    f"https://api.megsyai.com/v1/projects/{project_id}/auth/setup",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "providers": ["email", "google", "github"],
+        "email_verification": True,
+        "password_requirements": {
+            "min_length": 8,
+            "require_uppercase": True,
+            "require_numbers": True
+        }
+    }
+)
+```
+
+### API Generation
+
+```python
+# Generate REST API endpoints
+response = requests.post(
+    f"https://api.megsyai.com/v1/projects/{project_id}/api/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
         "endpoints": [
             {
                 "path": "/api/products",
-                "methods": ["GET", "POST", "PUT", "DELETE"],
+                "methods": ["GET", "POST"],
                 "authentication": True
             },
             {
-                "path": "/api/orders",
-                "methods": ["GET", "POST"],
+                "path": "/api/products/:id",
+                "methods": ["GET", "PUT", "DELETE"],
+                "authentication": True
+            },
+            {
+                "path": "/api/cart",
+                "methods": ["GET", "POST", "DELETE"],
                 "authentication": True
             }
         ]
@@ -216,210 +191,368 @@ products_api = requests.post(
 )
 ```
 
-### Step 3: Add Payment
+## GitHub Integration
+
+### Connect Repository
+
 ```python
-payment_integration = requests.post(
-    f"https://api.megsyai.com/v1/apps/{project_id}/integrate",
+# Connect GitHub repository
+response = requests.post(
+    f"https://api.megsyai.com/v1/projects/{project_id}/github/connect",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "service": "stripe",
-        "features": ["checkout", "subscriptions", "refunds"]
+        "repository": "username/my-app",
+        "branch": "main",
+        "auto_commit": True,
+        "commit_message_template": "Update: {description}"
     }
 )
 ```
 
-## Dashboard
+### Auto-Upload Files
 
-### Create Dashboard
+Files are automatically uploaded to GitHub as you make changes:
+
 ```python
+# Enable auto-upload
 response = requests.post(
-    "https://api.megsyai.com/v1/apps/generate",
+    f"https://api.megsyai.com/v1/projects/{project_id}/github/settings",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "type": "dashboard",
-        "description": "Dashboard for managing sales and customers",
-        "widgets": [
-            "sales_chart",
-            "revenue_stats",
-            "customer_list",
-            "recent_orders",
-            "analytics"
+        "auto_upload": True,
+        "upload_on_save": True,
+        "create_pull_request": False  # or True for PR workflow
+    }
+)
+```
+
+### Update Files
+
+```python
+# Manually trigger file update
+response = requests.post(
+    f"https://api.megsyai.com/v1/projects/{project_id}/github/push",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "files": [
+            "src/components/Header.jsx",
+            "src/pages/Home.jsx",
+            "package.json"
         ],
-        "data_source": "postgresql"
+        "commit_message": "Update components and dependencies"
     }
 )
 ```
 
-### Customize Widgets
-```python
-widgets_config = {
-    "sales_chart": {
-        "type": "line",
-        "period": "monthly",
-        "metrics": ["revenue", "orders", "customers"]
-    },
-    "revenue_stats": {
-        "display": "cards",
-        "comparisons": True
-    }
-}
-```
+### Branch Management
 
-## API Generation
-
-### Create REST API
 ```python
+# Create new branch
 response = requests.post(
-    "https://api.megsyai.com/v1/apps/generate-api",
+    f"https://api.megsyai.com/v1/projects/{project_id}/github/branch",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "type": "rest",
-        "resources": [
-            {
-                "name": "users",
-                "fields": {
-                    "name": "string",
-                    "email": "string",
-                    "role": "enum"
-                },
-                "endpoints": ["list", "create", "read", "update", "delete"]
-            },
-            {
-                "name": "posts",
-                "fields": {
-                    "title": "string",
-                    "content": "text",
-                    "author_id": "reference"
-                }
-            }
-        ],
-        "authentication": "jwt",
-        "documentation": True
+        "branch_name": "feature/new-ui",
+        "from_branch": "main"
+    }
+)
+
+# Create pull request
+response = requests.post(
+    f"https://api.megsyai.com/v1/projects/{project_id}/github/pull-request",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "title": "Add new UI components",
+        "description": "Updated header and footer components",
+        "from_branch": "feature/new-ui",
+        "to_branch": "main"
     }
 )
 ```
 
-### Create GraphQL API
+## Live Preview System
+
+### Built-in Preview
+
+View your application in real-time as you code:
+
 ```python
+# Get preview URL
+response = requests.get(
+    f"https://api.megsyai.com/v1/projects/{project_id}/preview",
+    headers={"Authorization": "Bearer YOUR_API_KEY"}
+)
+
+preview_url = response.json()["preview_url"]
+# Example: https://preview-abc123.megsyai.com
+```
+
+### Hot Reload
+
+Changes are reflected instantly in the preview:
+
+```python
+# Enable hot reload
 response = requests.post(
-    "https://api.megsyai.com/v1/apps/generate-api",
+    f"https://api.megsyai.com/v1/projects/{project_id}/preview/settings",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "type": "graphql",
-        "schema": """
-        type User {
-            id: ID!
-            name: String!
-            email: String!
-            posts: [Post]
+        "hot_reload": True,
+        "auto_refresh": True,
+        "refresh_delay": 500  # milliseconds
+    }
+)
+```
+
+## Deployment System
+
+### One-Click Deployment
+
+Deploy your application with a single click:
+
+```python
+response = requests.post(
+    f"https://api.megsyai.com/v1/projects/{project_id}/deploy",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "environment": "production",
+        "platform": "vercel",  # or "netlify", "cloudflare"
+        "build_command": "npm run build",
+        "output_directory": "dist"
+    }
+)
+
+deployment_url = response.json()["url"]
+deployment_status = response.json()["status"]
+```
+
+### Deployment Platforms
+
+<Columns cols={3}>
+  <Card title="Vercel" icon="triangle">
+    Optimized for Next.js and React
+  </Card>
+  <Card title="Netlify" icon="netlify">
+    Great for static sites and JAMstack
+  </Card>
+  <Card title="Cloudflare" icon="cloudflare">
+    Global CDN and edge computing
+  </Card>
+</Columns>
+
+### Environment Variables
+
+```python
+# Set environment variables
+response = requests.post(
+    f"https://api.megsyai.com/v1/projects/{project_id}/env",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "variables": {
+            "SUPABASE_URL": supabase_url,
+            "SUPABASE_ANON_KEY": supabase_key,
+            "API_URL": "https://api.myapp.com",
+            "NODE_ENV": "production"
         }
-        
-        type Post {
-            id: ID!
-            title: String!
-            content: String!
-            author: User!
-        }
-        """
     }
 )
 ```
 
-## Deployment & Hosting
+## Custom Domain
 
-### Auto Deploy
+### Add Custom Domain
+
 ```python
+# Add custom domain
 response = requests.post(
-    f"https://api.megsyai.com/v1/apps/{project_id}/deploy",
+    f"https://api.megsyai.com/v1/projects/{project_id}/domain",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "platform": "vercel",  # or "netlify", "aws", "heroku"
         "domain": "myapp.com",
-        "environment": {
-            "NODE_ENV": "production",
-            "DATABASE_URL": "postgresql://..."
-        }
+        "subdomain": "www",  # optional
+        "ssl": True
     }
 )
+
+dns_records = response.json()["dns_records"]
 ```
 
-### Performance Monitoring
+### DNS Configuration
+
+The API returns DNS records you need to configure:
+
+```json
+{
+  "dns_records": [
+    {
+      "type": "A",
+      "name": "@",
+      "value": "76.76.21.21"
+    },
+    {
+      "type": "CNAME",
+      "name": "www",
+      "value": "cname.megsyai.com"
+    }
+  ]
+}
+```
+
+### SSL Certificate
+
+SSL certificates are automatically provisioned:
+
 ```python
-monitoring = requests.post(
-    f"https://api.megsyai.com/v1/apps/{project_id}/monitoring",
+# Check SSL status
+response = requests.get(
+    f"https://api.megsyai.com/v1/projects/{project_id}/domain/ssl",
+    headers={"Authorization": "Bearer YOUR_API_KEY"}
+)
+
+ssl_status = response.json()["status"]  # "pending", "active", "failed"
+```
+
+## Complete Workflow Example
+
+### Build a Full-Stack App
+
+```python
+# 1. Create project
+project = requests.post(
+    "https://api.megsyai.com/v1/projects/create",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "metrics": ["uptime", "response_time", "errors"],
-        "alerts": {
-            "email": "admin@example.com",
-            "threshold": {
-                "response_time": 1000,
-                "error_rate": 0.01
+        "name": "Task Manager",
+        "framework": "react",
+        "backend": {"provider": "supabase"}
+    }
+).json()
+
+project_id = project["project_id"]
+
+# 2. Generate code with 0v
+code = requests.post(
+    "https://api.megsyai.com/v1/code/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "service": "0v",
+        "prompt": "Create a task management app with add, edit, delete tasks",
+        "framework": "react"
+    }
+).json()
+
+# 3. Setup database
+database = requests.post(
+    f"https://api.megsyai.com/v1/projects/{project_id}/database/schema",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "tables": [
+            {
+                "name": "tasks",
+                "columns": [
+                    {"name": "id", "type": "uuid", "primary": True},
+                    {"name": "title", "type": "text"},
+                    {"name": "completed", "type": "boolean"},
+                    {"name": "user_id", "type": "uuid"}
+                ]
             }
-        }
+        ]
     }
-)
-```
+).json()
 
-## Security & Protection
-
-### Add Authentication
-```python
-auth_config = {
-    "type": "jwt",
-    "providers": ["email", "google", "github"],
-    "features": {
-        "two_factor": True,
-        "password_reset": True,
-        "email_verification": True
+# 4. Connect GitHub
+github = requests.post(
+    f"https://api.megsyai.com/v1/projects/{project_id}/github/connect",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "repository": "username/task-manager",
+        "auto_upload": True
     }
-}
+).json()
+
+# 5. Get preview
+preview = requests.get(
+    f"https://api.megsyai.com/v1/projects/{project_id}/preview",
+    headers={"Authorization": "Bearer YOUR_API_KEY"}
+).json()
+
+print(f"Preview: {preview['preview_url']}")
+
+# 6. Deploy
+deployment = requests.post(
+    f"https://api.megsyai.com/v1/projects/{project_id}/deploy",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={"platform": "vercel"}
+).json()
+
+print(f"Deployed: {deployment['url']}")
+
+# 7. Add custom domain
+domain = requests.post(
+    f"https://api.megsyai.com/v1/projects/{project_id}/domain",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={"domain": "taskmanager.com", "ssl": True}
+).json()
 ```
 
-### API Protection
-```python
-security_config = {
-    "rate_limiting": {
-        "requests_per_minute": 60
-    },
-    "cors": {
-        "allowed_origins": ["https://myapp.com"]
-    },
-    "encryption": True,
-    "ssl": True
-}
-```
+## Project Templates
 
-## Service Integration
+Start with pre-built templates:
 
-### Email Services
-```python
-email_integration = {
-    "provider": "sendgrid",
-    "templates": ["welcome", "reset_password", "order_confirmation"]
-}
-```
+<Columns cols={2}>
+  <Card title="E-commerce" icon="shopping-cart">
+    Full online store with cart and checkout
+  </Card>
+  <Card title="Blog" icon="newspaper">
+    Content management and publishing
+  </Card>
+  <Card title="Dashboard" icon="chart-line">
+    Admin panel with analytics
+  </Card>
+  <Card title="Social Media" icon="users">
+    User profiles and social features
+  </Card>
+  <Card title="SaaS" icon="rocket">
+    Subscription-based application
+  </Card>
+  <Card title="Portfolio" icon="briefcase">
+    Personal or business portfolio
+  </Card>
+</Columns>
 
-### Storage Services
-```python
-storage_integration = {
-    "provider": "aws_s3",
-    "buckets": ["images", "documents", "backups"]
-}
-```
+## Credit Usage
 
-## Pricing
-
-Cost depends on:
-- App type
-- Complexity and features
-- Technologies used
-- Hosting services
+Development features consume credits:
+- Code generation: 1-3 credits per request
+- Database setup: 2 credits
+- Deployment: 1 credit per deployment
+- Preview: Free
+- Custom domain: 1 credit per domain
 
 See the [pricing page](/pricing) for details.
 
+## Best Practices
+
+<Steps>
+  <Step title="Start with Templates">
+    Use pre-built templates to save time
+  </Step>
+  <Step title="Use 0v Effectively">
+    Provide clear, detailed prompts for better code
+  </Step>
+  <Step title="Test in Preview">
+    Always test changes in preview before deploying
+  </Step>
+  <Step title="Version Control">
+    Use GitHub integration for proper version management
+  </Step>
+</Steps>
+
 ## Support
 
-Contact us:
-- [Support Center](https://www.megsyai.com/contact)
+Need help building your app?
+
+- Email: support@megsyai.com
 - Live chat on website
+- [Help Center](https://megsyai.com/help)
+- [Developer Discord](https://discord.gg/megsyai)

@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Megsy",
+  "name": "Megsy AI",
   "colors": {
     "primary": "#FF6B6B",
     "light": "#4ECDC4",
@@ -126,8 +126,8 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/megsy_ai",
-      "linkedin": "https://linkedin.com/company/megsyai"
+      "x": "https://x.com/Viralcoi",
+      "instagram": "https://www.instagram.com/megsy.ai"
     }
   }
 }
