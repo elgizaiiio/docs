@@ -1,0 +1,133 @@
+---
+title: "Megsy Proprietary Models"
+description: "Discover Megsy's proprietary AI models"
+---
+
+## Megsy Models
+
+At Megsy, we've developed a suite of proprietary AI models specifically designed to meet the needs of both Arabic and global users. Our models are trained on diverse datasets and optimized for high performance.
+
+## Chat Models
+
+### Megsy Chat
+An advanced conversational model that supports:
+- Deep contextual understanding
+- Answering complex questions
+- Arabic and English language support
+- Logical reasoning capabilities
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/chat",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "megsy-chat",
+        "messages": [
+            {"role": "user", "content": "What's the best way to learn programming?"}
+        ]
+    }
+)
+
+print(response.json()["choices"][0]["message"]["content"])
+```
+
+## Image Models
+
+### Megsy Image
+An advanced image generation model featuring:
+- High quality up to 4K resolution
+- Understanding of Arabic and English text
+- Multiple artistic styles
+- Fast generation speed
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "megsy-image",
+        "prompt": "A stunning landscape of the pyramids at sunset",
+        "size": "1024x1024",
+        "quality": "hd"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+### Megsy Image Edit
+Edit existing images with AI:
+- Background removal
+- Color adjustment
+- Adding new elements
+- Quality enhancement
+
+## Video Models
+
+### Megsy Video
+Generate high-quality short videos:
+- Duration up to 10 seconds
+- 1080p resolution
+- Smooth and natural motion
+- Arabic text support
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "megsy-video",
+        "prompt": "Ocean waves crashing on the beach at sunset",
+        "duration": 5,
+        "resolution": "1080p"
+    }
+)
+
+video_url = response.json()["data"]["url"]
+```
+
+## File Models
+
+### Megsy Code
+Generate and analyze code:
+- Support for 50+ programming languages
+- Code explanation
+- Bug detection
+- Performance optimization
+
+### Megsy Document
+Document processing:
+- Text extraction
+- Content summarization
+- Translation
+- Analysis
+
+## Technical Features
+
+<Columns cols={2}>
+  <Card title="High Performance" icon="gauge-high">
+    Our models are optimized for speed and efficiency
+  </Card>
+  <Card title="High Accuracy" icon="bullseye">
+    Accurate and reliable results
+  </Card>
+  <Card title="Arabic Support" icon="language">
+    Advanced understanding of Arabic language
+  </Card>
+  <Card title="Continuous Updates" icon="arrows-rotate">
+    We continuously improve our models
+  </Card>
+</Columns>
+
+## Usage
+
+All Megsy models are available via:
+- Web interface at [megsyai.com](https://megsyai.com)
+- Mobile apps (iOS and Android)
+- API for developers
+
+## Pricing
+
+Megsy models are available at competitive prices across all plans. See the [pricing page](/pricing) for more details.

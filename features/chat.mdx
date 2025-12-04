@@ -1,0 +1,366 @@
+---
+title: "AI Chat & Conversation"
+description: "Talk to the world's most powerful AI models"
+---
+
+## Overview
+
+Megsy AI provides access to the world's best conversational AI models. Chat with GPT-5, Claude Sonnet 4, Gemini Pro, and other advanced models all in one place.
+
+## Supported Models
+
+<Columns cols={2}>
+  <Card title="GPT-5" icon="brain">
+    OpenAI's latest model with advanced capabilities
+  </Card>
+  <Card title="Claude Sonnet 4" icon="message-bot">
+    Anthropic's model for intelligent conversations
+  </Card>
+  <Card title="Gemini Pro" icon="sparkles">
+    Google's multimodal model
+  </Card>
+  <Card title="Meta Llama" icon="meta">
+    Meta's open-source models
+  </Card>
+  <Card title="Megsy Chat" icon="comments">
+    Our proprietary model optimized for Arabic
+  </Card>
+  <Card title="Mistral" icon="wind">
+    Advanced European models
+  </Card>
+</Columns>
+
+## Key Features
+
+### Intelligent Conversation
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5",
+        "messages": [
+            {"role": "system", "content": "You are a helpful and intelligent assistant"},
+            {"role": "user", "content": "What's the best way to learn programming?"}
+        ],
+        "temperature": 0.7,
+        "max_tokens": 1000
+    }
+)
+
+print(response.json()["choices"][0]["message"]["content"])
+```
+
+### Multi-turn Conversation
+```python
+messages = [
+    {"role": "system", "content": "You are a programming expert"},
+    {"role": "user", "content": "How do I learn Python?"},
+    {"role": "assistant", "content": "Start with the basics..."},
+    {"role": "user", "content": "What's next?"}
+]
+
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={"model": "gpt-5", "messages": messages}
+)
+```
+
+### Streaming
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5",
+        "messages": [{"role": "user", "content": "Write a short story"}],
+        "stream": True
+    },
+    stream=True
+)
+
+for line in response.iter_lines():
+    if line:
+        print(line.decode('utf-8'))
+```
+
+## Advanced Capabilities
+
+### Vision Understanding
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5-vision",
+        "messages": [{
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "What's in this image?"},
+                {"type": "image_url", "image_url": {"url": "https://example.com/image.jpg"}}
+            ]
+        }]
+    }
+)
+```
+
+### File Analysis
+```python
+# Upload file
+files_response = requests.post(
+    "https://api.megsyai.com/v1/files",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.pdf", "rb")},
+    data={"purpose": "assistants"}
+)
+
+file_id = files_response.json()["id"]
+
+# Analyze file
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5",
+        "messages": [{
+            "role": "user",
+            "content": f"Summarize the content of file {file_id}"
+        }]
+    }
+)
+```
+
+### Web Search
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5",
+        "messages": [{
+            "role": "user",
+            "content": "What are today's top tech news?"
+        }],
+        "tools": [{"type": "web_search"}]
+    }
+)
+```
+
+## Control Parameters
+
+### Temperature
+Controls response randomness:
+```python
+# Precise and deterministic
+temperature = 0.2
+
+# Balanced
+temperature = 0.7
+
+# Creative
+temperature = 1.0
+```
+
+### Max Tokens
+Maximum response length:
+```python
+max_tokens = 500   # Short response
+max_tokens = 1000  # Medium response
+max_tokens = 4000  # Long response
+```
+
+### Top P
+Controls response diversity:
+```python
+top_p = 0.1  # Focused responses
+top_p = 0.9  # Diverse responses
+```
+
+## Use Cases
+
+<Columns cols={2}>
+  <Card title="Customer Support" icon="headset">
+    Intelligent chatbots for technical support
+  </Card>
+  <Card title="Content Writing" icon="pen-fancy">
+    Create articles and marketing content
+  </Card>
+  <Card title="Programming" icon="code">
+    Coding assistant for writing and explaining code
+  </Card>
+  <Card title="Education" icon="book-open">
+    Virtual tutor and concept explanation
+  </Card>
+  <Card title="Translation" icon="language">
+    Translate text between languages
+  </Card>
+  <Card title="Analysis" icon="chart-line">
+    Data and report analysis
+  </Card>
+</Columns>
+
+## Practical Examples
+
+### Programming Assistant
+```python
+messages = [
+    {
+        "role": "system",
+        "content": "You are an expert Python programming assistant"
+    },
+    {
+        "role": "user",
+        "content": "Write a function to calculate Fibonacci numbers"
+    }
+]
+```
+
+### Content Writer
+```python
+messages = [
+    {
+        "role": "system",
+        "content": "You are a professional content writer specializing in marketing"
+    },
+    {
+        "role": "user",
+        "content": "Write an engaging product description for a smartwatch"
+    }
+]
+```
+
+### Virtual Tutor
+```python
+messages = [
+    {
+        "role": "system",
+        "content": "You are a patient and helpful math tutor"
+    },
+    {
+        "role": "user",
+        "content": "Explain the Pythagorean theorem in simple terms"
+    }
+]
+```
+
+## Function Calling
+
+```python
+functions = [
+    {
+        "name": "get_weather",
+        "description": "Get weather for a specific city",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "description": "City name"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": ["celsius", "fahrenheit"]
+                }
+            },
+            "required": ["city"]
+        }
+    }
+]
+
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5",
+        "messages": [{"role": "user", "content": "What's the weather in Cairo?"}],
+        "functions": functions
+    }
+)
+```
+
+## Assistants
+
+### Create Assistant
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/assistants",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "name": "Programming Assistant",
+        "instructions": "You are an expert programming assistant",
+        "model": "gpt-5",
+        "tools": [{"type": "code_interpreter"}]
+    }
+)
+
+assistant_id = response.json()["id"]
+```
+
+### Create Thread
+```python
+thread_response = requests.post(
+    "https://api.megsyai.com/v1/threads",
+    headers={"Authorization": "Bearer YOUR_API_KEY"}
+)
+
+thread_id = thread_response.json()["id"]
+```
+
+### Send Message
+```python
+message_response = requests.post(
+    f"https://api.megsyai.com/v1/threads/{thread_id}/messages",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "role": "user",
+        "content": "Write Python code to read a CSV file"
+    }
+)
+```
+
+## Tips for Best Results
+
+<Steps>
+  <Step title="Clear Instructions">
+    Write specific and detailed instructions in the system message
+  </Step>
+  <Step title="Sufficient Context">
+    Provide enough information for accurate responses
+  </Step>
+  <Step title="Choose Right Model">
+    Use the most appropriate model for your task
+  </Step>
+  <Step title="Adjust Parameters">
+    Experiment with different temperature and max_tokens values
+  </Step>
+</Steps>
+
+## Pricing
+
+Cost depends on:
+- Model used
+- Number of tokens
+- Additional features (images, files, search)
+
+See the [pricing page](/pricing) for details.
+
+## Usage Limits
+
+| Plan | Messages/month | Available Models |
+|------|----------------|------------------|
+| Free | 100 | GPT-3.5, Llama |
+| Basic | 1000 | All models |
+| Pro | 10000 | All models + priority |
+| Enterprise | Unlimited | All models + dedicated support |
+
+## Support
+
+Contact us:
+- support@megsyai.com
+- Live chat
+- [Help Center](https://megsyai.com/help)

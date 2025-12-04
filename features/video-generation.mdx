@@ -1,0 +1,307 @@
+---
+title: "AI Video Generation"
+description: "Create stunning videos from text using the latest AI technologies"
+---
+
+## Overview
+
+Megsy AI provides advanced technologies for generating videos from text using the latest AI models. You can create short videos, animate images, and produce professional video content with ease.
+
+## Supported Models
+
+<Columns cols={2}>
+  <Card title="Runway Gen-3" icon="film">
+    Advanced model for high-quality video generation
+  </Card>
+  <Card title="Sora" icon="video">
+    OpenAI's model for realistic video generation
+  </Card>
+  <Card title="Pika Labs" icon="clapperboard">
+    Specialized model for image animation
+  </Card>
+  <Card title="Megsy Video" icon="sparkles">
+    Our proprietary model optimized for Arabic language
+  </Card>
+</Columns>
+
+## Features
+
+### Text-to-Video
+Create videos from text descriptions:
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "runway-gen3",
+        "prompt": "Ocean waves crashing on the beach at sunset, slow motion",
+        "duration": 5,
+        "resolution": "1080p",
+        "fps": 24
+    }
+)
+
+video_url = response.json()["data"]["url"]
+print(f"Video URL: {video_url}")
+```
+
+### Image Animation
+Convert a static image into an animated video:
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/animate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")},
+    data={
+        "motion_prompt": "Camera slowly moves from left to right",
+        "duration": 3
+    }
+)
+```
+
+### Video Editing
+Edit existing videos with effects:
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"video": open("video.mp4", "rb")},
+    data={
+        "edit_prompt": "Add slow motion effect",
+        "start_time": 2,
+        "end_time": 5
+    }
+)
+```
+
+## Technical Specifications
+
+### Available Resolutions
+
+| Resolution | Dimensions | Use Case |
+|------------|------------|----------|
+| SD | 480p | Quick preview |
+| HD | 720p | Good quality |
+| Full HD | 1080p | High quality |
+| 4K | 2160p | Professional quality |
+
+### Duration
+
+- **Short**: 1-3 seconds
+- **Medium**: 3-5 seconds
+- **Long**: 5-10 seconds
+- **Extended**: Up to 30 seconds (for advanced plans)
+
+### Frame Rate (FPS)
+
+```python
+fps_options = [
+    24,  # Cinematic
+    30,  # Standard
+    60   # Smooth
+]
+```
+
+## Motion Types
+
+### Camera Movement
+```python
+camera_movements = [
+    "zoom-in",        # Zoom in
+    "zoom-out",       # Zoom out
+    "pan-left",       # Pan left
+    "pan-right",      # Pan right
+    "tilt-up",        # Tilt up
+    "tilt-down",      # Tilt down
+    "orbit",          # Orbit
+    "static"          # Static
+]
+```
+
+### Motion Speed
+```python
+motion_speeds = [
+    "slow",           # Slow
+    "normal",         # Normal
+    "fast",           # Fast
+    "time-lapse"      # Time-lapse
+]
+```
+
+## Practical Examples
+
+### Product Video
+```python
+prompt = """
+Professional video of a luxury gold watch rotating slowly on black background,
+studio lighting, smooth 360-degree motion, 4K quality
+"""
+
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "prompt": prompt,
+        "duration": 5,
+        "resolution": "4k",
+        "fps": 60
+    }
+)
+```
+
+### Nature Video
+```python
+prompt = """
+Stunning landscape of a waterfall in a tropical forest,
+water flowing powerfully, sunlight streaming through trees,
+slow camera movement from bottom to top
+"""
+```
+
+### Marketing Video
+```python
+prompt = """
+Promotional video for a mobile app, phone screen displaying app interface,
+smooth transitions between screens, modern colorful background
+"""
+```
+
+## Available Effects
+
+### Visual Effects
+```python
+effects = {
+    "slow_motion": True,      # Slow motion
+    "color_grade": "cinematic",  # Color grading
+    "blur": "motion",         # Motion blur
+    "lighting": "dramatic"    # Dramatic lighting
+}
+```
+
+### Transitions
+```python
+transitions = [
+    "fade",           # Fade
+    "dissolve",       # Dissolve
+    "wipe",           # Wipe
+    "zoom",           # Zoom
+    "slide"           # Slide
+]
+```
+
+## Advanced Processing
+
+### Add Text
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/add-text",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"video": open("video.mp4", "rb")},
+    data={
+        "text": "Megsy AI",
+        "position": "center",
+        "font": "Arial",
+        "size": 48,
+        "color": "#FFFFFF",
+        "animation": "fade-in"
+    }
+)
+```
+
+### Add Music
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/add-audio",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={
+        "video": open("video.mp4", "rb"),
+        "audio": open("music.mp3", "rb")
+    },
+    data={
+        "volume": 0.7,
+        "fade_in": 1,
+        "fade_out": 1
+    }
+)
+```
+
+### Merge Videos
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/merge",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={
+        "video1": open("video1.mp4", "rb"),
+        "video2": open("video2.mp4", "rb")
+    },
+    data={
+        "transition": "fade",
+        "transition_duration": 1
+    }
+)
+```
+
+## Tips for Best Results
+
+<Steps>
+  <Step title="Detailed Description">
+    Write a detailed description of the scene and desired motion
+  </Step>
+  <Step title="Specify Movement">
+    Mention the type and speed of camera movement
+  </Step>
+  <Step title="Lighting & Colors">
+    Specify the lighting type and overall mood of the video
+  </Step>
+  <Step title="Appropriate Duration">
+    Start with short videos (3-5 seconds) for best quality
+  </Step>
+</Steps>
+
+## Use Cases
+
+<Columns cols={2}>
+  <Card title="Marketing" icon="bullhorn">
+    Create ads and promotional content
+  </Card>
+  <Card title="Social Media" icon="share-nodes">
+    Content for Instagram, TikTok, and YouTube
+  </Card>
+  <Card title="Education" icon="graduation-cap">
+    Educational videos and tutorials
+  </Card>
+  <Card title="Entertainment" icon="masks-theater">
+    Creative and artistic content
+  </Card>
+</Columns>
+
+## Pricing
+
+Video generation cost varies based on:
+- Model used
+- Resolution and quality
+- Duration
+- Added effects
+
+See the [pricing page](/pricing) for complete details.
+
+## Usage Limits
+
+| Plan | Video Minutes/month | Max Resolution |
+|------|---------------------|----------------|
+| Free | 5 minutes | 720p |
+| Basic | 30 minutes | 1080p |
+| Pro | 120 minutes | 4K |
+| Enterprise | Unlimited | 4K |
+
+## Technical Support
+
+Need help?
+- Email: support@megsyai.com
+- Live chat
+- [Help Center](https://megsyai.com/help)

@@ -1,0 +1,467 @@
+---
+title: "AI File Generation"
+description: "Create and edit files of all types using artificial intelligence"
+---
+
+## Overview
+
+Megsy AI provides advanced tools for creating and processing files of various types. From text documents to spreadsheets and presentations.
+
+## Supported File Types
+
+<Columns cols={2}>
+  <Card title="Documents" icon="file-lines">
+    Word, PDF, TXT, Markdown
+  </Card>
+  <Card title="Spreadsheets" icon="table">
+    Excel, CSV, Google Sheets
+  </Card>
+  <Card title="Presentations" icon="presentation">
+    PowerPoint, Google Slides
+  </Card>
+  <Card title="Code Files" icon="code">
+    Python, JavaScript, Java, and more
+  </Card>
+</Columns>
+
+## Create Documents
+
+### Word Document
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "document",
+        "format": "docx",
+        "content": {
+            "title": "Monthly Sales Report",
+            "sections": [
+                {
+                    "heading": "Executive Summary",
+                    "content": "Overview of sales performance..."
+                },
+                {
+                    "heading": "Detailed Analysis",
+                    "content": "Detailed data analysis..."
+                }
+            ]
+        },
+        "style": {
+            "font": "Arial",
+            "font_size": 12,
+            "line_spacing": 1.5
+        }
+    }
+)
+
+file_url = response.json()["file_url"]
+```
+
+### PDF File
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "pdf",
+        "content": "Document content...",
+        "options": {
+            "page_size": "A4",
+            "orientation": "portrait",
+            "margins": {"top": 20, "bottom": 20, "left": 20, "right": 20}
+        }
+    }
+)
+```
+
+## Create Spreadsheets
+
+### Excel File
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "spreadsheet",
+        "format": "xlsx",
+        "sheets": [
+            {
+                "name": "Sales",
+                "data": [
+                    ["Product", "Quantity", "Price", "Total"],
+                    ["Product 1", 10, 100, 1000],
+                    ["Product 2", 5, 200, 1000]
+                ],
+                "formulas": {
+                    "D2": "=B2*C2",
+                    "D3": "=B3*C3"
+                }
+            }
+        ],
+        "formatting": {
+            "header_style": {
+                "bold": True,
+                "background_color": "#4472C4",
+                "font_color": "#FFFFFF"
+            }
+        }
+    }
+)
+```
+
+### CSV File
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "csv",
+        "data": [
+            ["Name", "Email", "Phone"],
+            ["Ahmed Mohamed", "ahmed@example.com", "0123456789"],
+            ["Sara Ali", "sara@example.com", "0987654321"]
+        ],
+        "delimiter": ",",
+        "encoding": "utf-8"
+    }
+)
+```
+
+## Create Presentations
+
+### PowerPoint
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "presentation",
+        "format": "pptx",
+        "slides": [
+            {
+                "layout": "title",
+                "content": {
+                    "title": "Presentation about Megsy AI",
+                    "subtitle": "Comprehensive AI Platform"
+                }
+            },
+            {
+                "layout": "content",
+                "content": {
+                    "title": "Key Features",
+                    "bullets": [
+                        "Image Generation",
+                        "Video Generation",
+                        "Smart Chat",
+                        "App Builder"
+                    ]
+                }
+            }
+        ],
+        "theme": "modern"
+    }
+)
+```
+
+## Create Code Files
+
+### Python File
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "code",
+        "language": "python",
+        "description": "Function to calculate Fibonacci numbers",
+        "requirements": [
+            "Function must be efficient",
+            "Add docstring",
+            "Add type hints"
+        ]
+    }
+)
+
+code = response.json()["code"]
+```
+
+### Complete Project
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate-project",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "web_app",
+        "framework": "flask",
+        "description": "Simple web app for task management",
+        "features": [
+            "Add tasks",
+            "Edit tasks",
+            "Delete tasks",
+            "SQLite database"
+        ]
+    }
+)
+
+project_files = response.json()["files"]
+```
+
+## File Processing
+
+### Extract Text from PDF
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/extract",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.pdf", "rb")},
+    data={"extract_type": "text"}
+)
+
+extracted_text = response.json()["text"]
+```
+
+### Convert File Format
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/convert",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.docx", "rb")},
+    data={
+        "from_format": "docx",
+        "to_format": "pdf"
+    }
+)
+
+converted_file_url = response.json()["file_url"]
+```
+
+### Summarize Documents
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/summarize",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("long_document.pdf", "rb")},
+    data={
+        "summary_length": "medium",  # short, medium, long
+        "language": "en"
+    }
+)
+
+summary = response.json()["summary"]
+```
+
+## Data Analysis
+
+### Analyze Excel File
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/analyze",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("sales_data.xlsx", "rb")},
+    data={
+        "analysis_type": "statistical",
+        "generate_charts": True
+    }
+)
+
+analysis = response.json()["analysis"]
+charts = response.json()["charts"]
+```
+
+### Generate Report from Data
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/generate-report",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"data": open("data.csv", "rb")},
+    data={
+        "report_type": "sales",
+        "include_charts": True,
+        "format": "pdf"
+    }
+)
+
+report_url = response.json()["report_url"]
+```
+
+## Ready Templates
+
+### Document Templates
+```python
+templates = [
+    "business_proposal",
+    "invoice",
+    "contract",
+    "resume",
+    "cover_letter",
+    "report"
+]
+
+response = requests.post(
+    "https://api.megsyai.com/v1/files/from-template",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "template": "invoice",
+        "data": {
+            "invoice_number": "INV-001",
+            "date": "2024-01-01",
+            "client_name": "ABC Company",
+            "items": [
+                {"description": "Service 1", "quantity": 1, "price": 1000}
+            ]
+        }
+    }
+)
+```
+
+### Presentation Templates
+```python
+presentation_templates = [
+    "business_pitch",
+    "product_launch",
+    "quarterly_review",
+    "training_session"
+]
+```
+
+## Translation
+
+### Translate Document
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/translate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.pdf", "rb")},
+    data={
+        "from_language": "en",
+        "to_language": "ar",
+        "preserve_formatting": True
+    }
+)
+
+translated_file_url = response.json()["file_url"]
+```
+
+## Verification & Review
+
+### Proofreading
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/proofread",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.docx", "rb")},
+    data={
+        "language": "en",
+        "check_grammar": True,
+        "check_spelling": True,
+        "suggest_improvements": True
+    }
+)
+
+corrections = response.json()["corrections"]
+```
+
+### Style Improvement
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/improve",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.docx", "rb")},
+    data={
+        "style": "professional",  # casual, professional, academic
+        "tone": "formal"
+    }
+)
+
+improved_file_url = response.json()["file_url"]
+```
+
+## Merge & Split
+
+### Merge PDF Files
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/merge",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={
+        "file1": open("doc1.pdf", "rb"),
+        "file2": open("doc2.pdf", "rb"),
+        "file3": open("doc3.pdf", "rb")
+    }
+)
+
+merged_file_url = response.json()["file_url"]
+```
+
+### Split PDF File
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/split",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("large_document.pdf", "rb")},
+    data={
+        "split_by": "pages",  # pages, size, sections
+        "pages_per_file": 10
+    }
+)
+
+split_files = response.json()["files"]
+```
+
+## Security & Privacy
+
+### Encrypt Files
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/encrypt",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("sensitive.pdf", "rb")},
+    data={
+        "password": "secure_password",
+        "encryption_level": "high"
+    }
+)
+```
+
+### Add Watermark
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/files/watermark",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.pdf", "rb")},
+    data={
+        "text": "Confidential - Megsy AI",
+        "position": "center",
+        "opacity": 0.3
+    }
+)
+```
+
+## Pricing
+
+Cost depends on:
+- File type
+- File size
+- Processing type
+- Number of files
+
+See the [pricing page](/pricing) for details.
+
+## Usage Limits
+
+| Plan | File Size | Files/month |
+|------|-----------|-------------|
+| Free | 10 MB | 50 |
+| Basic | 50 MB | 500 |
+| Pro | 200 MB | 2000 |
+| Enterprise | 1 GB | Unlimited |
+
+## Support
+
+Contact us:
+- support@megsyai.com
+- Live chat
+- [Help Center](https://megsyai.com/help)

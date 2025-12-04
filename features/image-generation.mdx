@@ -1,0 +1,225 @@
+---
+title: "AI Image Generation"
+description: "Create professional and stunning images using the latest AI models"
+---
+
+## Overview
+
+Megsy AI provides advanced tools for image generation using the world's best AI models. You can create professional images from text, edit existing images, and create creative designs with ease.
+
+## Supported Models
+
+<Columns cols={2}>
+  <Card title="DALL-E 3" icon="palette">
+    OpenAI's advanced model for high-quality image generation
+  </Card>
+  <Card title="Stable Diffusion" icon="wand-magic-sparkles">
+    Open-source model with advanced capabilities
+  </Card>
+  <Card title="Midjourney" icon="image">
+    Specialized model for artistic and creative images
+  </Card>
+  <Card title="Megsy Image" icon="sparkles">
+    Our proprietary model optimized for Arabic language
+  </Card>
+</Columns>
+
+## Features
+
+### Text-to-Image
+Create images from simple text descriptions:
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "dall-e-3",
+        "prompt": "A cute cat wearing sunglasses on a beach",
+        "size": "1024x1024",
+        "quality": "hd",
+        "n": 1
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+print(f"Image URL: {image_url}")
+```
+
+### Image Editing
+Edit existing images by adding or removing elements:
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={
+        "image": open("original.png", "rb"),
+        "mask": open("mask.png", "rb")
+    },
+    data={
+        "prompt": "Add a clear blue sky",
+        "size": "1024x1024"
+    }
+)
+```
+
+### Image Variations
+Create diverse variations of an existing image:
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/variations",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("original.png", "rb")},
+    data={
+        "n": 3,
+        "size": "1024x1024"
+    }
+)
+```
+
+## Available Sizes
+
+Megsy AI supports multiple image sizes:
+
+| Size | Dimensions | Ideal Use |
+|------|------------|-----------|
+| Small | 512x512 | Quick preview |
+| Medium | 1024x1024 | General use |
+| Large | 1792x1024 | Landscape images |
+| Portrait | 1024x1792 | Portrait images |
+
+## Image Quality
+
+### Standard
+Standard quality suitable for most uses:
+- Faster generation
+- Lower cost
+- Good quality
+
+### HD
+High quality for professional use:
+- Finer details
+- Better colors
+- Higher resolution
+
+## Artistic Styles
+
+You can specify the artistic style for the image:
+
+```python
+styles = [
+    "realistic",      # Realistic
+    "artistic",       # Artistic
+    "anime",          # Anime
+    "3d-render",      # 3D render
+    "oil-painting",   # Oil painting
+    "watercolor",     # Watercolor
+    "sketch",         # Sketch
+    "digital-art"     # Digital art
+]
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "prompt": "Beautiful natural landscape",
+        "style": "oil-painting"
+    }
+)
+```
+
+## Tips for Best Results
+
+<Steps>
+  <Step title="Be Specific">
+    Use detailed and precise descriptions for the desired image
+  </Step>
+  <Step title="Specify Style">
+    Mention the desired artistic style (realistic, artistic, etc.)
+  </Step>
+  <Step title="Include Details">
+    Add details about lighting, colors, and angles
+  </Step>
+  <Step title="Experiment">
+    Try different phrasings to get the best result
+  </Step>
+</Steps>
+
+## Practical Examples
+
+### Product Image
+```python
+prompt = """
+Professional photo of a luxury gold watch on black background,
+studio lighting, fine details, high quality, 4K
+"""
+```
+
+### Portrait
+```python
+prompt = """
+Professional portrait of a businessman in his thirties,
+wearing formal suit, modern office background,
+natural lighting, professional photography
+"""
+```
+
+### Landscape
+```python
+prompt = """
+Stunning landscape of the Alps at sunrise,
+colorful sky, reflection on calm lake,
+realistic style, high quality
+"""
+```
+
+## Image Processing
+
+### Background Removal
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/remove-background",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")}
+)
+```
+
+### Quality Enhancement
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/upscale",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")},
+    data={"scale": 2}  # 2x, 4x
+)
+```
+
+## Pricing
+
+Image generation cost varies based on:
+- Model used
+- Image size
+- Image quality
+- Number of images
+
+See the [pricing page](/pricing) for complete details.
+
+## Usage Limits
+
+| Plan | Images/month | Max Quality |
+|------|--------------|-------------|
+| Free | 50 | Standard |
+| Basic | 500 | HD |
+| Pro | 2000 | HD |
+| Enterprise | Unlimited | HD |
+
+## Support
+
+Need help? Contact us:
+- Email: support@megsyai.com
+- Live chat on website
+- [Help Center](https://megsyai.com/help)
