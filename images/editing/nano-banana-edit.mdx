@@ -1,0 +1,62 @@
+---
+title: "Nano Banana Edit"
+description: "Quick and simple image editing for everyday tasks"
+icon: "pen"
+---
+
+<img src="https://i.ibb.co/6R1LRQV4/nano-banana-edit.png" alt="Nano Banana Edit" />
+
+## Overview
+
+Nano Banana Edit is designed for quick, everyday image editing tasks. Simple to use and fast, it's perfect for basic modifications and quick fixes.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Simple & Fast" icon="bolt">
+    Quick edits in under 2 seconds
+  </Card>
+  <Card title="Easy to Use" icon="hand-pointer">
+    No complex settings required
+  </Card>
+  <Card title="Reliable" icon="check">
+    Consistent results every time
+  </Card>
+  <Card title="Affordable" icon="dollar-sign">
+    Most economical editing option
+  </Card>
+</CardGroup>
+
+## How to Use
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")},
+    data={
+        "model": "nano-banana-edit",
+        "instruction": "Brighten the image"
+    }
+)
+```
+
+## Common Uses
+
+- Quick color fixes
+- Basic cropping
+- Simple filters
+- Brightness adjustments
+- Basic cleanup
+
+## Pricing
+
+| Edit | Price |
+|------|-------|
+| Basic | $0.01 |
+
+## Support
+
+- Email: support@megsyai.com
