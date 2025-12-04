@@ -1,33 +1,43 @@
 ---
 title: "AI Image Generation"
-description: "Create professional and stunning images using the latest AI models"
+description: "Create, edit, and enhance images with 7+ advanced AI models"
 ---
 
 ## Overview
 
-Megsy AI provides advanced tools for image generation using the world's best AI models. You can create professional images from text, edit existing images, and create creative designs with ease.
+Megsy AI provides comprehensive image generation and editing tools powered by multiple cutting-edge AI models. Generate images, edit them, enhance quality, convert to 3D, and use ready-made templates.
 
-## Supported Models
+## Image Generation Models
+
+Choose from 7 powerful models for different styles and use cases:
 
 <Columns cols={2}>
-  <Card title="DALL-E 3" icon="palette">
-    OpenAI's advanced model for high-quality image generation
+  <Card title="Megsy Images" icon="sparkles">
+    Our proprietary model for high-quality generation
   </Card>
-  <Card title="Stable Diffusion" icon="wand-magic-sparkles">
-    Open-source model with advanced capabilities
+  <Card title="Flux Pro Ultra" icon="bolt">
+    Ultra-high quality professional images
   </Card>
-  <Card title="Midjourney" icon="image">
-    Specialized model for artistic and creative images
+  <Card title="Ideogram v3" icon="palette">
+    Perfect for creative designs and typography
   </Card>
-  <Card title="Megsy Image" icon="sparkles">
-    Our proprietary model optimized for Arabic language
+  <Card title="Nano Banana Pro" icon="rocket">
+    Fast professional-grade generation
+  </Card>
+  <Card title="Flux.2 Flex" icon="wand-sparkles">
+    Flexible styles and compositions
+  </Card>
+  <Card title="Seedream 4" icon="seedling">
+    Artistic and dreamlike results
+  </Card>
+  <Card title="Nano Banana 2" icon="image">
+    Quick generation for previews
   </Card>
 </Columns>
 
-## Features
+## Generate Images
 
-### Text-to-Image
-Create images from simple text descriptions:
+### Basic Generation
 
 ```python
 import requests
@@ -36,11 +46,10 @@ response = requests.post(
     "https://api.megsyai.com/v1/images/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "model": "dall-e-3",
-        "prompt": "A cute cat wearing sunglasses on a beach",
+        "model": "megsy-images",
+        "prompt": "A serene mountain landscape at sunset with a lake reflection",
         "size": "1024x1024",
-        "quality": "hd",
-        "n": 1
+        "quality": "hd"
     }
 )
 
@@ -48,177 +57,397 @@ image_url = response.json()["data"][0]["url"]
 print(f"Image URL: {image_url}")
 ```
 
-### Image Editing
-Edit existing images by adding or removing elements:
+### Model Comparison
 
 ```python
+models = [
+    "megsy-images",      # Balanced quality and speed
+    "flux-pro-ultra",    # Highest quality
+    "ideogram-v3",       # Best for text and designs
+    "nano-banana-pro",   # Fast professional
+    "flux-2-flex",       # Flexible styles
+    "seedream-4",        # Artistic results
+    "nano-banana-2"      # Quick previews
+]
+
+# Generate with specific model
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "flux-pro-ultra",
+        "prompt": "Professional product photography of a luxury watch",
+        "size": "1024x1024"
+    }
+)
+```
+
+## Image Editing
+
+Edit existing images with 5 specialized models:
+
+<Columns cols={2}>
+  <Card title="Qwen Edit" icon="wand-magic-sparkles">
+    Advanced AI-powered editing
+  </Card>
+  <Card title="Nano Banana Edit Pro" icon="pen-to-square">
+    Professional editing capabilities
+  </Card>
+  <Card title="Seed Edit" icon="seedling">
+    Creative modifications
+  </Card>
+  <Card title="Nano Banana" icon="paintbrush">
+    Quick edits and adjustments
+  </Card>
+  <Card title="Flux" icon="bolt">
+    Style transformations
+  </Card>
+</Columns>
+
+### Edit Images
+
+```python
+# Edit with Qwen Edit
 response = requests.post(
     "https://api.megsyai.com/v1/images/edit",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
-    files={
-        "image": open("original.png", "rb"),
-        "mask": open("mask.png", "rb")
-    },
+    files={"image": open("original.png", "rb")},
     data={
-        "prompt": "Add a clear blue sky",
-        "size": "1024x1024"
+        "model": "qwen-edit",
+        "prompt": "Change the background to a sunset beach scene",
+        "mask": None  # Optional: specify area to edit
+    }
+)
+
+# Professional editing with Nano Banana Edit Pro
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("photo.jpg", "rb")},
+    data={
+        "model": "nano-banana-edit-pro",
+        "prompt": "Remove background and enhance colors"
     }
 )
 ```
 
-### Image Variations
-Create diverse variations of an existing image:
+## Image Enhancement Tools
+
+### Clarity Upscaler
+
+Enhance image resolution and quality:
 
 ```python
 response = requests.post(
-    "https://api.megsyai.com/v1/images/variations",
+    "https://api.megsyai.com/v1/images/upscale",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
-    files={"image": open("original.png", "rb")},
+    files={"image": open("low_res.jpg", "rb")},
     data={
-        "n": 3,
-        "size": "1024x1024"
+        "tool": "clarity-upscaler",
+        "scale": 4  # 2x or 4x upscaling
+    }
+)
+
+upscaled_url = response.json()["url"]
+```
+
+### AuraSR
+
+Super-resolution enhancement:
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/enhance",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.jpg", "rb")},
+    data={
+        "tool": "aurasr",
+        "enhancement_level": "high"
     }
 )
 ```
 
-## Available Sizes
+## 3D Conversion
 
-Megsy AI supports multiple image sizes:
+Transform 2D images into 3D models:
 
-| Size | Dimensions | Ideal Use |
-|------|------------|-----------|
-| Small | 512x512 | Quick preview |
-| Medium | 1024x1024 | General use |
-| Large | 1792x1024 | Landscape images |
-| Portrait | 1024x1792 | Portrait images |
+<Columns cols={3}>
+  <Card title="TripoSR" icon="cube">
+    Fast 3D reconstruction
+  </Card>
+  <Card title="Hunyuan 3D 2.1" icon="box">
+    High-quality 3D models
+  </Card>
+  <Card title="Meshy 6" icon="shapes">
+    Advanced mesh generation
+  </Card>
+</Columns>
 
-## Image Quality
-
-### Standard
-Standard quality suitable for most uses:
-- Faster generation
-- Lower cost
-- Good quality
-
-### HD
-High quality for professional use:
-- Finer details
-- Better colors
-- Higher resolution
-
-## Artistic Styles
-
-You can specify the artistic style for the image:
+### Convert to 3D
 
 ```python
-styles = [
-    "realistic",      # Realistic
-    "artistic",       # Artistic
-    "anime",          # Anime
-    "3d-render",      # 3D render
-    "oil-painting",   # Oil painting
-    "watercolor",     # Watercolor
-    "sketch",         # Sketch
-    "digital-art"     # Digital art
-]
+# Using TripoSR for fast conversion
+response = requests.post(
+    "https://api.megsyai.com/v1/images/to-3d",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("object.jpg", "rb")},
+    data={
+        "model": "triposr",
+        "output_format": "obj"  # obj, fbx, glb
+    }
+)
+
+model_3d_url = response.json()["model_url"]
+
+# Using Hunyuan 3D 2.1 for high quality
+response = requests.post(
+    "https://api.megsyai.com/v1/images/to-3d",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("product.png", "rb")},
+    data={
+        "model": "hunyuan-3d-2.1",
+        "quality": "high",
+        "output_format": "glb"
+    }
+)
+
+# Using Meshy 6 for advanced meshes
+response = requests.post(
+    "https://api.megsyai.com/v1/images/to-3d",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("character.jpg", "rb")},
+    data={
+        "model": "meshy-6",
+        "mesh_quality": "ultra",
+        "texture_resolution": "4k"
+    }
+)
+```
+
+## Image Templates
+
+Use ready-made templates for quick creation:
+
+### How Templates Work
+
+1. Choose a template style
+2. Upload your photo
+3. AI generates a similar image with your photo
+
+```python
+# List available templates
+response = requests.get(
+    "https://api.megsyai.com/v1/images/templates",
+    headers={"Authorization": "Bearer YOUR_API_KEY"}
+)
+
+templates = response.json()["templates"]
+
+# Use a template
+response = requests.post(
+    "https://api.megsyai.com/v1/images/from-template",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"photo": open("my_photo.jpg", "rb")},
+    data={
+        "template_id": "professional-headshot",
+        "style_strength": 0.8
+    }
+)
+```
+
+### Template Categories
+
+<Columns cols={2}>
+  <Card title="Professional" icon="briefcase">
+    Business headshots and corporate photos
+  </Card>
+  <Card title="Artistic" icon="palette">
+    Artistic styles and creative effects
+  </Card>
+  <Card title="Social Media" icon="share-nodes">
+    Instagram, TikTok, and profile pictures
+  </Card>
+  <Card title="Seasonal" icon="calendar">
+    Holiday and seasonal themes
+  </Card>
+</Columns>
+
+## Practical Examples
+
+### Product Photography
+
+```python
+prompt = """
+Professional product photography of a luxury perfume bottle,
+studio lighting, white background, high-end commercial style,
+sharp focus, 4K quality
+"""
 
 response = requests.post(
     "https://api.megsyai.com/v1/images/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "prompt": "Beautiful natural landscape",
-        "style": "oil-painting"
+        "model": "flux-pro-ultra",
+        "prompt": prompt,
+        "size": "1024x1024"
     }
 )
+```
+
+### Creative Design
+
+```python
+prompt = """
+Modern minimalist logo design for a tech startup,
+geometric shapes, gradient colors, professional,
+vector style, clean and simple
+"""
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "ideogram-v3",
+        "prompt": prompt
+    }
+)
+```
+
+### Artistic Creation
+
+```python
+prompt = """
+Surreal dreamlike landscape with floating islands,
+vibrant colors, fantasy art style, ethereal atmosphere,
+detailed and imaginative
+"""
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "seedream-4",
+        "prompt": prompt
+    }
+)
+```
+
+## Image Sizes
+
+Available sizes for generation:
+
+| Size | Dimensions | Best For |
+|------|------------|----------|
+| Square | 1024x1024 | Social media, general use |
+| Landscape | 1792x1024 | Banners, wide images |
+| Portrait | 1024x1792 | Posters, vertical content |
+| HD | 2048x2048 | High-quality prints |
+
+## Quality Settings
+
+```python
+quality_options = [
+    "standard",  # Fast generation, good quality
+    "hd",        # High definition, slower
+    "ultra"      # Maximum quality (select models)
+]
 ```
 
 ## Tips for Best Results
 
 <Steps>
-  <Step title="Be Specific">
-    Use detailed and precise descriptions for the desired image
+  <Step title="Choose the Right Model">
+    Use Flux Pro Ultra for quality, Nano Banana for speed, Ideogram for text
   </Step>
-  <Step title="Specify Style">
-    Mention the desired artistic style (realistic, artistic, etc.)
+  <Step title="Be Descriptive">
+    Include details about style, lighting, colors, and composition
   </Step>
-  <Step title="Include Details">
-    Add details about lighting, colors, and angles
+  <Step title="Use Templates">
+    Save time with ready-made templates for common use cases
   </Step>
-  <Step title="Experiment">
-    Try different phrasings to get the best result
+  <Step title="Enhance After Generation">
+    Use Clarity Upscaler or AuraSR to improve quality
   </Step>
 </Steps>
 
-## Practical Examples
+## Workflow Examples
 
-### Product Image
+### Complete Image Workflow
+
 ```python
-prompt = """
-Professional photo of a luxury gold watch on black background,
-studio lighting, fine details, high quality, 4K
-"""
-```
-
-### Portrait
-```python
-prompt = """
-Professional portrait of a businessman in his thirties,
-wearing formal suit, modern office background,
-natural lighting, professional photography
-"""
-```
-
-### Landscape
-```python
-prompt = """
-Stunning landscape of the Alps at sunrise,
-colorful sky, reflection on calm lake,
-realistic style, high quality
-"""
-```
-
-## Image Processing
-
-### Background Removal
-```python
-response = requests.post(
-    "https://api.megsyai.com/v1/images/remove-background",
+# 1. Generate base image
+generate_response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
-    files={"image": open("image.png", "rb")}
+    json={
+        "model": "megsy-images",
+        "prompt": "Modern office interior"
+    }
 )
-```
 
-### Quality Enhancement
-```python
-response = requests.post(
+image_url = generate_response.json()["data"][0]["url"]
+
+# 2. Edit the image
+edit_response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": requests.get(image_url).content},
+    data={
+        "model": "qwen-edit",
+        "prompt": "Add plants and natural lighting"
+    }
+)
+
+# 3. Upscale for final quality
+upscale_response = requests.post(
     "https://api.megsyai.com/v1/images/upscale",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
-    files={"image": open("image.png", "rb")},
-    data={"scale": 2}  # 2x, 4x
+    files={"image": requests.get(edit_response.json()["url"]).content},
+    data={"tool": "clarity-upscaler", "scale": 4}
 )
+
+final_image = upscale_response.json()["url"]
 ```
 
-## Pricing
+## Credit Usage
 
-Image generation cost varies based on:
-- Model used
-- Image size
-- Image quality
-- Number of images
+Different operations consume different amounts of credits:
 
-See the [pricing page](/pricing) for complete details.
+- **Generation**: 1-5 credits (varies by model)
+- **Editing**: 2-4 credits (varies by model)
+- **Upscaling**: 1-2 credits
+- **3D Conversion**: 3-5 credits
+- **Templates**: 1-2 credits
 
-## Usage Limits
+See the [pricing page](/pricing) for detailed credit costs.
 
-| Plan | Images/month | Max Quality |
-|------|--------------|-------------|
-| Free | 50 | Standard |
-| Basic | 500 | HD |
-| Pro | 2000 | HD |
-| Enterprise | Unlimited | HD |
+## Use Cases
+
+<Columns cols={2}>
+  <Card title="Marketing" icon="bullhorn">
+    Product photos, ads, social media content
+  </Card>
+  <Card title="Design" icon="palette">
+    Logos, graphics, illustrations
+  </Card>
+  <Card title="E-commerce" icon="shopping-cart">
+    Product images, lifestyle photos
+  </Card>
+  <Card title="Content Creation" icon="image">
+    Blog images, thumbnails, covers
+  </Card>
+  <Card title="3D Modeling" icon="cube">
+    Convert photos to 3D assets
+  </Card>
+  <Card title="Photo Enhancement" icon="wand-sparkles">
+    Upscale and improve image quality
+  </Card>
+</Columns>
 
 ## Support
 
-Need help? Contact us:
-- [Support Center](https://www.megsyai.com/contact)
+Need help with image generation?
+
+- Email: support@megsyai.com
 - Live chat on website
+- [Help Center](https://megsyai.com/help)
