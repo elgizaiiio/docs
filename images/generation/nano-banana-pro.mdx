@@ -1,0 +1,267 @@
+---
+title: "Nano Banana Pro"
+description: "Professional-grade image generation with enhanced capabilities"
+icon: "crown"
+---
+
+<img src="https://i.ibb.co/0p60DSpj/nano-banana-pro.png" alt="Nano Banana Pro" />
+
+## Overview
+
+Nano Banana Pro is the professional version of our Nano Banana series, offering enhanced quality, better prompt understanding, and more control over the generation process. It strikes the perfect balance between speed and quality.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Enhanced Quality" icon="gem">
+    Superior output quality compared to standard version
+  </Card>
+  <Card title="Better Control" icon="sliders">
+    More parameters for fine-tuning results
+  </Card>
+  <Card title="Fast Generation" icon="bolt">
+    Quick results without sacrificing quality
+  </Card>
+  <Card title="Versatile Styles" icon="palette">
+    Excellent across multiple art styles
+  </Card>
+</CardGroup>
+
+## How to Use
+
+### Basic Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "nano-banana-pro",
+        "prompt": "Professional digital artwork of a fantasy landscape",
+        "size": "1024x1024",
+        "quality": "hd"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+### Advanced Control
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "nano-banana-pro",
+        "prompt": "Detailed fantasy character design, full body",
+        "negative_prompt": "blurry, low quality, simple",
+        "size": "1024x1792",
+        "quality": "hd",
+        "style": "digital-art",
+        "creativity": 0.7,
+        "detail_level": "high"
+    }
+)
+```
+
+## Supported Sizes
+
+| Size | Dimensions | Generation Time | Best For |
+|------|------------|-----------------|----------|
+| Small | 512x512 | 2-3s | Quick previews |
+| Medium | 768x768 | 3-4s | Social media |
+| Standard | 1024x1024 | 4-5s | General use |
+| Landscape | 1792x1024 | 5-6s | Banners |
+| Portrait | 1024x1792 | 5-6s | Posters |
+
+## Quality Modes
+
+### Standard
+- Fast generation (3-4 seconds)
+- Good quality for most uses
+- Cost-effective
+
+### HD
+- Enhanced generation (5-7 seconds)
+- Professional quality
+- Better details and clarity
+
+## Style Presets
+
+```python
+styles = {
+    "digital-art": "Modern digital artwork",
+    "concept-art": "Game/movie concept art",
+    "anime": "Anime and manga style",
+    "fantasy": "Fantasy illustration",
+    "sci-fi": "Science fiction aesthetic",
+    "realistic": "Photorealistic rendering",
+    "painterly": "Traditional painting look",
+    "comic": "Comic book style"
+}
+```
+
+## Advanced Parameters
+
+### Creativity Level
+Controls artistic freedom (0.0 - 1.0):
+```python
+{
+    "creativity": 0.3,  # Conservative, close to prompt
+    "creativity": 0.5,  # Balanced (recommended)
+    "creativity": 0.8   # More artistic interpretation
+}
+```
+
+### Detail Level
+Controls amount of detail:
+```python
+{
+    "detail_level": "low",     # Simpler, cleaner
+    "detail_level": "medium",  # Balanced
+    "detail_level": "high"     # Maximum detail
+}
+```
+
+## Best Use Cases
+
+<Tabs>
+  <Tab title="Character Design">
+    Excellent for creating detailed character concepts and designs
+  </Tab>
+  <Tab title="Digital Art">
+    Perfect for digital illustrations and artwork
+  </Tab>
+  <Tab title="Concept Art">
+    Great for game and movie concept art
+  </Tab>
+  <Tab title="Marketing">
+    Professional quality for marketing materials
+  </Tab>
+</Tabs>
+
+## Example Prompts
+
+### Character Design
+```
+Full body character design of a fantasy warrior,
+detailed armor, dynamic pose, professional concept art,
+high detail, digital painting style, dramatic lighting
+```
+
+### Environment Art
+```
+Fantasy forest environment, magical atmosphere,
+glowing plants, mystical lighting, concept art style,
+high detail, professional game art, vibrant colors
+```
+
+### Product Illustration
+```
+Stylized product illustration of a smartphone,
+clean design, modern aesthetic, professional digital art,
+vibrant colors, high quality, commercial illustration
+```
+
+### Fantasy Scene
+```
+Epic fantasy battle scene, multiple characters,
+dramatic composition, dynamic action, detailed armor,
+cinematic lighting, professional concept art, high detail
+```
+
+## Strengths
+
+- **Quality**: Professional-grade output
+- **Speed**: Faster than premium models
+- **Versatility**: Works well with various styles
+- **Control**: Good parameter control
+- **Consistency**: Reliable results
+
+## Comparison
+
+| Feature | Nano Banana Pro | Nano Banana 2 | SeeDream 4 |
+|---------|-----------------|---------------|------------|
+| Quality | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Speed | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
+| Control | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Cost | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
+
+## Best Practices
+
+<Steps>
+  <Step title="Use Style Presets">
+    Select appropriate style preset for your desired output
+  </Step>
+  <Step title="Balance Creativity">
+    Adjust creativity level based on how closely you want to follow the prompt
+  </Step>
+  <Step title="Specify Details">
+    Include detail level in your prompt or parameters
+  </Step>
+  <Step title="Iterate">
+    Generate multiple variations with different settings
+  </Step>
+</Steps>
+
+## Pricing
+
+| Quality | Size | Price per Image |
+|---------|------|-----------------|
+| Standard | 1024x1024 | $0.02 |
+| HD | 1024x1024 | $0.04 |
+| Standard | 1792x1024 | $0.03 |
+| HD | 1792x1024 | $0.06 |
+
+## Performance Metrics
+
+- **Average Generation Time**: 4-6 seconds
+- **Success Rate**: 97%
+- **Quality Score**: 8.5/10
+- **User Satisfaction**: 92%
+
+## API Reference
+
+### Complete Example
+
+```python
+import requests
+
+def generate_image(prompt, **kwargs):
+    response = requests.post(
+        "https://api.megsyai.com/v1/images/generate",
+        headers={"Authorization": "Bearer YOUR_API_KEY"},
+        json={
+            "model": "nano-banana-pro",
+            "prompt": prompt,
+            "negative_prompt": kwargs.get("negative_prompt", ""),
+            "size": kwargs.get("size", "1024x1024"),
+            "quality": kwargs.get("quality", "standard"),
+            "style": kwargs.get("style", "digital-art"),
+            "creativity": kwargs.get("creativity", 0.5),
+            "detail_level": kwargs.get("detail_level", "medium"),
+            "num_images": kwargs.get("num_images", 1)
+        }
+    )
+    return response.json()
+
+# Usage
+result = generate_image(
+    "Fantasy character design",
+    quality="hd",
+    style="fantasy",
+    creativity=0.7,
+    detail_level="high"
+)
+```
+
+## Support
+
+Questions about Nano Banana Pro?
+- Email: support@megsyai.com
+- Live chat: 24/7 available
+- [Documentation](https://megsyai.com/docs)
+- [Community Forum](https://community.megsyai.com)
