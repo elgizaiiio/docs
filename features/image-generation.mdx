@@ -1,33 +1,33 @@
 ---
-title: "توليد الصور بالذكاء الاصطناعي"
-description: "أنشئ صور احترافية ومذهلة باستخدام أحدث نماذج الذكاء الاصطناعي"
+title: "AI Image Generation"
+description: "Create professional and stunning images using the latest AI models"
 ---
 
-## نظرة عامة
+## Overview
 
-يوفر Megsy AI أدوات متقدمة لتوليد الصور باستخدام أفضل نماذج الذكاء الاصطناعي في العالم. يمكنك إنشاء صور احترافية من النصوص، تعديل الصور الموجودة، وإنشاء تصاميم إبداعية بسهولة.
+Megsy AI provides advanced tools for image generation using the world's best AI models. You can create professional images from text, edit existing images, and create creative designs with ease.
 
-## النماذج المدعومة
+## Supported Models
 
 <Columns cols={2}>
   <Card title="DALL-E 3" icon="palette">
-    نموذج OpenAI المتقدم لتوليد صور عالية الجودة
+    OpenAI's advanced model for high-quality image generation
   </Card>
   <Card title="Stable Diffusion" icon="wand-magic-sparkles">
-    نموذج مفتوح المصدر بإمكانيات متقدمة
+    Open-source model with advanced capabilities
   </Card>
   <Card title="Midjourney" icon="image">
-    نموذج متخصص في الصور الفنية والإبداعية
+    Specialized model for artistic and creative images
   </Card>
   <Card title="Megsy Image" icon="sparkles">
-    نموذجنا الخاص المحسّن للغة العربية
+    Our proprietary model optimized for Arabic language
   </Card>
 </Columns>
 
-## الميزات
+## Features
 
-### توليد من النص
-أنشئ صور من وصف نصي بسيط:
+### Text-to-Image
+Create images from simple text descriptions:
 
 ```python
 import requests
@@ -37,7 +37,7 @@ response = requests.post(
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
         "model": "dall-e-3",
-        "prompt": "قطة لطيفة ترتدي نظارة شمسية على شاطئ البحر",
+        "prompt": "A cute cat wearing sunglasses on a beach",
         "size": "1024x1024",
         "quality": "hd",
         "n": 1
@@ -48,8 +48,8 @@ image_url = response.json()["data"][0]["url"]
 print(f"Image URL: {image_url}")
 ```
 
-### تعديل الصور
-عدّل الصور الموجودة بإضافة أو إزالة عناصر:
+### Image Editing
+Edit existing images by adding or removing elements:
 
 ```python
 response = requests.post(
@@ -60,14 +60,14 @@ response = requests.post(
         "mask": open("mask.png", "rb")
     },
     data={
-        "prompt": "أضف سماء زرقاء صافية",
+        "prompt": "Add a clear blue sky",
         "size": "1024x1024"
     }
 )
 ```
 
-### تنويعات الصور
-أنشئ نسخ متنوعة من صورة موجودة:
+### Image Variations
+Create diverse variations of an existing image:
 
 ```python
 response = requests.post(
@@ -81,105 +81,105 @@ response = requests.post(
 )
 ```
 
-## الأحجام المتاحة
+## Available Sizes
 
-يدعم Megsy AI عدة أحجام للصور:
+Megsy AI supports multiple image sizes:
 
-| الحجم | الأبعاد | الاستخدام المثالي |
-|-------|---------|-------------------|
-| صغير | 512x512 | معاينة سريعة |
-| متوسط | 1024x1024 | استخدام عام |
-| كبير | 1792x1024 | صور أفقية |
-| عمودي | 1024x1792 | صور عمودية |
+| Size | Dimensions | Ideal Use |
+|------|------------|-----------|
+| Small | 512x512 | Quick preview |
+| Medium | 1024x1024 | General use |
+| Large | 1792x1024 | Landscape images |
+| Portrait | 1024x1792 | Portrait images |
 
-## جودة الصور
+## Image Quality
 
 ### Standard
-جودة قياسية مناسبة لمعظم الاستخدامات:
-- سرعة توليد أعلى
-- تكلفة أقل
-- جودة جيدة
+Standard quality suitable for most uses:
+- Faster generation
+- Lower cost
+- Good quality
 
 ### HD
-جودة عالية للاستخدامات الاحترافية:
-- تفاصيل أدق
-- ألوان أفضل
-- دقة أعلى
+High quality for professional use:
+- Finer details
+- Better colors
+- Higher resolution
 
-## الأنماط الفنية
+## Artistic Styles
 
-يمكنك تحديد النمط الفني للصورة:
+You can specify the artistic style for the image:
 
 ```python
 styles = [
-    "realistic",      # واقعي
-    "artistic",       # فني
-    "anime",          # أنمي
-    "3d-render",      # ثلاثي الأبعاد
-    "oil-painting",   # رسم زيتي
-    "watercolor",     # ألوان مائية
-    "sketch",         # رسم تخطيطي
-    "digital-art"     # فن رقمي
+    "realistic",      # Realistic
+    "artistic",       # Artistic
+    "anime",          # Anime
+    "3d-render",      # 3D render
+    "oil-painting",   # Oil painting
+    "watercolor",     # Watercolor
+    "sketch",         # Sketch
+    "digital-art"     # Digital art
 ]
 
 response = requests.post(
     "https://api.megsyai.com/v1/images/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "prompt": "منظر طبيعي جميل",
+        "prompt": "Beautiful natural landscape",
         "style": "oil-painting"
     }
 )
 ```
 
-## نصائح للحصول على أفضل النتائج
+## Tips for Best Results
 
 <Steps>
-  <Step title="كن محدداً">
-    استخدم وصف تفصيلي ودقيق للصورة المطلوبة
+  <Step title="Be Specific">
+    Use detailed and precise descriptions for the desired image
   </Step>
-  <Step title="حدد الأسلوب">
-    اذكر النمط الفني المطلوب (واقعي، فني، إلخ)
+  <Step title="Specify Style">
+    Mention the desired artistic style (realistic, artistic, etc.)
   </Step>
-  <Step title="اذكر التفاصيل">
-    أضف تفاصيل عن الإضاءة، الألوان، والزوايا
+  <Step title="Include Details">
+    Add details about lighting, colors, and angles
   </Step>
-  <Step title="جرب وعدّل">
-    جرب صياغات مختلفة للحصول على أفضل نتيجة
+  <Step title="Experiment">
+    Try different phrasings to get the best result
   </Step>
 </Steps>
 
-## أمثلة عملية
+## Practical Examples
 
-### صورة منتج
+### Product Image
 ```python
 prompt = """
-صورة احترافية لساعة ذهبية فاخرة على خلفية سوداء،
-إضاءة استوديو، تفاصيل دقيقة، جودة عالية، 4K
+Professional photo of a luxury gold watch on black background,
+studio lighting, fine details, high quality, 4K
 """
 ```
 
-### صورة شخصية
+### Portrait
 ```python
 prompt = """
-بورتريه احترافي لرجل أعمال في الثلاثينات،
-يرتدي بدلة رسمية، خلفية مكتب حديث،
-إضاءة طبيعية، تصوير احترافي
+Professional portrait of a businessman in his thirties,
+wearing formal suit, modern office background,
+natural lighting, professional photography
 """
 ```
 
-### منظر طبيعي
+### Landscape
 ```python
 prompt = """
-منظر طبيعي خلاب لجبال الألب عند شروق الشمس،
-سماء ملونة، انعكاس على بحيرة هادئة،
-أسلوب واقعي، جودة عالية
+Stunning landscape of the Alps at sunrise,
+colorful sky, reflection on calm lake,
+realistic style, high quality
 """
 ```
 
-## معالجة الصور
+## Image Processing
 
-### إزالة الخلفية
+### Background Removal
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/images/remove-background",
@@ -188,7 +188,7 @@ response = requests.post(
 )
 ```
 
-### تحسين الجودة
+### Quality Enhancement
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/images/upscale",
@@ -198,28 +198,28 @@ response = requests.post(
 )
 ```
 
-## الأسعار
+## Pricing
 
-تختلف تكلفة توليد الصور حسب:
-- النموذج المستخدم
-- حجم الصورة
-- جودة الصورة
-- عدد الصور
+Image generation cost varies based on:
+- Model used
+- Image size
+- Image quality
+- Number of images
 
-راجع [صفحة الأسعار](/pricing) للتفاصيل الكاملة.
+See the [pricing page](/pricing) for complete details.
 
-## حدود الاستخدام
+## Usage Limits
 
-| الباقة | عدد الصور/شهر | الجودة القصوى |
-|--------|---------------|---------------|
-| مجاني | 50 | Standard |
-| أساسي | 500 | HD |
-| احترافي | 2000 | HD |
-| مؤسسات | غير محدود | HD |
+| Plan | Images/month | Max Quality |
+|------|--------------|-------------|
+| Free | 50 | Standard |
+| Basic | 500 | HD |
+| Pro | 2000 | HD |
+| Enterprise | Unlimited | HD |
 
-## الدعم
+## Support
 
-هل تحتاج مساعدة؟ تواصل معنا:
-- البريد الإلكتروني: support@megsyai.com
-- الدردشة المباشرة على الموقع
-- [مركز المساعدة](https://megsyai.com/help)
+Need help? Contact us:
+- Email: support@megsyai.com
+- Live chat on website
+- [Help Center](https://megsyai.com/help)
