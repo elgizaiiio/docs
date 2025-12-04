@@ -1,32 +1,32 @@
 ---
-title: "إنشاء الملفات بالذكاء الاصطناعي"
-description: "أنشئ وعدّل الملفات بأنواعها المختلفة باستخدام الذكاء الاصطناعي"
+title: "AI File Generation"
+description: "Create and edit files of all types using artificial intelligence"
 ---
 
-## نظرة عامة
+## Overview
 
-يوفر Megsy AI أدوات متقدمة لإنشاء ومعالجة الملفات بأنواعها المختلفة. من المستندات النصية إلى جداول البيانات والعروض التقديمية.
+Megsy AI provides advanced tools for creating and processing files of various types. From text documents to spreadsheets and presentations.
 
-## أنواع الملفات المدعومة
+## Supported File Types
 
 <Columns cols={2}>
-  <Card title="المستندات" icon="file-lines">
+  <Card title="Documents" icon="file-lines">
     Word, PDF, TXT, Markdown
   </Card>
-  <Card title="جداول البيانات" icon="table">
+  <Card title="Spreadsheets" icon="table">
     Excel, CSV, Google Sheets
   </Card>
-  <Card title="العروض التقديمية" icon="presentation">
+  <Card title="Presentations" icon="presentation">
     PowerPoint, Google Slides
   </Card>
-  <Card title="الأكواد البرمجية" icon="code">
-    Python, JavaScript, Java, وغيرها
+  <Card title="Code Files" icon="code">
+    Python, JavaScript, Java, and more
   </Card>
 </Columns>
 
-## إنشاء المستندات
+## Create Documents
 
-### مستند Word
+### Word Document
 ```python
 import requests
 
@@ -37,15 +37,15 @@ response = requests.post(
         "type": "document",
         "format": "docx",
         "content": {
-            "title": "تقرير المبيعات الشهري",
+            "title": "Monthly Sales Report",
             "sections": [
                 {
-                    "heading": "ملخص تنفيذي",
-                    "content": "نظرة عامة على أداء المبيعات..."
+                    "heading": "Executive Summary",
+                    "content": "Overview of sales performance..."
                 },
                 {
-                    "heading": "التحليل التفصيلي",
-                    "content": "تحليل مفصل للبيانات..."
+                    "heading": "Detailed Analysis",
+                    "content": "Detailed data analysis..."
                 }
             ]
         },
@@ -60,14 +60,14 @@ response = requests.post(
 file_url = response.json()["file_url"]
 ```
 
-### ملف PDF
+### PDF File
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
         "type": "pdf",
-        "content": "محتوى المستند...",
+        "content": "Document content...",
         "options": {
             "page_size": "A4",
             "orientation": "portrait",
@@ -77,9 +77,9 @@ response = requests.post(
 )
 ```
 
-## إنشاء جداول البيانات
+## Create Spreadsheets
 
-### ملف Excel
+### Excel File
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/generate",
@@ -89,11 +89,11 @@ response = requests.post(
         "format": "xlsx",
         "sheets": [
             {
-                "name": "المبيعات",
+                "name": "Sales",
                 "data": [
-                    ["المنتج", "الكمية", "السعر", "الإجمالي"],
-                    ["منتج 1", 10, 100, 1000],
-                    ["منتج 2", 5, 200, 1000]
+                    ["Product", "Quantity", "Price", "Total"],
+                    ["Product 1", 10, 100, 1000],
+                    ["Product 2", 5, 200, 1000]
                 ],
                 "formulas": {
                     "D2": "=B2*C2",
@@ -112,7 +112,7 @@ response = requests.post(
 )
 ```
 
-### ملف CSV
+### CSV File
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/generate",
@@ -120,9 +120,9 @@ response = requests.post(
     json={
         "type": "csv",
         "data": [
-            ["الاسم", "البريد الإلكتروني", "الهاتف"],
-            ["أحمد محمد", "ahmed@example.com", "0123456789"],
-            ["سارة علي", "sara@example.com", "0987654321"]
+            ["Name", "Email", "Phone"],
+            ["Ahmed Mohamed", "ahmed@example.com", "0123456789"],
+            ["Sara Ali", "sara@example.com", "0987654321"]
         ],
         "delimiter": ",",
         "encoding": "utf-8"
@@ -130,7 +130,7 @@ response = requests.post(
 )
 ```
 
-## إنشاء العروض التقديمية
+## Create Presentations
 
 ### PowerPoint
 ```python
@@ -144,19 +144,19 @@ response = requests.post(
             {
                 "layout": "title",
                 "content": {
-                    "title": "عرض تقديمي عن Megsy AI",
-                    "subtitle": "منصة الذكاء الاصطناعي الشاملة"
+                    "title": "Presentation about Megsy AI",
+                    "subtitle": "Comprehensive AI Platform"
                 }
             },
             {
                 "layout": "content",
                 "content": {
-                    "title": "الميزات الرئيسية",
+                    "title": "Key Features",
                     "bullets": [
-                        "توليد الصور",
-                        "توليد الفيديوهات",
-                        "الشات الذكي",
-                        "إنشاء التطبيقات"
+                        "Image Generation",
+                        "Video Generation",
+                        "Smart Chat",
+                        "App Builder"
                     ]
                 }
             }
@@ -166,9 +166,9 @@ response = requests.post(
 )
 ```
 
-## إنشاء الأكواد البرمجية
+## Create Code Files
 
-### ملف Python
+### Python File
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/generate",
@@ -176,11 +176,11 @@ response = requests.post(
     json={
         "type": "code",
         "language": "python",
-        "description": "دالة لحساب أعداد فيبوناتشي",
+        "description": "Function to calculate Fibonacci numbers",
         "requirements": [
-            "يجب أن تكون الدالة فعالة",
-            "إضافة docstring",
-            "إضافة type hints"
+            "Function must be efficient",
+            "Add docstring",
+            "Add type hints"
         ]
     }
 )
@@ -188,7 +188,7 @@ response = requests.post(
 code = response.json()["code"]
 ```
 
-### مشروع كامل
+### Complete Project
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/generate-project",
@@ -196,12 +196,12 @@ response = requests.post(
     json={
         "type": "web_app",
         "framework": "flask",
-        "description": "تطبيق ويب بسيط لإدارة المهام",
+        "description": "Simple web app for task management",
         "features": [
-            "إضافة مهام",
-            "تعديل مهام",
-            "حذف مهام",
-            "قاعدة بيانات SQLite"
+            "Add tasks",
+            "Edit tasks",
+            "Delete tasks",
+            "SQLite database"
         ]
     }
 )
@@ -209,9 +209,9 @@ response = requests.post(
 project_files = response.json()["files"]
 ```
 
-## معالجة الملفات
+## File Processing
 
-### استخراج النص من PDF
+### Extract Text from PDF
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/extract",
@@ -223,7 +223,7 @@ response = requests.post(
 extracted_text = response.json()["text"]
 ```
 
-### تحويل صيغة الملف
+### Convert File Format
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/convert",
@@ -238,7 +238,7 @@ response = requests.post(
 converted_file_url = response.json()["file_url"]
 ```
 
-### تلخيص المستندات
+### Summarize Documents
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/summarize",
@@ -246,16 +246,16 @@ response = requests.post(
     files={"file": open("long_document.pdf", "rb")},
     data={
         "summary_length": "medium",  # short, medium, long
-        "language": "ar"
+        "language": "en"
     }
 )
 
 summary = response.json()["summary"]
 ```
 
-## تحليل البيانات
+## Data Analysis
 
-### تحليل ملف Excel
+### Analyze Excel File
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/analyze",
@@ -271,7 +271,7 @@ analysis = response.json()["analysis"]
 charts = response.json()["charts"]
 ```
 
-### إنشاء تقرير من البيانات
+### Generate Report from Data
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/generate-report",
@@ -287,9 +287,9 @@ response = requests.post(
 report_url = response.json()["report_url"]
 ```
 
-## القوالب الجاهزة
+## Ready Templates
 
-### قوالب المستندات
+### Document Templates
 ```python
 templates = [
     "business_proposal",
@@ -308,16 +308,16 @@ response = requests.post(
         "data": {
             "invoice_number": "INV-001",
             "date": "2024-01-01",
-            "client_name": "شركة ABC",
+            "client_name": "ABC Company",
             "items": [
-                {"description": "خدمة 1", "quantity": 1, "price": 1000}
+                {"description": "Service 1", "quantity": 1, "price": 1000}
             ]
         }
     }
 )
 ```
 
-### قوالب العروض التقديمية
+### Presentation Templates
 ```python
 presentation_templates = [
     "business_pitch",
@@ -327,9 +327,9 @@ presentation_templates = [
 ]
 ```
 
-## الترجمة
+## Translation
 
-### ترجمة مستند
+### Translate Document
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/translate",
@@ -345,16 +345,16 @@ response = requests.post(
 translated_file_url = response.json()["file_url"]
 ```
 
-## التحقق والمراجعة
+## Verification & Review
 
-### التدقيق اللغوي
+### Proofreading
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/proofread",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     files={"file": open("document.docx", "rb")},
     data={
-        "language": "ar",
+        "language": "en",
         "check_grammar": True,
         "check_spelling": True,
         "suggest_improvements": True
@@ -364,7 +364,7 @@ response = requests.post(
 corrections = response.json()["corrections"]
 ```
 
-### تحسين الأسلوب
+### Style Improvement
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/improve",
@@ -379,9 +379,9 @@ response = requests.post(
 improved_file_url = response.json()["file_url"]
 ```
 
-## الدمج والتقسيم
+## Merge & Split
 
-### دمج ملفات PDF
+### Merge PDF Files
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/merge",
@@ -396,7 +396,7 @@ response = requests.post(
 merged_file_url = response.json()["file_url"]
 ```
 
-### تقسيم ملف PDF
+### Split PDF File
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/split",
@@ -411,9 +411,9 @@ response = requests.post(
 split_files = response.json()["files"]
 ```
 
-## الأمان والخصوصية
+## Security & Privacy
 
-### تشفير الملفات
+### Encrypt Files
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/encrypt",
@@ -426,42 +426,42 @@ response = requests.post(
 )
 ```
 
-### إضافة علامة مائية
+### Add Watermark
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/files/watermark",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     files={"file": open("document.pdf", "rb")},
     data={
-        "text": "سري - Megsy AI",
+        "text": "Confidential - Megsy AI",
         "position": "center",
         "opacity": 0.3
     }
 )
 ```
 
-## الأسعار
+## Pricing
 
-التكلفة تعتمد على:
-- نوع الملف
-- حجم الملف
-- نوع المعالجة
-- عدد الملفات
+Cost depends on:
+- File type
+- File size
+- Processing type
+- Number of files
 
-راجع [صفحة الأسعار](/pricing) للتفاصيل.
+See the [pricing page](/pricing) for details.
 
-## حدود الاستخدام
+## Usage Limits
 
-| الباقة | حجم الملف | عدد الملفات/شهر |
-|--------|-----------|-----------------|
-| مجاني | 10 MB | 50 |
-| أساسي | 50 MB | 500 |
-| احترافي | 200 MB | 2000 |
-| مؤسسات | 1 GB | غير محدود |
+| Plan | File Size | Files/month |
+|------|-----------|-------------|
+| Free | 10 MB | 50 |
+| Basic | 50 MB | 500 |
+| Pro | 200 MB | 2000 |
+| Enterprise | 1 GB | Unlimited |
 
-## الدعم
+## Support
 
-تواصل معنا:
+Contact us:
 - support@megsyai.com
-- الدردشة المباشرة
-- [مركز المساعدة](https://megsyai.com/help)
+- Live chat
+- [Help Center](https://megsyai.com/help)
