@@ -1,0 +1,425 @@
+---
+title: "Ideogram V3"
+description: "Advanced text rendering and typography in AI-generated images"
+icon: "font"
+---
+
+<img src="https://i.ibb.co/spv22J1k/ideogram-v3.png" alt="Ideogram V3" />
+
+## Overview
+
+Ideogram V3 is a specialized image generation model that excels at rendering text and typography within images. Perfect for creating logos, posters, social media graphics, and any visual content that requires accurate text integration.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Perfect Text" icon="spell-check">
+    Accurate text rendering without distortion
+  </Card>
+  <Card title="Typography Control" icon="text">
+    Advanced control over fonts and text styling
+  </Card>
+  <Card title="Multi-Language" icon="language">
+    Support for multiple languages and scripts
+  </Card>
+  <Card title="Design Integration" icon="layer-group">
+    Seamless text integration with visual elements
+  </Card>
+</CardGroup>
+
+## How to Use
+
+### Basic Text Generation
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "ideogram-v3",
+        "prompt": "Modern logo design with text 'MEGSY AI'",
+        "text_elements": [
+            {
+                "text": "MEGSY AI",
+                "position": "center",
+                "style": "bold"
+            }
+        ],
+        "size": "1024x1024"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+### Advanced Typography
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "ideogram-v3",
+        "prompt": "Professional business card design",
+        "text_elements": [
+            {
+                "text": "John Doe",
+                "position": "top-center",
+                "font": "serif",
+                "size": "large",
+                "color": "#000000",
+                "weight": "bold"
+            },
+            {
+                "text": "CEO & Founder",
+                "position": "center",
+                "font": "sans-serif",
+                "size": "medium",
+                "color": "#666666"
+            },
+            {
+                "text": "contact@example.com",
+                "position": "bottom-center",
+                "font": "monospace",
+                "size": "small",
+                "color": "#333333"
+            }
+        ],
+        "size": "1024x1024",
+        "quality": "hd"
+    }
+)
+```
+
+## Text Element Configuration
+
+### Position Options
+```python
+positions = [
+    "top-left", "top-center", "top-right",
+    "center-left", "center", "center-right",
+    "bottom-left", "bottom-center", "bottom-right",
+    "custom"  # Use x, y coordinates
+]
+```
+
+### Font Families
+```python
+fonts = {
+    "serif": "Traditional serif fonts",
+    "sans-serif": "Modern sans-serif fonts",
+    "monospace": "Fixed-width fonts",
+    "script": "Handwriting style",
+    "display": "Decorative display fonts",
+    "custom": "Specify custom font name"
+}
+```
+
+### Text Sizes
+```python
+sizes = ["small", "medium", "large", "xlarge"]
+# Or use specific point sizes
+{"size": 24}  # 24pt
+```
+
+### Text Weights
+```python
+weights = ["light", "regular", "medium", "bold", "black"]
+```
+
+## Use Cases
+
+<Tabs>
+  <Tab title="Logo Design">
+    Create professional logos with perfect text rendering
+  </Tab>
+  <Tab title="Social Media">
+    Generate quote graphics and social media posts
+  </Tab>
+  <Tab title="Posters">
+    Design event posters and promotional materials
+  </Tab>
+  <Tab title="Branding">
+    Create branded visual content with consistent typography
+  </Tab>
+</Tabs>
+
+## Example Prompts
+
+### Logo Design
+```python
+{
+    "prompt": "Minimalist tech company logo, modern aesthetic",
+    "text_elements": [{
+        "text": "TECHCO",
+        "position": "center",
+        "font": "sans-serif",
+        "weight": "bold",
+        "size": "xlarge"
+    }],
+    "style": "minimalist"
+}
+```
+
+### Quote Graphic
+```python
+{
+    "prompt": "Inspirational quote on gradient background",
+    "text_elements": [
+        {
+            "text": "Dream Big",
+            "position": "center",
+            "font": "display",
+            "size": "xlarge",
+            "weight": "bold"
+        },
+        {
+            "text": "Work Hard",
+            "position": "bottom-center",
+            "font": "script",
+            "size": "large"
+        }
+    ]
+}
+```
+
+### Event Poster
+```python
+{
+    "prompt": "Music festival poster, vibrant colors",
+    "text_elements": [
+        {
+            "text": "SUMMER FEST 2024",
+            "position": "top-center",
+            "font": "display",
+            "size": "xlarge",
+            "weight": "black"
+        },
+        {
+            "text": "June 15-17",
+            "position": "center",
+            "font": "sans-serif",
+            "size": "large"
+        },
+        {
+            "text": "Central Park",
+            "position": "bottom-center",
+            "font": "serif",
+            "size": "medium"
+        }
+    ]
+}
+```
+
+### Business Card
+```python
+{
+    "prompt": "Professional business card, elegant design",
+    "text_elements": [
+        {
+            "text": "Jane Smith",
+            "position": "top-center",
+            "font": "serif",
+            "size": "large",
+            "weight": "bold"
+        },
+        {
+            "text": "Marketing Director",
+            "position": "center",
+            "font": "sans-serif",
+            "size": "medium"
+        },
+        {
+            "text": "+1 234 567 8900",
+            "position": "bottom-left",
+            "font": "monospace",
+            "size": "small"
+        },
+        {
+            "text": "jane@company.com",
+            "position": "bottom-right",
+            "font": "monospace",
+            "size": "small"
+        }
+    ]
+}
+```
+
+## Text Effects
+
+### Shadows
+```python
+{
+    "text_effects": {
+        "shadow": {
+            "enabled": True,
+            "color": "#000000",
+            "opacity": 0.5,
+            "blur": 4,
+            "offset_x": 2,
+            "offset_y": 2
+        }
+    }
+}
+```
+
+### Outlines
+```python
+{
+    "text_effects": {
+        "outline": {
+            "enabled": True,
+            "color": "#FFFFFF",
+            "width": 2
+        }
+    }
+}
+```
+
+### Gradients
+```python
+{
+    "text_effects": {
+        "gradient": {
+            "enabled": True,
+            "colors": ["#FF6B6B", "#4ECDC4"],
+            "direction": "horizontal"
+        }
+    }
+}
+```
+
+## Multi-Language Support
+
+### Supported Scripts
+- Latin (English, Spanish, French, etc.)
+- Arabic
+- Chinese (Simplified & Traditional)
+- Japanese (Hiragana, Katakana, Kanji)
+- Korean (Hangul)
+- Cyrillic (Russian, etc.)
+- Hebrew
+- Thai
+- And more...
+
+### Example with Arabic
+```python
+{
+    "text_elements": [{
+        "text": "ميجسي",
+        "position": "center",
+        "font": "arabic-modern",
+        "size": "xlarge",
+        "direction": "rtl"
+    }]
+}
+```
+
+## Best Practices
+
+<Steps>
+  <Step title="Clear Text Specification">
+    Always specify exact text in text_elements for best results
+  </Step>
+  <Step title="Choose Appropriate Fonts">
+    Select fonts that match your design aesthetic
+  </Step>
+  <Step title="Consider Readability">
+    Ensure sufficient contrast between text and background
+  </Step>
+  <Step title="Use Text Effects Sparingly">
+    Don't overuse effects - keep it clean and professional
+  </Step>
+  <Step title="Test Different Sizes">
+    Generate multiple versions to find optimal text sizing
+  </Step>
+</Steps>
+
+## Limitations
+
+- Maximum 10 text elements per image
+- Text length limit: 100 characters per element
+- Some decorative fonts may have limited character support
+- Very small text (< 12pt) may lose clarity
+
+## Pricing
+
+| Configuration | Price per Image |
+|---------------|-----------------|
+| Basic (1-3 text elements) | $0.03 |
+| Standard (4-6 text elements) | $0.05 |
+| Advanced (7-10 text elements) | $0.07 |
+| HD Quality | +$0.02 |
+
+## Performance
+
+- **Generation Time**: 5-8 seconds
+- **Text Accuracy**: 98%
+- **Multi-language Support**: 50+ languages
+- **Success Rate**: 96%
+
+## API Reference
+
+### Complete Example
+
+```python
+import requests
+
+def generate_text_image(prompt, text_elements, **options):
+    payload = {
+        "model": "ideogram-v3",
+        "prompt": prompt,
+        "text_elements": text_elements,
+        "size": options.get("size", "1024x1024"),
+        "quality": options.get("quality", "standard"),
+        "style": options.get("style"),
+        "text_effects": options.get("text_effects")
+    }
+    
+    response = requests.post(
+        "https://api.megsyai.com/v1/images/generate",
+        headers={"Authorization": "Bearer YOUR_API_KEY"},
+        json=payload
+    )
+    
+    return response.json()
+
+# Usage
+result = generate_text_image(
+    prompt="Modern tech logo design",
+    text_elements=[{
+        "text": "INNOVATE",
+        "position": "center",
+        "font": "sans-serif",
+        "size": "xlarge",
+        "weight": "bold",
+        "color": "#2C3E50"
+    }],
+    quality="hd"
+)
+```
+
+### Response Format
+
+```json
+{
+  "data": [{
+    "url": "https://cdn.megsyai.com/images/...",
+    "text_rendered": [
+      {"text": "INNOVATE", "accuracy": 0.99}
+    ]
+  }],
+  "model": "ideogram-v3",
+  "generation_time": 6.2
+}
+```
+
+## Support
+
+Questions about Ideogram V3?
+- Email: support@megsyai.com
+- Live chat: 24/7
+- [Typography Guide](https://megsyai.com/docs/typography)
+- [Community](https://community.megsyai.com)

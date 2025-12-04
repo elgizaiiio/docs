@@ -1,0 +1,367 @@
+---
+title: "Clarity Upscaler"
+description: "AI-powered image upscaling for enhanced resolution and detail"
+icon: "up-right-and-down-left-from-center"
+---
+
+<img src="https://i.ibb.co/TDR03pMn/clarity-upscaler.png" alt="Clarity Upscaler" />
+
+## Overview
+
+Clarity Upscaler uses advanced AI algorithms to increase image resolution while enhancing details and maintaining quality. Transform low-resolution images into high-quality, print-ready files.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Smart Upscaling" icon="expand">
+    Intelligent resolution enhancement up to 8x
+  </Card>
+  <Card title="Detail Enhancement" icon="sparkles">
+    Adds realistic details during upscaling
+  </Card>
+  <Card title="Noise Reduction" icon="filter">
+    Removes artifacts and noise automatically
+  </Card>
+  <Card title="Batch Processing" icon="layer-group">
+    Upscale multiple images at once
+  </Card>
+</CardGroup>
+
+## How to Use
+
+### Basic Upscaling
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/upscale",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("low_res.png", "rb")},
+    data={
+        "tool": "clarity-upscaler",
+        "scale": 4  # 2x, 4x, or 8x
+    }
+)
+
+upscaled_url = response.json()["data"]["url"]
+```
+
+### Advanced Configuration
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/upscale",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")},
+    data={
+        "tool": "clarity-upscaler",
+        "scale": 4,
+        "enhance_details": True,
+        "denoise": True,
+        "sharpen": 0.7,
+        "preserve_colors": True,
+        "output_format": "PNG"
+    }
+)
+```
+
+## Upscaling Options
+
+### Scale Factors
+
+| Scale | Input | Output | Use Case |
+|-------|-------|--------|----------|
+| 2x | 512x512 | 1024x1024 | Quick enhancement |
+| 4x | 512x512 | 2048x2048 | Standard upscaling |
+| 8x | 512x512 | 4096x4096 | Maximum quality |
+
+### Enhancement Modes
+
+#### Standard
+- Fast processing
+- Good quality improvement
+- Suitable for most images
+
+```python
+{"mode": "standard"}
+```
+
+#### Enhanced
+- Slower processing
+- Better detail reconstruction
+- Recommended for important images
+
+```python
+{"mode": "enhanced"}
+```
+
+#### Maximum
+- Longest processing time
+- Best possible quality
+- For professional/print use
+
+```python
+{"mode": "maximum"}
+```
+
+## Advanced Parameters
+
+### Detail Enhancement
+Controls how much detail is added (0.0 - 1.0):
+```python
+{
+    "enhance_details": True,
+    "detail_strength": 0.7  # Recommended
+}
+```
+
+### Noise Reduction
+Remove compression artifacts and noise:
+```python
+{
+    "denoise": True,
+    "denoise_strength": 0.5  # 0.0 = none, 1.0 = maximum
+}
+```
+
+### Sharpening
+Add sharpness to the upscaled image:
+```python
+{
+    "sharpen": 0.7  # 0.0 = none, 1.0 = maximum
+}
+```
+
+### Color Preservation
+Maintain original color accuracy:
+```python
+{
+    "preserve_colors": True,
+    "color_boost": 0.0  # Optional color enhancement
+}
+```
+
+## Use Cases
+
+<Tabs>
+  <Tab title="Print Preparation">
+    Upscale images for high-quality printing
+  </Tab>
+  <Tab title="Old Photos">
+    Restore and enhance vintage photographs
+  </Tab>
+  <Tab title="Product Images">
+    Improve product photo quality for e-commerce
+  </Tab>
+  <Tab title="Social Media">
+    Enhance images for high-res displays
+  </Tab>
+  <Tab title="Art & Design">
+    Prepare artwork for large format printing
+  </Tab>
+</Tabs>
+
+## Example Workflows
+
+### E-commerce Product
+```python
+{
+    "scale": 4,
+    "mode": "enhanced",
+    "enhance_details": True,
+    "denoise": True,
+    "sharpen": 0.6,
+    "preserve_colors": True
+}
+```
+
+### Old Photo Restoration
+```python
+{
+    "scale": 4,
+    "mode": "maximum",
+    "enhance_details": True,
+    "denoise": True,
+    "denoise_strength": 0.8,
+    "sharpen": 0.5
+}
+```
+
+### Artwork for Print
+```python
+{
+    "scale": 8,
+    "mode": "maximum",
+    "enhance_details": True,
+    "detail_strength": 0.9,
+    "preserve_colors": True,
+    "output_format": "TIFF"
+}
+```
+
+## Batch Processing
+
+### Process Multiple Images
+
+```python
+import requests
+from concurrent.futures import ThreadPoolExecutor
+
+def upscale_image(image_path):
+    with open(image_path, 'rb') as f:
+        response = requests.post(
+            "https://api.megsyai.com/v1/images/upscale",
+            headers={"Authorization": "Bearer YOUR_API_KEY"},
+            files={"image": f},
+            data={"tool": "clarity-upscaler", "scale": 4}
+        )
+    return response.json()
+
+# Upscale multiple images in parallel
+image_paths = ["img1.png", "img2.png", "img3.png"]
+with ThreadPoolExecutor(max_workers=5) as executor:
+    results = list(executor.map(upscale_image, image_paths))
+```
+
+## Output Formats
+
+### Supported Formats
+- **PNG**: Lossless, best quality (recommended)
+- **JPEG**: Smaller file size, good quality
+- **TIFF**: Professional, uncompressed
+- **WebP**: Modern format, good compression
+
+```python
+{
+    "output_format": "PNG",
+    "compression": "lossless"  # For PNG/TIFF
+}
+```
+
+## Best Practices
+
+<Steps>
+  <Step title="Choose Right Scale">
+    Don't over-upscale - 4x is usually sufficient
+  </Step>
+  <Step title="Enable Denoising">
+    Always use denoise for compressed images
+  </Step>
+  <Step title="Moderate Sharpening">
+    Keep sharpening between 0.5-0.7 for natural look
+  </Step>
+  <Step title="Preserve Colors">
+    Enable color preservation for accurate results
+  </Step>
+  <Step title="Use Maximum Mode">
+    Use maximum mode for final/print versions
+  </Step>
+</Steps>
+
+## Limitations
+
+- Maximum input size: 4096x4096 pixels
+- Maximum output size: 32768x32768 pixels (8x upscale)
+- Supported input formats: PNG, JPEG, WebP, TIFF
+- Processing time increases with scale factor
+
+## Performance
+
+| Scale | Input Size | Processing Time | Output Size |
+|-------|------------|-----------------|-------------|
+| 2x | 1024x1024 | 3-5s | 2048x2048 |
+| 4x | 1024x1024 | 8-12s | 4096x4096 |
+| 8x | 1024x1024 | 20-30s | 8192x8192 |
+
+## Pricing
+
+| Scale | Mode | Price per Image |
+|-------|------|-----------------|
+| 2x | Standard | $0.03 |
+| 2x | Enhanced | $0.05 |
+| 4x | Standard | $0.08 |
+| 4x | Enhanced | $0.12 |
+| 4x | Maximum | $0.15 |
+| 8x | Enhanced | $0.25 |
+| 8x | Maximum | $0.35 |
+
+## Quality Comparison
+
+### Before vs After
+- **Resolution**: 4x increase in pixels
+- **Detail**: Significant enhancement
+- **Clarity**: Sharper, clearer images
+- **Noise**: Reduced artifacts
+- **Print Quality**: Professional grade
+
+## API Reference
+
+### Complete Example
+
+```python
+import requests
+
+def upscale_with_clarity(image_path, scale=4, **options):
+    with open(image_path, 'rb') as image_file:
+        response = requests.post(
+            "https://api.megsyai.com/v1/images/upscale",
+            headers={
+                "Authorization": "Bearer YOUR_API_KEY",
+                "Content-Type": "multipart/form-data"
+            },
+            files={"image": image_file},
+            data={
+                "tool": "clarity-upscaler",
+                "scale": scale,
+                "mode": options.get("mode", "enhanced"),
+                "enhance_details": options.get("enhance_details", True),
+                "detail_strength": options.get("detail_strength", 0.7),
+                "denoise": options.get("denoise", True),
+                "denoise_strength": options.get("denoise_strength", 0.5),
+                "sharpen": options.get("sharpen", 0.7),
+                "preserve_colors": options.get("preserve_colors", True),
+                "output_format": options.get("output_format", "PNG")
+            }
+        )
+    
+    return response.json()
+
+# Usage
+result = upscale_with_clarity(
+    "low_res_image.png",
+    scale=4,
+    mode="maximum",
+    enhance_details=True,
+    detail_strength=0.9
+)
+
+print(f"Upscaled image: {result['data']['url']}")
+print(f"Original size: {result['original_size']}")
+print(f"New size: {result['new_size']}")
+```
+
+### Response Format
+
+```json
+{
+  "data": {
+    "url": "https://cdn.megsyai.com/images/upscaled_...",
+    "download_url": "https://cdn.megsyai.com/downloads/..."
+  },
+  "original_size": "1024x1024",
+  "new_size": "4096x4096",
+  "scale_factor": 4,
+  "file_size": "12.5 MB",
+  "format": "PNG",
+  "processing_time": 10.5
+}
+```
+
+## Support
+
+Need help with Clarity Upscaler?
+- Email: support@megsyai.com
+- Live chat: 24/7
+- [Upscaling Guide](https://megsyai.com/docs/upscaling)
+- [Community](https://community.megsyai.com)

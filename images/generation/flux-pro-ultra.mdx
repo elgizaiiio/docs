@@ -1,0 +1,409 @@
+---
+title: "Flux Pro Ultra"
+description: "Ultimate image generation with maximum quality and detail"
+icon: "star"
+---
+
+<img src="https://i.ibb.co/0jGrPN85/flux-pro-ultra.png" alt="Flux Pro Ultra" />
+
+## Overview
+
+Flux Pro Ultra is our flagship image generation model, delivering the highest quality, most detailed, and most photorealistic images available. Built for professionals who demand absolute excellence in every pixel.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Maximum Quality" icon="gem">
+    Unparalleled image quality and detail
+  </Card>
+  <Card title="8K Resolution" icon="expand">
+    Support for ultra-high resolution output
+  </Card>
+  <Card title="Photorealism" icon="camera">
+    Indistinguishable from real photography
+  </Card>
+  <Card title="Professional Grade" icon="award">
+    Commercial and print-ready quality
+  </Card>
+</CardGroup>
+
+## How to Use
+
+### Basic Ultra Generation
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "flux-pro-ultra",
+        "prompt": "Professional product photography of a luxury watch",
+        "size": "2048x2048",
+        "quality": "ultra"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+### Maximum Quality Configuration
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "flux-pro-ultra",
+        "prompt": """
+            Ultra high-end commercial product photography,
+            luxury perfume bottle on marble surface,
+            dramatic studio lighting, extreme detail,
+            8K resolution, professional photography,
+            Hasselblad quality, commercial grade
+        """,
+        "negative_prompt": "blurry, low quality, amateur, distorted",
+        "size": "4096x4096",
+        "quality": "ultra",
+        "detail_level": "maximum",
+        "refinement_steps": 100,
+        "guidance_scale": 8.0,
+        "upscale": True
+    }
+)
+```
+
+## Supported Resolutions
+
+| Resolution | Dimensions | Use Case | Generation Time |
+|------------|------------|----------|-----------------|
+| 2K | 2048x2048 | High-res digital | 20-25s |
+| 4K | 4096x4096 | Print & commercial | 40-50s |
+| 8K | 8192x8192 | Large format print | 80-100s |
+| Custom | Up to 8K | Specific requirements | Varies |
+
+## Quality Tiers
+
+### Ultra (Recommended)
+- Maximum detail and clarity
+- Professional color accuracy
+- Print-ready quality
+- 100 refinement steps
+
+### Ultra+ (Premium)
+- Enhanced beyond Ultra
+- Additional post-processing
+- Perfect for large prints
+- 150 refinement steps
+
+## Advanced Parameters
+
+### Detail Level
+```python
+detail_levels = {
+    "high": "Standard professional quality",
+    "maximum": "Extreme detail capture",
+    "ultra": "Beyond maximum, every pixel perfect"
+}
+```
+
+### Refinement Steps
+Controls generation quality (higher = better):
+```python
+{
+    "refinement_steps": 50,   # Good quality
+    "refinement_steps": 100,  # Excellent (recommended)
+    "refinement_steps": 150   # Maximum quality
+}
+```
+
+### Guidance Scale
+Prompt adherence (1.0 - 20.0):
+```python
+{
+    "guidance_scale": 7.0,   # Balanced
+    "guidance_scale": 8.0,   # Recommended for Ultra
+    "guidance_scale": 10.0   # Strict adherence
+}
+```
+
+## Professional Features
+
+### Color Management
+```python
+{
+    "color_profile": "sRGB",      # Standard web
+    "color_profile": "Adobe RGB", # Professional print
+    "color_profile": "ProPhoto",  # Maximum gamut
+    "bit_depth": 16               # 16-bit color depth
+}
+```
+
+### Output Format
+```python
+{
+    "format": "PNG",    # Lossless
+    "format": "TIFF",   # Professional
+    "format": "EXR",    # HDR/VFX
+    "compression": "lossless"
+}
+```
+
+### Metadata Embedding
+```python
+{
+    "embed_metadata": True,
+    "metadata": {
+        "copyright": "© 2024 Your Company",
+        "creator": "Megsy AI",
+        "description": "Product photography"
+    }
+}
+```
+
+## Specialty Modes
+
+### Commercial Photography
+```python
+{
+    "mode": "commercial",
+    "lighting": "studio-professional",
+    "color_accuracy": "maximum",
+    "detail_preservation": "ultra"
+}
+```
+
+### Fine Art
+```python
+{
+    "mode": "fine-art",
+    "texture_detail": "maximum",
+    "color_depth": "rich",
+    "artistic_quality": "museum-grade"
+}
+```
+
+### Architectural
+```python
+{
+    "mode": "architectural",
+    "perspective_correction": True,
+    "detail_level": "maximum",
+    "lighting": "natural-accurate"
+}
+```
+
+## Example Prompts
+
+### Luxury Product
+```
+Ultra high-end commercial product photography of a diamond ring,
+macro lens, extreme detail, perfect reflections on polished metal,
+studio lighting with soft shadows, black velvet background,
+Hasselblad H6D quality, 8K resolution, commercial grade,
+perfect color accuracy, museum quality
+```
+
+### Fashion Photography
+```
+High fashion editorial photography, professional model,
+designer clothing, dramatic studio lighting, perfect skin tones,
+sharp focus, medium format camera quality, Vogue magazine style,
+8K resolution, professional retouching, commercial photography
+```
+
+### Architectural Photography
+```
+Professional architectural photography of modern luxury home,
+golden hour lighting, perfect perspective, ultra sharp detail,
+HDR processing, professional real estate photography,
+medium format camera, 8K resolution, commercial grade
+```
+
+### Food Photography
+```
+Professional food photography, gourmet dish presentation,
+perfect lighting, extreme detail, appetizing colors,
+shallow depth of field, commercial restaurant photography,
+8K resolution, magazine quality, professional styling
+```
+
+## Post-Processing Options
+
+### Auto Enhancement
+```python
+{
+    "auto_enhance": True,
+    "enhancements": {
+        "sharpening": "professional",
+        "color_correction": True,
+        "noise_reduction": "maximum",
+        "contrast_optimization": True
+    }
+}
+```
+
+### HDR Processing
+```python
+{
+    "hdr": {
+        "enabled": True,
+        "strength": 0.7,
+        "tone_mapping": "natural"
+    }
+}
+```
+
+### Upscaling
+```python
+{
+    "upscale": True,
+    "upscale_factor": 2,  # 2x, 4x
+    "upscale_method": "ai-enhanced"
+}
+```
+
+## Best Practices
+
+<Steps>
+  <Step title="Detailed Prompts">
+    Provide comprehensive, professional descriptions
+  </Step>
+  <Step title="Technical Specifications">
+    Include camera, lens, and lighting details
+  </Step>
+  <Step title="Quality Keywords">
+    Use terms like "8K", "professional", "commercial grade"
+  </Step>
+  <Step title="Negative Prompts">
+    Specify all unwanted elements and quality issues
+  </Step>
+  <Step title="Optimal Settings">
+    Use recommended refinement steps and guidance scale
+  </Step>
+  <Step title="Color Management">
+    Choose appropriate color profile for your use case
+  </Step>
+</Steps>
+
+## Use Cases
+
+<Tabs>
+  <Tab title="Commercial">
+    Product photography, advertising, marketing materials
+  </Tab>
+  <Tab title="Print">
+    Magazine covers, posters, large format prints
+  </Tab>
+  <Tab title="Editorial">
+    Fashion, lifestyle, and editorial photography
+  </Tab>
+  <Tab title="Architecture">
+    Real estate, architectural visualization
+  </Tab>
+  <Tab title="Fine Art">
+    Gallery prints, art exhibitions
+  </Tab>
+</Tabs>
+
+## Quality Comparison
+
+| Feature | Flux Pro Ultra | SeeDream 4 | Flux.2 Flex |
+|---------|----------------|------------|-------------|
+| Max Resolution | 8K | 4K | 4K |
+| Detail Level | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Photorealism | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Color Accuracy | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Print Quality | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+| Speed | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
+
+## Pricing
+
+| Resolution | Quality | Price per Image |
+|------------|---------|-----------------|
+| 2048x2048 | Ultra | $0.20 |
+| 2048x2048 | Ultra+ | $0.30 |
+| 4096x4096 | Ultra | $0.50 |
+| 4096x4096 | Ultra+ | $0.75 |
+| 8192x8192 | Ultra | $1.50 |
+| 8192x8192 | Ultra+ | $2.50 |
+
+## Performance Metrics
+
+- **Average Generation Time**: 30-60 seconds (4K)
+- **Quality Score**: 10/10
+- **Professional Rating**: 9.8/10
+- **Print Suitability**: Excellent
+- **Commercial Grade**: Yes
+
+## API Reference
+
+### Complete Example
+
+```python
+import requests
+
+def generate_ultra_image(prompt, **options):
+    payload = {
+        "model": "flux-pro-ultra",
+        "prompt": prompt,
+        "negative_prompt": options.get("negative_prompt", ""),
+        "size": options.get("size", "2048x2048"),
+        "quality": options.get("quality", "ultra"),
+        "detail_level": options.get("detail_level", "maximum"),
+        "refinement_steps": options.get("refinement_steps", 100),
+        "guidance_scale": options.get("guidance_scale", 8.0),
+        "color_profile": options.get("color_profile", "Adobe RGB"),
+        "format": options.get("format", "PNG"),
+        "upscale": options.get("upscale", False),
+        "auto_enhance": options.get("auto_enhance", True)
+    }
+    
+    response = requests.post(
+        "https://api.megsyai.com/v1/images/generate",
+        headers={"Authorization": "Bearer YOUR_API_KEY"},
+        json=payload
+    )
+    
+    return response.json()
+
+# Usage for commercial photography
+result = generate_ultra_image(
+    prompt="Professional product photography...",
+    size="4096x4096",
+    quality="ultra+",
+    detail_level="ultra",
+    refinement_steps=150,
+    color_profile="Adobe RGB",
+    upscale=True
+)
+```
+
+### Response Format
+
+```json
+{
+  "data": [{
+    "url": "https://cdn.megsyai.com/images/...",
+    "download_url": "https://cdn.megsyai.com/downloads/...",
+    "resolution": "4096x4096",
+    "file_size": "45.2 MB",
+    "format": "PNG",
+    "color_profile": "Adobe RGB",
+    "bit_depth": 16
+  }],
+  "model": "flux-pro-ultra",
+  "generation_time": 45.8,
+  "quality_score": 0.98
+}
+```
+
+## Support
+
+Premium support for Flux Pro Ultra:
+- Email: pro-support@megsyai.com
+- Priority chat: 24/7
+- Dedicated account manager (Enterprise)
+- [Professional Guide](https://megsyai.com/docs/flux-pro-ultra)
+- [Community](https://community.megsyai.com)

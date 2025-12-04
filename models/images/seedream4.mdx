@@ -1,0 +1,68 @@
+---
+title: "Seedream4"
+description: "Advanced image generation with exceptional detail and creativity"
+---
+
+<img src="https://i.ibb.co/23HTJgBQ/seedream4.png" alt="Seedream4" />
+
+## Overview
+
+Seedream4 is a cutting-edge image generation model known for its exceptional detail, vibrant colors, and creative interpretations. It excels at producing artistic and imaginative visuals.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="High Detail" icon="sparkles">
+    Exceptional fine details and textures
+  </Card>
+  <Card title="Vibrant Colors" icon="palette">
+    Rich, saturated color palettes
+  </Card>
+  <Card title="Creative" icon="lightbulb">
+    Unique artistic interpretations
+  </Card>
+  <Card title="Flexible" icon="sliders">
+    Wide range of styles and subjects
+  </Card>
+</Columns>
+
+## Specifications
+
+| Feature | Details |
+|---------|---------|
+| Max Resolution | 1536x1536 |
+| Aspect Ratios | Multiple ratios supported |
+| Generation Time | 5-10 seconds |
+| Styles | Artistic, Fantasy, Surreal |
+| Best For | Creative projects, artwork |
+
+## Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "seedream4",
+        "prompt": "Ethereal fantasy landscape with floating islands",
+        "size": "1536x1536",
+        "quality": "hd"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+## Best Use Cases
+
+- **Digital Art**: Creating unique artwork
+- **Fantasy Scenes**: Imaginative landscapes and characters
+- **Book Covers**: Eye-catching cover designs
+- **Concept Art**: Visual development for projects
+
+## Support
+
+- Email: support@megsyai.com
+- [Help Center](https://megsyai.com/help)

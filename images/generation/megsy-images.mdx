@@ -1,0 +1,185 @@
+---
+title: "Megsy Images"
+description: "Our proprietary image generation model optimized for quality and speed"
+icon: "sparkles"
+---
+
+<img src="https://i.ibb.co/VYc5YXRZ/megsy-images.png" alt="Megsy Images" />
+
+## Overview
+
+Megsy Images is our proprietary AI image generation model, specifically designed and trained to deliver high-quality images with exceptional speed. Optimized for both Arabic and English prompts, it provides professional results for various use cases.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="High Speed" icon="bolt">
+    Generate images in seconds with our optimized infrastructure
+  </Card>
+  <Card title="Quality Output" icon="star">
+    Professional-grade images up to 4K resolution
+  </Card>
+  <Card title="Arabic Support" icon="language">
+    Native understanding of Arabic prompts and context
+  </Card>
+  <Card title="Cost Effective" icon="dollar-sign">
+    Competitive pricing for high-volume usage
+  </Card>
+</CardGroup>
+
+## How to Use
+
+### Basic Generation
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "megsy-images",
+        "prompt": "A beautiful sunset over the ocean with vibrant colors",
+        "size": "1024x1024",
+        "quality": "hd"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+print(f"Generated image: {image_url}")
+```
+
+### Advanced Options
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "megsy-images",
+        "prompt": "Professional product photography of a luxury watch",
+        "negative_prompt": "blurry, low quality, distorted",
+        "size": "1024x1024",
+        "quality": "hd",
+        "style": "photographic",
+        "num_images": 4
+    }
+)
+```
+
+## Supported Sizes
+
+| Size | Dimensions | Best For |
+|------|------------|----------|
+| Square | 1024x1024 | Social media, avatars |
+| Landscape | 1792x1024 | Banners, headers |
+| Portrait | 1024x1792 | Posters, mobile screens |
+| 4K | 2048x2048 | Print, high-res displays |
+
+## Quality Settings
+
+### Standard
+- Fast generation (2-3 seconds)
+- Good for previews and iterations
+- Lower cost per image
+
+### HD
+- Slower generation (5-7 seconds)
+- Enhanced details and clarity
+- Professional quality output
+
+## Style Presets
+
+```python
+styles = [
+    "photographic",    # Realistic photography
+    "digital-art",     # Digital artwork
+    "3d-render",       # 3D rendered look
+    "anime",           # Anime/manga style
+    "oil-painting",    # Oil painting aesthetic
+    "watercolor",      # Watercolor painting
+    "sketch",          # Pencil sketch
+    "cinematic"        # Movie-like quality
+]
+```
+
+## Best Practices
+
+<Steps>
+  <Step title="Be Specific">
+    Include detailed descriptions of what you want in the image
+  </Step>
+  <Step title="Use Negative Prompts">
+    Specify what you don't want to avoid unwanted elements
+  </Step>
+  <Step title="Choose Right Style">
+    Select the style preset that matches your desired output
+  </Step>
+  <Step title="Iterate">
+    Generate multiple variations to find the perfect result
+  </Step>
+</Steps>
+
+## Example Prompts
+
+### Product Photography
+```
+Professional product photo of a smartphone on a clean white background,
+studio lighting, high detail, commercial photography, 4K quality
+```
+
+### Landscape
+```
+Breathtaking mountain landscape at golden hour, dramatic clouds,
+vibrant colors, professional nature photography, ultra detailed
+```
+
+### Portrait
+```
+Professional headshot of a business person, neutral background,
+natural lighting, confident expression, high quality portrait
+```
+
+## Pricing
+
+| Quality | Size | Price per Image |
+|---------|------|-----------------|
+| Standard | 1024x1024 | $0.015 |
+| HD | 1024x1024 | $0.03 |
+| Standard | 1792x1024 | $0.02 |
+| HD | 1792x1024 | $0.04 |
+| 4K | 2048x2048 | $0.06 |
+
+## API Reference
+
+### Parameters
+
+- `model` (required): "megsy-images"
+- `prompt` (required): Text description of the image
+- `negative_prompt` (optional): What to avoid in the image
+- `size` (optional): Image dimensions (default: "1024x1024")
+- `quality` (optional): "standard" or "hd" (default: "standard")
+- `style` (optional): Style preset
+- `num_images` (optional): Number of images to generate (1-4)
+
+### Response
+
+```json
+{
+  "data": [
+    {
+      "url": "https://cdn.megsyai.com/images/...",
+      "revised_prompt": "Enhanced version of your prompt"
+    }
+  ],
+  "model": "megsy-images",
+  "created": 1234567890
+}
+```
+
+## Support
+
+Need help with Megsy Images?
+- Email: support@megsyai.com
+- Live chat on website
+- [Help Center](https://megsyai.com/help)

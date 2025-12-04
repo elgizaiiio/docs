@@ -1,0 +1,183 @@
+---
+title: "Qwen Edit"
+description: "Intelligent image editing with natural language instructions"
+icon: "wand-sparkles"
+---
+
+<img src="https://i.ibb.co/351rbH7P/qwen-edit.png" alt="Qwen Edit" />
+
+## Overview
+
+Qwen Edit is an advanced AI image editing model that understands natural language instructions to modify images precisely. Simply describe what you want to change, and Qwen Edit will make it happen.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Natural Language" icon="message">
+    Edit images using simple text instructions
+  </Card>
+  <Card title="Precise Control" icon="crosshairs">
+    Accurate modifications exactly where you want them
+  </Card>
+  <Card title="Context Aware" icon="brain">
+    Understands image context for better edits
+  </Card>
+  <Card title="Non-Destructive" icon="shield">
+    Original image preserved, changes are reversible
+  </Card>
+</CardGroup>
+
+## How to Use
+
+### Basic Editing
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("original.png", "rb")},
+    data={
+        "model": "qwen-edit",
+        "instruction": "Change the sky to sunset colors"
+    }
+)
+
+edited_url = response.json()["data"]["url"]
+```
+
+### Advanced Editing
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={
+        "image": open("original.png", "rb"),
+        "mask": open("mask.png", "rb")  # Optional: specify edit area
+    },
+    data={
+        "model": "qwen-edit",
+        "instruction": "Replace the background with a modern office interior",
+        "strength": 0.8,
+        "preserve_subject": True,
+        "blend_edges": True
+    }
+)
+```
+
+## Edit Types
+
+### Object Replacement
+```python
+{"instruction": "Replace the car with a bicycle"}
+```
+
+### Color Adjustment
+```python
+{"instruction": "Make the image warmer and more vibrant"}
+```
+
+### Background Change
+```python
+{"instruction": "Change background to a beach scene"}
+```
+
+### Object Removal
+```python
+{"instruction": "Remove the person in the background"}
+```
+
+### Style Transfer
+```python
+{"instruction": "Make it look like a watercolor painting"}
+```
+
+### Detail Enhancement
+```python
+{"instruction": "Enhance details and sharpen the image"}
+```
+
+## Parameters
+
+### Strength
+Controls how much the image changes (0.0 - 1.0):
+```python
+{
+    "strength": 0.3,  # Subtle changes
+    "strength": 0.6,  # Moderate (recommended)
+    "strength": 0.9   # Strong changes
+}
+```
+
+### Preserve Subject
+Keep main subject unchanged:
+```python
+{"preserve_subject": True}
+```
+
+### Blend Edges
+Smooth transitions between edited and original areas:
+```python
+{"blend_edges": True}
+```
+
+## Example Use Cases
+
+### Product Photography
+```python
+{
+    "instruction": "Change product color to blue",
+    "strength": 0.7,
+    "preserve_subject": True
+}
+```
+
+### Real Estate
+```python
+{
+    "instruction": "Add furniture to empty room",
+    "strength": 0.8,
+    "blend_edges": True
+}
+```
+
+### Portrait Enhancement
+```python
+{
+    "instruction": "Improve lighting and remove blemishes",
+    "strength": 0.5,
+    "preserve_subject": True
+}
+```
+
+## Best Practices
+
+<Steps>
+  <Step title="Clear Instructions">
+    Be specific about what you want to change
+  </Step>
+  <Step title="Use Masks">
+    Provide masks for precise control over edit areas
+  </Step>
+  <Step title="Adjust Strength">
+    Start with lower strength and increase if needed
+  </Step>
+  <Step title="Preserve Important Elements">
+    Use preserve_subject for main objects
+  </Step>
+</Steps>
+
+## Pricing
+
+| Edit Type | Price per Edit |
+|-----------|----------------|
+| Simple | $0.05 |
+| Standard | $0.08 |
+| Complex | $0.12 |
+
+## Support
+
+- Email: support@megsyai.com
+- [Documentation](https://megsyai.com/docs/qwen-edit)

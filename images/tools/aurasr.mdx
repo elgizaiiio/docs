@@ -1,0 +1,319 @@
+---
+title: "AuraSR"
+description: "Super-resolution AI for extreme detail enhancement"
+icon: "sparkles"
+---
+
+<img src="https://i.ibb.co/LDHyPs1Z/aurasr.png" alt="AuraSR" />
+
+## Overview
+
+AuraSR is a cutting-edge super-resolution AI model that reconstructs fine details and textures in images. Perfect for extreme upscaling scenarios where maximum detail recovery is essential.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Extreme Detail" icon="magnifying-glass-plus">
+    Recovers and reconstructs fine details
+  </Card>
+  <Card title="Texture Synthesis" icon="grid">
+    Generates realistic textures during upscaling
+  </Card>
+  <Card title="Edge Enhancement" icon="vector-square">
+    Preserves and enhances sharp edges
+  </Card>
+  <Card title="AI Reconstruction" icon="brain">
+    Intelligent detail reconstruction
+  </Card>
+</CardGroup>
+
+## How to Use
+
+### Basic Super-Resolution
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/super-resolution",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")},
+    data={
+        "tool": "aurasr",
+        "scale": 4
+    }
+)
+
+result_url = response.json()["data"]["url"]
+```
+
+### Advanced Configuration
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/super-resolution",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")},
+    data={
+        "tool": "aurasr",
+        "scale": 4,
+        "detail_level": "maximum",
+        "texture_synthesis": True,
+        "edge_enhancement": 0.8,
+        "artifact_removal": True,
+        "color_enhancement": 0.5
+    }
+)
+```
+
+## Super-Resolution Modes
+
+### Detail Reconstruction
+Focus on recovering lost details:
+```python
+{
+    "mode": "detail",
+    "detail_level": "maximum",
+    "texture_synthesis": True
+}
+```
+
+### Edge Enhancement
+Emphasize sharp edges and boundaries:
+```python
+{
+    "mode": "edge",
+    "edge_enhancement": 0.9,
+    "preserve_structure": True
+}
+```
+
+### Balanced
+Best overall quality:
+```python
+{
+    "mode": "balanced",  # Recommended
+    "detail_level": "high",
+    "edge_enhancement": 0.7
+}
+```
+
+## Advanced Parameters
+
+### Detail Level
+```python
+detail_levels = {
+    "low": "Subtle enhancement",
+    "medium": "Moderate detail addition",
+    "high": "Significant detail recovery",
+    "maximum": "Extreme detail reconstruction"
+}
+```
+
+### Texture Synthesis
+Generate realistic textures:
+```python
+{
+    "texture_synthesis": True,
+    "texture_strength": 0.7  # 0.0 - 1.0
+}
+```
+
+### Edge Enhancement
+Sharpen edges and boundaries:
+```python
+{
+    "edge_enhancement": 0.8,  # 0.0 - 1.0
+    "edge_threshold": 0.5
+}
+```
+
+### Artifact Removal
+Remove compression artifacts:
+```python
+{
+    "artifact_removal": True,
+    "artifact_strength": 0.7
+}
+```
+
+## Use Cases
+
+<Tabs>
+  <Tab title="Photography">
+    Enhance photo details for large prints
+  </Tab>
+  <Tab title="Forensics">
+    Recover details from low-quality images
+  </Tab>
+  <Tab title="Medical Imaging">
+    Enhance medical scans and x-rays
+  </Tab>
+  <Tab title="Satellite Imagery">
+    Improve satellite and aerial photos
+  </Tab>
+  <Tab title="Restoration">
+    Restore old or damaged photographs
+  </Tab>
+</Tabs>
+
+## Example Workflows
+
+### Portrait Enhancement
+```python
+{
+    "scale": 4,
+    "mode": "detail",
+    "detail_level": "high",
+    "texture_synthesis": True,
+    "texture_strength": 0.6,
+    "edge_enhancement": 0.5,
+    "artifact_removal": True
+}
+```
+
+### Landscape Photography
+```python
+{
+    "scale": 4,
+    "mode": "balanced",
+    "detail_level": "maximum",
+    "texture_synthesis": True,
+    "edge_enhancement": 0.8,
+    "color_enhancement": 0.6
+}
+```
+
+### Technical/Scientific
+```python
+{
+    "scale": 4,
+    "mode": "edge",
+    "detail_level": "maximum",
+    "edge_enhancement": 0.9,
+    "preserve_structure": True,
+    "artifact_removal": True
+}
+```
+
+## Comparison: AuraSR vs Clarity Upscaler
+
+| Feature | AuraSR | Clarity Upscaler |
+|---------|--------|------------------|
+| Detail Recovery | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Texture Synthesis | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
+| Edge Quality | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Speed | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Cost | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Best For | Extreme detail | General upscaling |
+
+## Best Practices
+
+<Steps>
+  <Step title="Choose Right Mode">
+    Select mode based on image type and goals
+  </Step>
+  <Step title="Balance Settings">
+    Don't max out all parameters - find balance
+  </Step>
+  <Step title="Enable Texture Synthesis">
+    Use for natural-looking detail enhancement
+  </Step>
+  <Step title="Remove Artifacts">
+    Always enable for compressed images
+  </Step>
+  <Step title="Test Settings">
+    Experiment with different configurations
+  </Step>
+</Steps>
+
+## Performance
+
+| Scale | Input | Processing Time | Output |
+|-------|-------|-----------------|--------|
+| 2x | 1024x1024 | 8-12s | 2048x2048 |
+| 4x | 1024x1024 | 20-30s | 4096x4096 |
+| 8x | 512x512 | 40-60s | 4096x4096 |
+
+## Pricing
+
+| Scale | Mode | Price per Image |
+|-------|------|-----------------|
+| 2x | Balanced | $0.08 |
+| 4x | Balanced | $0.15 |
+| 4x | Maximum | $0.25 |
+| 8x | Balanced | $0.40 |
+| 8x | Maximum | $0.60 |
+
+## Technical Specifications
+
+- **Maximum Input**: 4096x4096 pixels
+- **Maximum Output**: 32768x32768 pixels
+- **Supported Formats**: PNG, JPEG, TIFF, WebP
+- **Color Depth**: Up to 16-bit
+- **Processing**: GPU-accelerated
+
+## API Reference
+
+### Complete Example
+
+```python
+import requests
+
+def super_resolve_image(image_path, scale=4, **options):
+    with open(image_path, 'rb') as f:
+        response = requests.post(
+            "https://api.megsyai.com/v1/images/super-resolution",
+            headers={"Authorization": "Bearer YOUR_API_KEY"},
+            files={"image": f},
+            data={
+                "tool": "aurasr",
+                "scale": scale,
+                "mode": options.get("mode", "balanced"),
+                "detail_level": options.get("detail_level", "high"),
+                "texture_synthesis": options.get("texture_synthesis", True),
+                "texture_strength": options.get("texture_strength", 0.7),
+                "edge_enhancement": options.get("edge_enhancement", 0.7),
+                "artifact_removal": options.get("artifact_removal", True),
+                "color_enhancement": options.get("color_enhancement", 0.5)
+            }
+        )
+    return response.json()
+
+# Usage
+result = super_resolve_image(
+    "photo.jpg",
+    scale=4,
+    mode="detail",
+    detail_level="maximum",
+    texture_synthesis=True
+)
+
+print(f"Enhanced image: {result['data']['url']}")
+```
+
+### Response Format
+
+```json
+{
+  "data": {
+    "url": "https://cdn.megsyai.com/images/sr_...",
+    "download_url": "https://cdn.megsyai.com/downloads/..."
+  },
+  "original_size": "1024x1024",
+  "enhanced_size": "4096x4096",
+  "scale_factor": 4,
+  "mode": "detail",
+  "detail_score": 0.95,
+  "processing_time": 25.3,
+  "file_size": "18.7 MB"
+}
+```
+
+## Support
+
+Need help with AuraSR?
+- Email: support@megsyai.com
+- Live chat: 24/7
+- [Super-Resolution Guide](https://megsyai.com/docs/super-resolution)
+- [Community](https://community.megsyai.com)

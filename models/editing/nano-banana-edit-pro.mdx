@@ -1,0 +1,66 @@
+---
+title: "Nano Banana Edit Pro"
+description: "Professional-grade fast image editing"
+---
+
+<img src="https://i.ibb.co/PvD3shHp/nano-banana-edit-pro.png" alt="Nano Banana Edit Pro" />
+
+## Overview
+
+Nano Banana Edit Pro combines speed with professional-quality editing capabilities. Perfect for quick edits that don't compromise on quality.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="Fast Editing" icon="bolt">
+    Process edits in 3-5 seconds
+  </Card>
+  <Card title="Professional Quality" icon="star">
+    Commercial-grade results
+  </Card>
+  <Card title="Batch Processing" icon="layer-group">
+    Edit multiple images efficiently
+  </Card>
+  <Card title="Consistent" icon="check-double">
+    Reliable, predictable results
+  </Card>
+</Columns>
+
+## Editing Capabilities
+
+- **Quick Retouching**: Fast beauty and portrait edits
+- **Background Removal**: Clean, precise cutouts
+- **Color Correction**: Professional color grading
+- **Object Manipulation**: Move, resize, or remove objects
+- **Filter Application**: Apply professional filters
+
+## Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("photo.jpg", "rb")},
+    data={
+        "model": "nano-banana-edit-pro",
+        "instruction": "Remove background and enhance colors",
+        "quality": "high"
+    }
+)
+
+edited_image_url = response.json()["data"]["url"]
+```
+
+## Best Use Cases
+
+- **E-commerce**: Product photo editing
+- **Marketing**: Quick campaign asset creation
+- **Social Media**: Fast content preparation
+- **Portrait Retouching**: Professional headshots
+
+## Support
+
+- Email: support@megsyai.com
+- [Help Center](https://megsyai.com/help)

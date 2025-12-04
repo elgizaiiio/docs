@@ -1,0 +1,176 @@
+---
+title: "Clarity Upscaler"
+description: "AI-powered image upscaling for enhanced resolution and clarity"
+---
+
+<img src="https://i.ibb.co/TDR03pMn/clarity-upscaler.png" alt="Clarity Upscaler" />
+
+## Overview
+
+Clarity Upscaler uses advanced AI algorithms to increase image resolution while enhancing details and clarity. Transform low-resolution images into high-quality, sharp visuals.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="High Quality" icon="gem">
+    Superior upscaling with detail enhancement
+  </Card>
+  <Card title="Multiple Scales" icon="expand">
+    2x, 4x, 8x upscaling options
+  </Card>
+  <Card title="Detail Recovery" icon="sparkles">
+    Recover and enhance fine details
+  </Card>
+  <Card title="Noise Reduction" icon="wand-magic">
+    Clean up artifacts and noise
+  </Card>
+</Columns>
+
+## Capabilities
+
+- **Resolution Enhancement**: Increase image size up to 8x
+- **Detail Sharpening**: Enhance fine details and textures
+- **Noise Reduction**: Remove compression artifacts
+- **Edge Enhancement**: Sharpen edges and boundaries
+- **Color Preservation**: Maintain original color accuracy
+- **Batch Processing**: Upscale multiple images
+
+## Usage
+
+### Basic Upscaling
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/upscale",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("low_res.jpg", "rb")},
+    data={
+        "tool": "clarity-upscaler",
+        "scale": 4,  # 2x, 4x, or 8x
+        "enhance_details": True
+    }
+)
+
+upscaled_image_url = response.json()["data"]["url"]
+```
+
+### Advanced Options
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/upscale",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.jpg", "rb")},
+    data={
+        "tool": "clarity-upscaler",
+        "scale": 4,
+        "enhance_details": True,
+        "denoise_strength": 0.5,
+        "sharpen_level": "medium",
+        "preserve_colors": True
+    }
+)
+```
+
+## Upscaling Options
+
+| Scale | Input Size | Output Size | Use Case |
+|-------|------------|-------------|----------|
+| 2x | 512x512 | 1024x1024 | Quick enhancement |
+| 4x | 512x512 | 2048x2048 | Standard upscaling |
+| 8x | 512x512 | 4096x4096 | Maximum quality |
+
+## Best Use Cases
+
+<Columns cols={2}>
+  <Card title="Print Production" icon="print">
+    Prepare images for high-resolution printing
+  </Card>
+  <Card title="Photo Restoration" icon="clock-rotate-left">
+    Enhance old or low-quality photos
+  </Card>
+  <Card title="Product Photography" icon="camera">
+    Improve product image quality
+  </Card>
+  <Card title="Digital Art" icon="palette">
+    Upscale artwork for large displays
+  </Card>
+</Columns>
+
+## Quality Settings
+
+### Denoise Strength
+```python
+denoise_levels = {
+    "none": 0.0,
+    "light": 0.3,
+    "medium": 0.5,
+    "strong": 0.8
+}
+```
+
+### Sharpening
+```python
+sharpen_options = [
+    "none",      # No sharpening
+    "light",     # Subtle enhancement
+    "medium",    # Balanced sharpening
+    "strong"     # Maximum sharpness
+]
+```
+
+## Tips for Best Results
+
+<Steps>
+  <Step title="Start with Best Quality">
+    Use the highest quality source image available
+  </Step>
+  <Step title="Choose Right Scale">
+    Don't over-upscale - 4x is usually sufficient
+  </Step>
+  <Step title="Adjust Denoise">
+    Use denoise for compressed or noisy images
+  </Step>
+  <Step title="Test Settings">
+    Experiment with different enhancement levels
+  </Step>
+</Steps>
+
+## Batch Processing
+
+```python
+# Upscale multiple images
+images = ["image1.jpg", "image2.jpg", "image3.jpg"]
+
+for img_path in images:
+    response = requests.post(
+        "https://api.megsyai.com/v1/images/upscale",
+        headers={"Authorization": "Bearer YOUR_API_KEY"},
+        files={"image": open(img_path, "rb")},
+        data={"tool": "clarity-upscaler", "scale": 4}
+    )
+    print(f"Upscaled: {response.json()['data']['url']}")
+```
+
+## Pricing
+
+| Plan | Upscales/Month | Max Scale |
+|------|----------------|-----------|
+| Free | 10 | 2x |
+| Basic | 100 | 4x |
+| Pro | 500 | 8x |
+| Enterprise | Unlimited | 8x |
+
+## Performance
+
+- **2x Upscaling**: 3-5 seconds
+- **4x Upscaling**: 8-12 seconds
+- **8x Upscaling**: 20-30 seconds
+
+## Support
+
+- Email: support@megsyai.com
+- [Help Center](https://megsyai.com/help)
+- [Upscaling Guide](https://megsyai.com/help/upscaling)

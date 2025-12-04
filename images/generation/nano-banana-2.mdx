@@ -1,0 +1,195 @@
+---
+title: "Nano Banana 2"
+description: "Fast and efficient image generation model for quick iterations"
+icon: "bolt"
+---
+
+<img src="https://i.ibb.co/HL72mHfG/nano-banana-2.png" alt="Nano Banana 2" />
+
+## Overview
+
+Nano Banana 2 is a lightweight, high-speed image generation model designed for rapid prototyping and quick iterations. Perfect for when you need fast results without compromising too much on quality.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Ultra Fast" icon="rocket">
+    Generate images in under 2 seconds
+  </Card>
+  <Card title="Efficient" icon="gauge-high">
+    Optimized for high-volume generation
+  </Card>
+  <Card title="Versatile" icon="wand-magic-sparkles">
+    Works well with various art styles
+  </Card>
+  <Card title="Budget Friendly" icon="coins">
+    Lower cost per image for bulk generation
+  </Card>
+</CardGroup>
+
+## How to Use
+
+### Quick Generation
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "nano-banana-2",
+        "prompt": "A cute cartoon character in a forest",
+        "size": "1024x1024"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+### Batch Generation
+
+```python
+# Generate multiple images quickly
+prompts = [
+    "A red sports car",
+    "A blue mountain landscape",
+    "A green forest scene"
+]
+
+for prompt in prompts:
+    response = requests.post(
+        "https://api.megsyai.com/v1/images/generate",
+        headers={"Authorization": "Bearer YOUR_API_KEY"},
+        json={
+            "model": "nano-banana-2",
+            "prompt": prompt,
+            "num_images": 4
+        }
+    )
+```
+
+## Supported Sizes
+
+- **512x512** - Ultra fast generation
+- **768x768** - Balanced speed and quality
+- **1024x1024** - Standard output
+
+## Best Use Cases
+
+<Tabs>
+  <Tab title="Concept Art">
+    Perfect for quick concept sketches and ideation
+  </Tab>
+  <Tab title="Social Media">
+    Fast generation for social media content
+  </Tab>
+  <Tab title="Prototyping">
+    Rapid prototyping of visual ideas
+  </Tab>
+  <Tab title="Bulk Generation">
+    High-volume image generation tasks
+  </Tab>
+</Tabs>
+
+## Strengths
+
+- **Speed**: Fastest model in our lineup
+- **Consistency**: Reliable output quality
+- **Flexibility**: Adapts to various styles
+- **Cost**: Most economical option
+
+## Limitations
+
+- Lower detail compared to premium models
+- Best for illustrations and concept art
+- Not ideal for photorealistic images
+
+## Example Prompts
+
+### Illustration Style
+```
+Cute cartoon character, colorful, simple design, 
+friendly expression, vector art style
+```
+
+### Abstract Art
+```
+Abstract geometric shapes, vibrant colors, 
+modern art, minimalist composition
+```
+
+### Logo Design
+```
+Simple logo design, clean lines, professional,
+modern aesthetic, flat design
+```
+
+## Pricing
+
+| Size | Price per Image |
+|------|-----------------|
+| 512x512 | $0.005 |
+| 768x768 | $0.008 |
+| 1024x1024 | $0.01 |
+
+## Performance Metrics
+
+- **Average Generation Time**: 1.5 seconds
+- **Success Rate**: 98%
+- **Uptime**: 99.9%
+
+## Tips for Best Results
+
+<Steps>
+  <Step title="Keep It Simple">
+    Works best with clear, straightforward prompts
+  </Step>
+  <Step title="Use Style Keywords">
+    Include style descriptors like "cartoon", "illustration", "flat design"
+  </Step>
+  <Step title="Iterate Quickly">
+    Generate multiple variations to find the best result
+  </Step>
+  <Step title="Combine with Upscaling">
+    Use our upscaling tools to enhance output quality
+  </Step>
+</Steps>
+
+## API Reference
+
+### Request Example
+
+```bash
+curl -X POST https://api.megsyai.com/v1/images/generate \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "nano-banana-2",
+    "prompt": "A beautiful sunset",
+    "size": "1024x1024",
+    "num_images": 1
+  }'
+```
+
+### Response
+
+```json
+{
+  "data": [
+    {
+      "url": "https://cdn.megsyai.com/images/...",
+      "size": "1024x1024"
+    }
+  ],
+  "model": "nano-banana-2",
+  "generation_time": 1.5
+}
+```
+
+## Support
+
+Questions about Nano Banana 2?
+- Email: support@megsyai.com
+- [Documentation](https://megsyai.com/docs)
+- [Community Forum](https://community.megsyai.com)

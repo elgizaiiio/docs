@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Megsy AI",
+  "name": "Megsy",
   "colors": {
     "primary": "#FF6B6B",
     "light": "#4ECDC4",
@@ -17,7 +17,37 @@
             "group": "Getting Started",
             "pages": [
               "index",
+              "quickstart",
               "pricing"
+            ]
+          },
+          {
+            "group": "Image Generation Models",
+            "pages": [
+              "models/images/megsy-images",
+              "models/images/nano-banana-2",
+              "models/images/seedream4",
+              "models/images/nano-banana-pro",
+              "models/images/flux-2-flex",
+              "models/images/ideogram-v3",
+              "models/images/flux-pro-ultra"
+            ]
+          },
+          {
+            "group": "Image Editing Models",
+            "pages": [
+              "models/editing/qwen-edit",
+              "models/editing/nano-banana-edit-pro",
+              "models/editing/seed-edit",
+              "models/editing/nano-banana-edit",
+              "models/editing/flux-edit"
+            ]
+          },
+          {
+            "group": "Image Tools",
+            "pages": [
+              "tools/clarity-upscaler",
+              "tools/aurasr"
             ]
           },
           {
@@ -29,6 +59,51 @@
               "features/video-generation",
               "features/app-builder",
               "features/file-generation"
+            ]
+          },
+          {
+            "group": "Development",
+            "pages": [
+              "development",
+              "essentials/settings",
+              "essentials/navigation"
+            ]
+          },
+          {
+            "group": "Writing Content",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/reusable-snippets"
+            ]
+          },
+          {
+            "group": "AI Tools",
+            "pages": [
+              "ai-tools/cursor",
+              "ai-tools/claude-code",
+              "ai-tools/windsurf"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint Examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete",
+              "api-reference/endpoint/webhook"
             ]
           }
         ]

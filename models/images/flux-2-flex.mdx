@@ -1,0 +1,77 @@
+---
+title: "Flux.2 Flex"
+description: "Flexible and powerful image generation with advanced control"
+---
+
+<img src="https://i.ibb.co/xqWh6NjQ/flux-2-flex.png" alt="Flux.2 Flex" />
+
+## Overview
+
+Flux.2 Flex is a highly flexible image generation model that offers advanced control over the generation process. It's designed for users who need precise control over their outputs.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="Advanced Control" icon="sliders">
+    Fine-tune every aspect of generation
+  </Card>
+  <Card title="High Quality" icon="gem">
+    Professional-grade outputs
+  </Card>
+  <Card title="Flexible" icon="arrows-split-up-and-left">
+    Adapts to various requirements
+  </Card>
+  <Card title="Precise" icon="crosshairs">
+    Accurate prompt interpretation
+  </Card>
+</Columns>
+
+## Specifications
+
+| Feature | Details |
+|---------|---------|
+| Max Resolution | 2048x2048 |
+| Aspect Ratios | Custom ratios supported |
+| Generation Time | 6-12 seconds |
+| Styles | All styles with fine control |
+| Best For | Professional projects |
+
+## Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "flux-2-flex",
+        "prompt": "Cinematic portrait with dramatic lighting",
+        "size": "1024x1024",
+        "guidance_scale": 7.5,
+        "steps": 50,
+        "seed": 12345
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+## Advanced Parameters
+
+- **Guidance Scale**: Control prompt adherence (1-20)
+- **Steps**: Number of generation steps (20-100)
+- **Seed**: For reproducible results
+- **Negative Prompt**: Specify unwanted elements
+
+## Best Use Cases
+
+- **Professional Photography**: Studio-quality images
+- **Fine Art**: Detailed artistic works
+- **Architectural Visualization**: Precise renders
+- **Character Design**: Detailed character art
+
+## Support
+
+- Email: support@megsyai.com
+- [Help Center](https://megsyai.com/help)
