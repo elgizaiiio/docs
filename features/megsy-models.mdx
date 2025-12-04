@@ -1,20 +1,20 @@
 ---
-title: "نماذج Megsy الخاصة"
-description: "تعرف على نماذج الذكاء الاصطناعي الخاصة المطورة من Megsy"
+title: "Megsy Proprietary Models"
+description: "Discover Megsy's proprietary AI models"
 ---
 
-## نماذج Megsy
+## Megsy Models
 
-طورنا في Megsy مجموعة من نماذج الذكاء الاصطناعي الخاصة المصممة خصيصاً لتلبية احتياجات المستخدمين العرب والعالميين. نماذجنا مدربة على بيانات متنوعة ومحسّنة للأداء العالي.
+At Megsy, we've developed a suite of proprietary AI models specifically designed to meet the needs of both Arabic and global users. Our models are trained on diverse datasets and optimized for high performance.
 
-## نماذج الشات
+## Chat Models
 
 ### Megsy Chat
-نموذج محادثة متقدم يدعم:
-- فهم السياق العميق
-- الإجابة على الأسئلة المعقدة
-- دعم اللغة العربية والإنجليزية
-- القدرة على التفكير المنطقي
+An advanced conversational model that supports:
+- Deep contextual understanding
+- Answering complex questions
+- Arabic and English language support
+- Logical reasoning capabilities
 
 ```python
 import requests
@@ -25,7 +25,7 @@ response = requests.post(
     json={
         "model": "megsy-chat",
         "messages": [
-            {"role": "user", "content": "ما هي أفضل طريقة لتعلم البرمجة؟"}
+            {"role": "user", "content": "What's the best way to learn programming?"}
         ]
     }
 )
@@ -33,14 +33,14 @@ response = requests.post(
 print(response.json()["choices"][0]["message"]["content"])
 ```
 
-## نماذج الصور
+## Image Models
 
 ### Megsy Image
-نموذج توليد صور متقدم يتميز بـ:
-- جودة عالية تصل إلى 4K
-- فهم النصوص العربية والإنجليزية
-- أنماط فنية متعددة
-- سرعة توليد عالية
+An advanced image generation model featuring:
+- High quality up to 4K resolution
+- Understanding of Arabic and English text
+- Multiple artistic styles
+- Fast generation speed
 
 ```python
 response = requests.post(
@@ -48,7 +48,7 @@ response = requests.post(
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
         "model": "megsy-image",
-        "prompt": "منظر طبيعي خلاب للأهرامات عند الغروب",
+        "prompt": "A stunning landscape of the pyramids at sunset",
         "size": "1024x1024",
         "quality": "hd"
     }
@@ -58,20 +58,20 @@ image_url = response.json()["data"][0]["url"]
 ```
 
 ### Megsy Image Edit
-تعديل الصور الموجودة بالذكاء الاصطناعي:
-- إزالة الخلفية
-- تغيير الألوان
-- إضافة عناصر جديدة
-- تحسين الجودة
+Edit existing images with AI:
+- Background removal
+- Color adjustment
+- Adding new elements
+- Quality enhancement
 
-## نماذج الفيديو
+## Video Models
 
 ### Megsy Video
-توليد فيديوهات قصيرة بجودة عالية:
-- مدة تصل إلى 10 ثواني
-- دقة 1080p
-- حركة سلسة وطبيعية
-- دعم النصوص العربية
+Generate high-quality short videos:
+- Duration up to 10 seconds
+- 1080p resolution
+- Smooth and natural motion
+- Arabic text support
 
 ```python
 response = requests.post(
@@ -79,7 +79,7 @@ response = requests.post(
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
         "model": "megsy-video",
-        "prompt": "موجات البحر تتكسر على الشاطئ عند الغروب",
+        "prompt": "Ocean waves crashing on the beach at sunset",
         "duration": 5,
         "resolution": "1080p"
     }
@@ -88,46 +88,46 @@ response = requests.post(
 video_url = response.json()["data"]["url"]
 ```
 
-## نماذج الملفات
+## File Models
 
 ### Megsy Code
-توليد وتحليل الأكواد البرمجية:
-- دعم أكثر من 50 لغة برمجة
-- شرح الأكواد
-- اكتشاف الأخطاء
-- تحسين الأداء
+Generate and analyze code:
+- Support for 50+ programming languages
+- Code explanation
+- Bug detection
+- Performance optimization
 
 ### Megsy Document
-معالجة المستندات:
-- استخراج النصوص
-- تلخيص المحتوى
-- الترجمة
-- التحليل
+Document processing:
+- Text extraction
+- Content summarization
+- Translation
+- Analysis
 
-## المميزات التقنية
+## Technical Features
 
 <Columns cols={2}>
-  <Card title="أداء عالي" icon="gauge-high">
-    نماذجنا محسّنة للسرعة والكفاءة
+  <Card title="High Performance" icon="gauge-high">
+    Our models are optimized for speed and efficiency
   </Card>
-  <Card title="دقة عالية" icon="bullseye">
-    نتائج دقيقة وموثوقة
+  <Card title="High Accuracy" icon="bullseye">
+    Accurate and reliable results
   </Card>
-  <Card title="دعم العربية" icon="language">
-    فهم متقدم للغة العربية
+  <Card title="Arabic Support" icon="language">
+    Advanced understanding of Arabic language
   </Card>
-  <Card title="تحديثات مستمرة" icon="arrows-rotate">
-    نحسّن نماذجنا باستمرار
+  <Card title="Continuous Updates" icon="arrows-rotate">
+    We continuously improve our models
   </Card>
 </Columns>
 
-## الاستخدام
+## Usage
 
-جميع نماذج Megsy متاحة عبر:
-- واجهة الويب على [megsyai.com](https://megsyai.com)
-- تطبيقات الموبايل (iOS و Android)
-- API للمطورين
+All Megsy models are available via:
+- Web interface at [megsyai.com](https://megsyai.com)
+- Mobile apps (iOS and Android)
+- API for developers
 
-## الأسعار
+## Pricing
 
-نماذج Megsy متاحة بأسعار تنافسية ضمن جميع الباقات. راجع [صفحة الأسعار](/pricing) لمزيد من التفاصيل.
+Megsy models are available at competitive prices across all plans. See the [pricing page](/pricing) for more details.
