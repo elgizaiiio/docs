@@ -1,0 +1,66 @@
+---
+title: "Seed Edit"
+description: "Professional-grade image editing with advanced controls"
+icon: "seedling"
+---
+
+<img src="https://i.ibb.co/cKXTXMhf/seed-edit.png" alt="Seed Edit" />
+
+## Overview
+
+Seed Edit provides professional-grade image editing capabilities with advanced controls for precise modifications. Perfect for detailed editing work requiring high quality results.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Professional Quality" icon="star">
+    High-quality edits for professional use
+  </Card>
+  <Card title="Advanced Controls" icon="sliders">
+    Fine-tune every aspect of your edits
+  </Card>
+  <Card title="Layer Support" icon="layer-group">
+    Work with multiple editing layers
+  </Card>
+  <Card title="Precision Tools" icon="crosshairs">
+    Pixel-perfect editing capabilities
+  </Card>
+</CardGroup>
+
+## How to Use
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")},
+    data={
+        "model": "seed-edit",
+        "instruction": "Professional retouching",
+        "quality": "high",
+        "precision": 0.9
+    }
+)
+```
+
+## Advanced Features
+
+- Multi-layer editing
+- Selective adjustments
+- Professional retouching
+- Color grading
+- Detail enhancement
+
+## Pricing
+
+| Quality | Price |
+|---------|-------|
+| Standard | $0.10 |
+| High | $0.15 |
+| Ultra | $0.20 |
+
+## Support
+
+- Email: support@megsyai.com
