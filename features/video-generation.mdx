@@ -1,33 +1,52 @@
 ---
 title: "AI Video Generation"
-description: "Create stunning videos from text using the latest AI technologies"
+description: "Create realistic videos with sound using 10+ advanced AI models"
 ---
 
 ## Overview
 
-Megsy AI provides advanced technologies for generating videos from text using the latest AI models. You can create short videos, animate images, and produce professional video content with ease.
+Megsy AI provides cutting-edge video generation powered by 10+ advanced AI models. Create realistic videos with audio, animate images, and produce professional content in minutes.
 
-## Supported Models
+## Video Generation Models
+
+Choose from 10 powerful models for different styles and quality levels:
 
 <Columns cols={2}>
-  <Card title="Runway Gen-3" icon="film">
-    Advanced model for high-quality video generation
+  <Card title="Megsy-V1" icon="sparkles">
+    Our proprietary model - realistic videos with audio
   </Card>
-  <Card title="Sora" icon="video">
-    OpenAI's model for realistic video generation
+  <Card title="Google Veo 3" icon="google">
+    Google's latest video generation model
   </Card>
-  <Card title="Pika Labs" icon="clapperboard">
-    Specialized model for image animation
+  <Card title="Kling 2.1 Pro" icon="crown">
+    Professional quality video generation
   </Card>
-  <Card title="Megsy Video" icon="sparkles">
-    Our proprietary model optimized for Arabic language
+  <Card title="Kling 2.1 Master" icon="gem">
+    Master-level quality and detail
+  </Card>
+  <Card title="Hailuo 2.3" icon="cloud">
+    Fast and efficient generation
+  </Card>
+  <Card title="Hailuo 2.0 Pro" icon="bolt">
+    Professional-grade results
+  </Card>
+  <Card title="Wan 2.2 Pro T2V" icon="wand-magic">
+    Advanced text-to-video
+  </Card>
+  <Card title="Wan Video Pro" icon="video">
+    Professional video creation
+  </Card>
+  <Card title="Veo3 Fast" icon="rocket">
+    Quick video generation
+  </Card>
+  <Card title="Seedance Pro" icon="music">
+    Animated and dynamic content
   </Card>
 </Columns>
 
-## Features
+## Generate Videos
 
-### Text-to-Video
-Create videos from text descriptions:
+### Basic Video Generation
 
 ```python
 import requests
@@ -36,11 +55,11 @@ response = requests.post(
     "https://api.megsyai.com/v1/videos/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "model": "runway-gen3",
-        "prompt": "Ocean waves crashing on the beach at sunset, slow motion",
+        "model": "megsy-v1",
+        "prompt": "A serene ocean sunset with waves gently crashing on the beach",
         "duration": 5,
         "resolution": "1080p",
-        "fps": 24
+        "include_audio": True
     }
 )
 
@@ -48,200 +67,282 @@ video_url = response.json()["data"]["url"]
 print(f"Video URL: {video_url}")
 ```
 
-### Image Animation
-Convert a static image into an animated video:
+### Model Comparison
 
 ```python
+models = {
+    "megsy-v1": "Realistic videos with audio",
+    "google-veo-3": "Google's latest technology",
+    "kling-2.1-pro": "Professional quality",
+    "kling-2.1-master": "Master quality",
+    "hailuo-2.3": "Fast generation",
+    "hailuo-2.0-pro": "Professional grade",
+    "wan-2.2-pro-t2v": "Text-to-video specialist",
+    "wan-video-pro": "Professional creation",
+    "veo3-fast": "Quick results",
+    "seedance-pro": "Animated content"
+}
+
+# Generate with specific model
 response = requests.post(
-    "https://api.megsyai.com/v1/videos/animate",
+    "https://api.megsyai.com/v1/videos/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
-    files={"image": open("image.png", "rb")},
-    data={
-        "motion_prompt": "Camera slowly moves from left to right",
-        "duration": 3
+    json={
+        "model": "kling-2.1-master",
+        "prompt": "Professional product showcase rotating 360 degrees",
+        "duration": 10,
+        "resolution": "4k"
     }
 )
 ```
 
-### Video Editing
-Edit existing videos with effects:
+## Megsy-V1 Features
+
+Our proprietary model with unique capabilities:
+
+<Columns cols={2}>
+  <Card title="Realistic Videos" icon="eye">
+    Photorealistic video generation
+  </Card>
+  <Card title="Audio Included" icon="volume">
+    Automatic audio generation
+  </Card>
+  <Card title="Natural Motion" icon="wind">
+    Smooth and natural movements
+  </Card>
+  <Card title="High Quality" icon="star">
+    Professional-grade output
+  </Card>
+</Columns>
+
+### Generate with Audio
 
 ```python
 response = requests.post(
-    "https://api.megsyai.com/v1/videos/edit",
+    "https://api.megsyai.com/v1/videos/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
-    files={"video": open("video.mp4", "rb")},
-    data={
-        "edit_prompt": "Add slow motion effect",
-        "start_time": 2,
-        "end_time": 5
+    json={
+        "model": "megsy-v1",
+        "prompt": "A bustling city street with cars and people, ambient city sounds",
+        "duration": 8,
+        "resolution": "1080p",
+        "include_audio": True,
+        "audio_style": "ambient"  # ambient, music, natural
     }
 )
 ```
 
-## Technical Specifications
+## Video Specifications
 
 ### Available Resolutions
 
-| Resolution | Dimensions | Use Case |
+| Resolution | Dimensions | Best For |
 |------------|------------|----------|
-| SD | 480p | Quick preview |
-| HD | 720p | Good quality |
-| Full HD | 1080p | High quality |
-| 4K | 2160p | Professional quality |
+| 720p | 1280x720 | Quick previews, social media |
+| 1080p | 1920x1080 | Standard high quality |
+| 4K | 3840x2160 | Professional, cinema quality |
 
-### Duration
+### Duration Options
 
-- **Short**: 1-3 seconds
-- **Medium**: 3-5 seconds
-- **Long**: 5-10 seconds
-- **Extended**: Up to 30 seconds (for advanced plans)
+```python
+duration_options = {
+    "short": 3,      # 3 seconds
+    "medium": 5,     # 5 seconds
+    "standard": 10,  # 10 seconds
+    "long": 15       # 15 seconds (premium models)
+}
+```
 
-### Frame Rate (FPS)
+### Frame Rates
 
 ```python
 fps_options = [
     24,  # Cinematic
     30,  # Standard
-    60   # Smooth
-]
-```
-
-## Motion Types
-
-### Camera Movement
-```python
-camera_movements = [
-    "zoom-in",        # Zoom in
-    "zoom-out",       # Zoom out
-    "pan-left",       # Pan left
-    "pan-right",      # Pan right
-    "tilt-up",        # Tilt up
-    "tilt-down",      # Tilt down
-    "orbit",          # Orbit
-    "static"          # Static
-]
-```
-
-### Motion Speed
-```python
-motion_speeds = [
-    "slow",           # Slow
-    "normal",         # Normal
-    "fast",           # Fast
-    "time-lapse"      # Time-lapse
+    60   # Smooth (select models)
 ]
 ```
 
 ## Practical Examples
 
-### Product Video
+### Product Showcase
+
 ```python
 prompt = """
-Professional video of a luxury gold watch rotating slowly on black background,
-studio lighting, smooth 360-degree motion, 4K quality
+Luxury watch rotating slowly on a black velvet surface,
+studio lighting with soft shadows, elegant presentation,
+professional product photography style
 """
 
 response = requests.post(
     "https://api.megsyai.com/v1/videos/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
+        "model": "kling-2.1-master",
         "prompt": prompt,
-        "duration": 5,
+        "duration": 10,
         "resolution": "4k",
         "fps": 60
     }
 )
 ```
 
-### Nature Video
+### Nature Scene
+
 ```python
 prompt = """
-Stunning landscape of a waterfall in a tropical forest,
-water flowing powerfully, sunlight streaming through trees,
-slow camera movement from bottom to top
+Majestic waterfall in a lush tropical forest,
+sunlight filtering through the canopy, mist rising,
+birds flying, peaceful and serene atmosphere
 """
+
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "megsy-v1",
+        "prompt": prompt,
+        "duration": 8,
+        "resolution": "1080p",
+        "include_audio": True
+    }
+)
 ```
 
 ### Marketing Video
+
 ```python
 prompt = """
-Promotional video for a mobile app, phone screen displaying app interface,
-smooth transitions between screens, modern colorful background
+Modern smartphone displaying app interface,
+smooth transitions between screens, clean background,
+professional tech product video style
 """
+
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "wan-video-pro",
+        "prompt": prompt,
+        "duration": 10,
+        "resolution": "1080p"
+    }
+)
 ```
 
-## Available Effects
+### Animated Content
 
-### Visual Effects
 ```python
-effects = {
-    "slow_motion": True,      # Slow motion
-    "color_grade": "cinematic",  # Color grading
-    "blur": "motion",         # Motion blur
-    "lighting": "dramatic"    # Dramatic lighting
-}
+prompt = """
+Colorful abstract shapes morphing and dancing,
+vibrant colors, smooth animations, energetic mood,
+perfect for music video or social media
+"""
+
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "seedance-pro",
+        "prompt": prompt,
+        "duration": 5,
+        "resolution": "1080p"
+    }
+)
 ```
 
-### Transitions
+## Camera Movements
+
+Specify camera motion for dynamic videos:
+
 ```python
-transitions = [
-    "fade",           # Fade
-    "dissolve",       # Dissolve
-    "wipe",           # Wipe
-    "zoom",           # Zoom
-    "slide"           # Slide
+camera_movements = [
+    "static",         # No camera movement
+    "zoom-in",        # Zoom into subject
+    "zoom-out",       # Zoom out from subject
+    "pan-left",       # Pan camera left
+    "pan-right",      # Pan camera right
+    "tilt-up",        # Tilt camera up
+    "tilt-down",      # Tilt camera down
+    "orbit",          # Orbit around subject
+    "dolly-in",       # Move camera forward
+    "dolly-out"       # Move camera backward
 ]
-```
 
-## Advanced Processing
-
-### Add Text
-```python
 response = requests.post(
-    "https://api.megsyai.com/v1/videos/add-text",
+    "https://api.megsyai.com/v1/videos/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
-    files={"video": open("video.mp4", "rb")},
-    data={
-        "text": "Megsy AI",
-        "position": "center",
-        "font": "Arial",
-        "size": 48,
-        "color": "#FFFFFF",
-        "animation": "fade-in"
+    json={
+        "model": "kling-2.1-pro",
+        "prompt": "Mountain landscape at golden hour",
+        "camera_movement": "orbit",
+        "duration": 10
     }
 )
 ```
 
-### Add Music
+## Motion Speed
+
+Control the speed of motion in your videos:
+
 ```python
+motion_speeds = [
+    "slow",           # Slow motion effect
+    "normal",         # Standard speed
+    "fast",           # Fast motion
+    "time-lapse"      # Time-lapse effect
+]
+
 response = requests.post(
-    "https://api.megsyai.com/v1/videos/add-audio",
+    "https://api.megsyai.com/v1/videos/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
-    files={
-        "video": open("video.mp4", "rb"),
-        "audio": open("music.mp3", "rb")
-    },
-    data={
-        "volume": 0.7,
-        "fade_in": 1,
-        "fade_out": 1
+    json={
+        "model": "hailuo-2.3",
+        "prompt": "Clouds moving across the sky",
+        "motion_speed": "time-lapse",
+        "duration": 5
     }
 )
 ```
 
-### Merge Videos
+## Image to Video
+
+Animate static images into videos:
+
 ```python
 response = requests.post(
-    "https://api.megsyai.com/v1/videos/merge",
+    "https://api.megsyai.com/v1/videos/animate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
-    files={
-        "video1": open("video1.mp4", "rb"),
-        "video2": open("video2.mp4", "rb")
-    },
+    files={"image": open("landscape.jpg", "rb")},
     data={
-        "transition": "fade",
-        "transition_duration": 1
+        "model": "wan-2.2-pro-t2v",
+        "motion_prompt": "Camera slowly pans across the scene",
+        "duration": 5
+    }
+)
+```
+
+## Video Styles
+
+Choose from different visual styles:
+
+```python
+styles = [
+    "realistic",      # Photorealistic
+    "cinematic",      # Movie-like quality
+    "artistic",       # Artistic interpretation
+    "animated",       # Animation style
+    "documentary"     # Documentary style
+]
+
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "google-veo-3",
+        "prompt": "Ancient temple in the jungle",
+        "style": "cinematic",
+        "duration": 10
     }
 )
 ```
@@ -249,17 +350,17 @@ response = requests.post(
 ## Tips for Best Results
 
 <Steps>
-  <Step title="Detailed Description">
-    Write a detailed description of the scene and desired motion
+  <Step title="Choose the Right Model">
+    Use Megsy-V1 for audio, Kling Master for quality, Veo3 Fast for speed
   </Step>
-  <Step title="Specify Movement">
-    Mention the type and speed of camera movement
+  <Step title="Be Specific">
+    Describe motion, camera angles, lighting, and atmosphere
   </Step>
-  <Step title="Lighting & Colors">
-    Specify the lighting type and overall mood of the video
+  <Step title="Start Short">
+    Begin with 5-second videos for best quality
   </Step>
-  <Step title="Appropriate Duration">
-    Start with short videos (3-5 seconds) for best quality
+  <Step title="Specify Camera Movement">
+    Add camera instructions for dynamic results
   </Step>
 </Steps>
 
@@ -267,40 +368,136 @@ response = requests.post(
 
 <Columns cols={2}>
   <Card title="Marketing" icon="bullhorn">
-    Create ads and promotional content
+    Product videos, ads, promotional content
   </Card>
   <Card title="Social Media" icon="share-nodes">
-    Content for Instagram, TikTok, and YouTube
+    Instagram Reels, TikTok, YouTube Shorts
+  </Card>
+  <Card title="E-commerce" icon="shopping-cart">
+    Product demonstrations and showcases
+  </Card>
+  <Card title="Content Creation" icon="video">
+    Video backgrounds, B-roll footage
   </Card>
   <Card title="Education" icon="graduation-cap">
     Educational videos and tutorials
   </Card>
-  <Card title="Entertainment" icon="masks-theater">
-    Creative and artistic content
+  <Card title="Entertainment" icon="film">
+    Creative and artistic videos
   </Card>
 </Columns>
 
-## Pricing
+## Advanced Features
 
-Video generation cost varies based on:
-- Model used
-- Resolution and quality
-- Duration
-- Added effects
+### Batch Generation
 
-See the [pricing page](/pricing) for complete details.
+Generate multiple videos at once:
 
-## Usage Limits
+```python
+prompts = [
+    "Ocean waves at sunset",
+    "Mountain landscape at dawn",
+    "City skyline at night"
+]
 
-| Plan | Video Minutes/month | Max Resolution |
-|------|---------------------|----------------|
-| Free | 5 minutes | 720p |
-| Basic | 30 minutes | 1080p |
-| Pro | 120 minutes | 4K |
-| Enterprise | Unlimited | 4K |
+responses = []
+for prompt in prompts:
+    response = requests.post(
+        "https://api.megsyai.com/v1/videos/generate",
+        headers={"Authorization": "Bearer YOUR_API_KEY"},
+        json={
+            "model": "veo3-fast",
+            "prompt": prompt,
+            "duration": 5
+        }
+    )
+    responses.append(response.json())
+```
 
-## Technical Support
+### Custom Aspect Ratios
 
-Need help?
-- [Support Center](https://www.megsyai.com/contact)
+```python
+aspect_ratios = {
+    "16:9": "Standard widescreen",
+    "9:16": "Vertical (mobile)",
+    "1:1": "Square (social media)",
+    "21:9": "Ultrawide cinematic"
+}
+
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "kling-2.1-pro",
+        "prompt": "Fashion model walking",
+        "aspect_ratio": "9:16",
+        "duration": 5
+    }
+)
+```
+
+## Credit Usage
+
+Video generation consumes credits based on:
+- Model used (1-10 credits per video)
+- Duration (longer = more credits)
+- Resolution (4K costs more than 720p)
+- Audio inclusion (adds credits)
+
+See the [pricing page](/pricing) for detailed credit costs.
+
+## Quality Comparison
+
+| Model | Quality | Speed | Audio | Best For |
+|-------|---------|-------|-------|----------|
+| Megsy-V1 | High | Medium | ✓ | Realistic with sound |
+| Kling 2.1 Master | Ultra | Slow | - | Maximum quality |
+| Google Veo 3 | High | Medium | - | Professional |
+| Veo3 Fast | Good | Fast | - | Quick results |
+| Seedance Pro | Medium | Fast | - | Animated content |
+
+## API Response Format
+
+```json
+{
+  "id": "video-123",
+  "object": "video.generation",
+  "created": 1677652288,
+  "model": "megsy-v1",
+  "data": {
+    "url": "https://cdn.megsyai.com/videos/...",
+    "duration": 5,
+    "resolution": "1080p",
+    "fps": 30,
+    "has_audio": true,
+    "file_size": "15.2MB"
+  },
+  "credits_used": 5
+}
+```
+
+## Best Practices
+
+<Accordion title="Optimize Prompts">
+Include specific details about motion, lighting, and camera angles for better results.
+</Accordion>
+
+<Accordion title="Choose Appropriate Duration">
+Shorter videos (3-5 seconds) generally have better quality than longer ones.
+</Accordion>
+
+<Accordion title="Select Right Model">
+Use fast models for previews, high-quality models for final production.
+</Accordion>
+
+<Accordion title="Test Different Settings">
+Experiment with camera movements and styles to find what works best.
+</Accordion>
+
+## Support
+
+Need help with video generation?
+
+- Email: support@megsyai.com
 - Live chat on website
+- [Help Center](https://megsyai.com/help)
