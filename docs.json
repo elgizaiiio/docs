@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Megsy AI",
+  "name": "Megsy",
   "colors": {
     "primary": "#FF6B6B",
     "light": "#4ECDC4",
@@ -21,11 +21,39 @@
             ]
           },
           {
-            "group": "Features",
+            "group": "Image Generation Models",
+            "pages": [
+              "images/generation/megsy-images",
+              "images/generation/nano-banana-2",
+              "images/generation/seedream4",
+              "images/generation/nano-banana-pro",
+              "images/generation/flux-2-flex",
+              "images/generation/ideogram-v3",
+              "images/generation/flux-pro-ultra"
+            ]
+          },
+          {
+            "group": "Image Editing Models",
+            "pages": [
+              "images/editing/qwen-edit",
+              "images/editing/nano-banana-edit-pro",
+              "images/editing/seed-edit",
+              "images/editing/nano-banana-edit",
+              "images/editing/flux-edit"
+            ]
+          },
+          {
+            "group": "Image Tools",
+            "pages": [
+              "images/tools/clarity-upscaler",
+              "images/tools/aurasr"
+            ]
+          },
+          {
+            "group": "Other Features",
             "pages": [
               "features/megsy-models",
               "features/chat",
-              "features/image-generation",
               "features/video-generation",
               "features/app-builder",
               "features/file-generation"
