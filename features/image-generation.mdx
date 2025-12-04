@@ -1,0 +1,225 @@
+---
+title: "توليد الصور بالذكاء الاصطناعي"
+description: "أنشئ صور احترافية ومذهلة باستخدام أحدث نماذج الذكاء الاصطناعي"
+---
+
+## نظرة عامة
+
+يوفر Megsy AI أدوات متقدمة لتوليد الصور باستخدام أفضل نماذج الذكاء الاصطناعي في العالم. يمكنك إنشاء صور احترافية من النصوص، تعديل الصور الموجودة، وإنشاء تصاميم إبداعية بسهولة.
+
+## النماذج المدعومة
+
+<Columns cols={2}>
+  <Card title="DALL-E 3" icon="palette">
+    نموذج OpenAI المتقدم لتوليد صور عالية الجودة
+  </Card>
+  <Card title="Stable Diffusion" icon="wand-magic-sparkles">
+    نموذج مفتوح المصدر بإمكانيات متقدمة
+  </Card>
+  <Card title="Midjourney" icon="image">
+    نموذج متخصص في الصور الفنية والإبداعية
+  </Card>
+  <Card title="Megsy Image" icon="sparkles">
+    نموذجنا الخاص المحسّن للغة العربية
+  </Card>
+</Columns>
+
+## الميزات
+
+### توليد من النص
+أنشئ صور من وصف نصي بسيط:
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "dall-e-3",
+        "prompt": "قطة لطيفة ترتدي نظارة شمسية على شاطئ البحر",
+        "size": "1024x1024",
+        "quality": "hd",
+        "n": 1
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+print(f"Image URL: {image_url}")
+```
+
+### تعديل الصور
+عدّل الصور الموجودة بإضافة أو إزالة عناصر:
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={
+        "image": open("original.png", "rb"),
+        "mask": open("mask.png", "rb")
+    },
+    data={
+        "prompt": "أضف سماء زرقاء صافية",
+        "size": "1024x1024"
+    }
+)
+```
+
+### تنويعات الصور
+أنشئ نسخ متنوعة من صورة موجودة:
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/variations",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("original.png", "rb")},
+    data={
+        "n": 3,
+        "size": "1024x1024"
+    }
+)
+```
+
+## الأحجام المتاحة
+
+يدعم Megsy AI عدة أحجام للصور:
+
+| الحجم | الأبعاد | الاستخدام المثالي |
+|-------|---------|-------------------|
+| صغير | 512x512 | معاينة سريعة |
+| متوسط | 1024x1024 | استخدام عام |
+| كبير | 1792x1024 | صور أفقية |
+| عمودي | 1024x1792 | صور عمودية |
+
+## جودة الصور
+
+### Standard
+جودة قياسية مناسبة لمعظم الاستخدامات:
+- سرعة توليد أعلى
+- تكلفة أقل
+- جودة جيدة
+
+### HD
+جودة عالية للاستخدامات الاحترافية:
+- تفاصيل أدق
+- ألوان أفضل
+- دقة أعلى
+
+## الأنماط الفنية
+
+يمكنك تحديد النمط الفني للصورة:
+
+```python
+styles = [
+    "realistic",      # واقعي
+    "artistic",       # فني
+    "anime",          # أنمي
+    "3d-render",      # ثلاثي الأبعاد
+    "oil-painting",   # رسم زيتي
+    "watercolor",     # ألوان مائية
+    "sketch",         # رسم تخطيطي
+    "digital-art"     # فن رقمي
+]
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "prompt": "منظر طبيعي جميل",
+        "style": "oil-painting"
+    }
+)
+```
+
+## نصائح للحصول على أفضل النتائج
+
+<Steps>
+  <Step title="كن محدداً">
+    استخدم وصف تفصيلي ودقيق للصورة المطلوبة
+  </Step>
+  <Step title="حدد الأسلوب">
+    اذكر النمط الفني المطلوب (واقعي، فني، إلخ)
+  </Step>
+  <Step title="اذكر التفاصيل">
+    أضف تفاصيل عن الإضاءة، الألوان، والزوايا
+  </Step>
+  <Step title="جرب وعدّل">
+    جرب صياغات مختلفة للحصول على أفضل نتيجة
+  </Step>
+</Steps>
+
+## أمثلة عملية
+
+### صورة منتج
+```python
+prompt = """
+صورة احترافية لساعة ذهبية فاخرة على خلفية سوداء،
+إضاءة استوديو، تفاصيل دقيقة، جودة عالية، 4K
+"""
+```
+
+### صورة شخصية
+```python
+prompt = """
+بورتريه احترافي لرجل أعمال في الثلاثينات،
+يرتدي بدلة رسمية، خلفية مكتب حديث،
+إضاءة طبيعية، تصوير احترافي
+"""
+```
+
+### منظر طبيعي
+```python
+prompt = """
+منظر طبيعي خلاب لجبال الألب عند شروق الشمس،
+سماء ملونة، انعكاس على بحيرة هادئة،
+أسلوب واقعي، جودة عالية
+"""
+```
+
+## معالجة الصور
+
+### إزالة الخلفية
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/remove-background",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")}
+)
+```
+
+### تحسين الجودة
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/upscale",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")},
+    data={"scale": 2}  # 2x, 4x
+)
+```
+
+## الأسعار
+
+تختلف تكلفة توليد الصور حسب:
+- النموذج المستخدم
+- حجم الصورة
+- جودة الصورة
+- عدد الصور
+
+راجع [صفحة الأسعار](/pricing) للتفاصيل الكاملة.
+
+## حدود الاستخدام
+
+| الباقة | عدد الصور/شهر | الجودة القصوى |
+|--------|---------------|---------------|
+| مجاني | 50 | Standard |
+| أساسي | 500 | HD |
+| احترافي | 2000 | HD |
+| مؤسسات | غير محدود | HD |
+
+## الدعم
+
+هل تحتاج مساعدة؟ تواصل معنا:
+- البريد الإلكتروني: support@megsyai.com
+- الدردشة المباشرة على الموقع
+- [مركز المساعدة](https://megsyai.com/help)
