@@ -1,0 +1,144 @@
+---
+title: "Megsy Images"
+description: "Our proprietary image generation model optimized for quality and speed"
+---
+
+<img src="https://i.ibb.co/VYc5YXRZ/megsy-images.png" alt="Megsy Images" />
+
+## Overview
+
+Megsy Images is our proprietary AI image generation model, specifically designed and trained to deliver high-quality results with exceptional speed. Built with advanced architecture, it excels at understanding both English and Arabic prompts.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="High Speed" icon="bolt">
+    Generate images in seconds with optimized processing
+  </Card>
+  <Card title="Quality Output" icon="star">
+    Professional-grade images up to 4K resolution
+  </Card>
+  <Card title="Arabic Support" icon="language">
+    Native understanding of Arabic language prompts
+  </Card>
+  <Card title="Cost Effective" icon="dollar-sign">
+    Competitive pricing for all plan tiers
+  </Card>
+</Columns>
+
+## Specifications
+
+| Feature | Details |
+|---------|---------|
+| Max Resolution | 2048x2048 (4K) |
+| Aspect Ratios | Square, Portrait, Landscape |
+| Generation Time | 3-8 seconds |
+| Styles | Realistic, Artistic, Anime, 3D |
+| Languages | English, Arabic, 15+ more |
+
+## Usage
+
+### Basic Generation
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "megsy-images",
+        "prompt": "A beautiful sunset over the pyramids",
+        "size": "1024x1024",
+        "quality": "hd"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+### Advanced Options
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "megsy-images",
+        "prompt": "Professional product photography of a luxury watch",
+        "negative_prompt": "blurry, low quality, distorted",
+        "size": "1024x1024",
+        "quality": "hd",
+        "style": "realistic",
+        "num_images": 4,
+        "seed": 42
+    }
+)
+```
+
+## Best Practices
+
+<Steps>
+  <Step title="Be Descriptive">
+    Use detailed prompts describing subject, style, lighting, and composition
+  </Step>
+  <Step title="Use Negative Prompts">
+    Specify what you don't want to see in the image
+  </Step>
+  <Step title="Experiment with Seeds">
+    Use seed values for reproducible results
+  </Step>
+  <Step title="Choose Right Quality">
+    Balance between speed and quality based on your needs
+  </Step>
+</Steps>
+
+## Example Prompts
+
+### Portrait Photography
+```
+Professional headshot of a business executive, studio lighting, 
+sharp focus, neutral background, corporate style
+```
+
+### Product Photography
+```
+Luxury perfume bottle on marble surface, dramatic lighting,
+reflections, high-end commercial photography, 4K quality
+```
+
+### Landscape
+```
+Majestic mountain landscape at golden hour, dramatic clouds,
+vibrant colors, professional landscape photography
+```
+
+### Artistic
+```
+Abstract digital art, vibrant colors, geometric patterns,
+modern contemporary style, high contrast
+```
+
+## Pricing
+
+| Plan | Images/Month | Max Quality |
+|------|--------------|-------------|
+| Free | 50 | Standard |
+| Basic | 500 | HD |
+| Pro | 2000 | 4K |
+| Enterprise | Unlimited | 4K |
+
+## Tips for Best Results
+
+- **Lighting**: Specify lighting conditions (natural, studio, dramatic, soft)
+- **Composition**: Mention camera angles and framing
+- **Style**: Define artistic style clearly
+- **Details**: Include specific details you want to see
+- **Quality**: Use quality keywords like "4K", "professional", "high detail"
+
+## Support
+
+Need help with Megsy Images?
+- Email: support@megsyai.com
+- Live chat on website
+- [Help Center](https://megsyai.com/help)
