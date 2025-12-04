@@ -1,0 +1,366 @@
+---
+title: "الشات والمحادثة بالذكاء الاصطناعي"
+description: "تحدث مع أقوى نماذج الذكاء الاصطناعي في العالم"
+---
+
+## نظرة عامة
+
+يوفر Megsy AI الوصول إلى أفضل نماذج الذكاء الاصطناعي للمحادثة في العالم. تحدث مع GPT-5، Claude Sonnet 4، Gemini Pro، وغيرها من النماذج المتقدمة في مكان واحد.
+
+## النماذج المدعومة
+
+<Columns cols={2}>
+  <Card title="GPT-5" icon="brain">
+    أحدث نموذج من OpenAI بقدرات متقدمة
+  </Card>
+  <Card title="Claude Sonnet 4" icon="message-bot">
+    نموذج Anthropic للمحادثات الذكية
+  </Card>
+  <Card title="Gemini Pro" icon="sparkles">
+    نموذج Google المتعدد الوسائط
+  </Card>
+  <Card title="Meta Llama" icon="meta">
+    نماذج Meta مفتوحة المصدر
+  </Card>
+  <Card title="Megsy Chat" icon="comments">
+    نموذجنا الخاص المحسّن للعربية
+  </Card>
+  <Card title="Mistral" icon="wind">
+    نماذج أوروبية متقدمة
+  </Card>
+</Columns>
+
+## الميزات الرئيسية
+
+### محادثة ذكية
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5",
+        "messages": [
+            {"role": "system", "content": "أنت مساعد ذكي ومفيد"},
+            {"role": "user", "content": "ما هي أفضل طريقة لتعلم البرمجة؟"}
+        ],
+        "temperature": 0.7,
+        "max_tokens": 1000
+    }
+)
+
+print(response.json()["choices"][0]["message"]["content"])
+```
+
+### محادثة متعددة الأدوار
+```python
+messages = [
+    {"role": "system", "content": "أنت خبير في البرمجة"},
+    {"role": "user", "content": "كيف أتعلم Python؟"},
+    {"role": "assistant", "content": "ابدأ بتعلم الأساسيات..."},
+    {"role": "user", "content": "وماذا بعد ذلك؟"}
+]
+
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={"model": "gpt-5", "messages": messages}
+)
+```
+
+### البث المباشر (Streaming)
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5",
+        "messages": [{"role": "user", "content": "اكتب قصة قصيرة"}],
+        "stream": True
+    },
+    stream=True
+)
+
+for line in response.iter_lines():
+    if line:
+        print(line.decode('utf-8'))
+```
+
+## القدرات المتقدمة
+
+### فهم الصور
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5-vision",
+        "messages": [{
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "ما الموجود في هذه الصورة؟"},
+                {"type": "image_url", "image_url": {"url": "https://example.com/image.jpg"}}
+            ]
+        }]
+    }
+)
+```
+
+### تحليل الملفات
+```python
+# رفع ملف
+files_response = requests.post(
+    "https://api.megsyai.com/v1/files",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"file": open("document.pdf", "rb")},
+    data={"purpose": "assistants"}
+)
+
+file_id = files_response.json()["id"]
+
+# تحليل الملف
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5",
+        "messages": [{
+            "role": "user",
+            "content": f"لخص محتوى الملف {file_id}"
+        }]
+    }
+)
+```
+
+### البحث على الإنترنت
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5",
+        "messages": [{
+            "role": "user",
+            "content": "ما هي آخر أخبار التكنولوجيا اليوم؟"
+        }],
+        "tools": [{"type": "web_search"}]
+    }
+)
+```
+
+## معاملات التحكم
+
+### Temperature
+يتحكم في عشوائية الإجابات:
+```python
+# إجابات دقيقة ومحددة
+temperature = 0.2
+
+# إجابات متوازنة
+temperature = 0.7
+
+# إجابات إبداعية
+temperature = 1.0
+```
+
+### Max Tokens
+الحد الأقصى لطول الإجابة:
+```python
+max_tokens = 500   # إجابة قصيرة
+max_tokens = 1000  # إجابة متوسطة
+max_tokens = 4000  # إجابة طويلة
+```
+
+### Top P
+التحكم في تنوع الإجابات:
+```python
+top_p = 0.1  # إجابات محددة
+top_p = 0.9  # إجابات متنوعة
+```
+
+## حالات الاستخدام
+
+<Columns cols={2}>
+  <Card title="خدمة العملاء" icon="headset">
+    روبوتات محادثة ذكية للدعم الفني
+  </Card>
+  <Card title="كتابة المحتوى" icon="pen-fancy">
+    إنشاء مقالات ومحتوى تسويقي
+  </Card>
+  <Card title="البرمجة" icon="code">
+    مساعد برمجي لكتابة وشرح الأكواد
+  </Card>
+  <Card title="التعليم" icon="book-open">
+    مدرس افتراضي وشرح المفاهيم
+  </Card>
+  <Card title="الترجمة" icon="language">
+    ترجمة نصوص بين اللغات
+  </Card>
+  <Card title="التحليل" icon="chart-line">
+    تحليل البيانات والتقارير
+  </Card>
+</Columns>
+
+## أمثلة عملية
+
+### مساعد برمجي
+```python
+messages = [
+    {
+        "role": "system",
+        "content": "أنت مساعد برمجي خبير في Python"
+    },
+    {
+        "role": "user",
+        "content": "اكتب دالة لحساب أعداد فيبوناتشي"
+    }
+]
+```
+
+### كاتب محتوى
+```python
+messages = [
+    {
+        "role": "system",
+        "content": "أنت كاتب محتوى محترف متخصص في التسويق"
+    },
+    {
+        "role": "user",
+        "content": "اكتب وصف منتج جذاب لساعة ذكية"
+    }
+]
+```
+
+### مدرس افتراضي
+```python
+messages = [
+    {
+        "role": "system",
+        "content": "أنت مدرس رياضيات صبور ومفيد"
+    },
+    {
+        "role": "user",
+        "content": "اشرح لي نظرية فيثاغورس بطريقة بسيطة"
+    }
+]
+```
+
+## الوظائف المخصصة (Function Calling)
+
+```python
+functions = [
+    {
+        "name": "get_weather",
+        "description": "الحصول على حالة الطقس لمدينة معينة",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "description": "اسم المدينة"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": ["celsius", "fahrenheit"]
+                }
+            },
+            "required": ["city"]
+        }
+    }
+]
+
+response = requests.post(
+    "https://api.megsyai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "gpt-5",
+        "messages": [{"role": "user", "content": "ما حالة الطقس في القاهرة؟"}],
+        "functions": functions
+    }
+)
+```
+
+## المساعدات الذكية (Assistants)
+
+### إنشاء مساعد
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/assistants",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "name": "مساعد البرمجة",
+        "instructions": "أنت مساعد برمجي خبير",
+        "model": "gpt-5",
+        "tools": [{"type": "code_interpreter"}]
+    }
+)
+
+assistant_id = response.json()["id"]
+```
+
+### إنشاء محادثة
+```python
+thread_response = requests.post(
+    "https://api.megsyai.com/v1/threads",
+    headers={"Authorization": "Bearer YOUR_API_KEY"}
+)
+
+thread_id = thread_response.json()["id"]
+```
+
+### إرسال رسالة
+```python
+message_response = requests.post(
+    f"https://api.megsyai.com/v1/threads/{thread_id}/messages",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "role": "user",
+        "content": "اكتب كود Python لقراءة ملف CSV"
+    }
+)
+```
+
+## نصائح للحصول على أفضل النتائج
+
+<Steps>
+  <Step title="تعليمات واضحة">
+    اكتب تعليمات محددة ومفصلة في رسالة النظام
+  </Step>
+  <Step title="سياق كافٍ">
+    قدم معلومات كافية للحصول على إجابات دقيقة
+  </Step>
+  <Step title="اختر النموذج المناسب">
+    استخدم النموذج الأنسب لمهمتك
+  </Step>
+  <Step title="اضبط المعاملات">
+    جرب قيم مختلفة لـ temperature و max_tokens
+  </Step>
+</Steps>
+
+## الأسعار
+
+التكلفة تعتمد على:
+- النموذج المستخدم
+- عدد الرموز (Tokens)
+- الميزات الإضافية (صور، ملفات، بحث)
+
+راجع [صفحة الأسعار](/pricing) للتفاصيل.
+
+## حدود الاستخدام
+
+| الباقة | الرسائل/شهر | النماذج المتاحة |
+|--------|-------------|-----------------|
+| مجاني | 100 | GPT-3.5, Llama |
+| أساسي | 1000 | جميع النماذج |
+| احترافي | 10000 | جميع النماذج + أولوية |
+| مؤسسات | غير محدود | جميع النماذج + دعم مخصص |
+
+## الدعم
+
+تواصل معنا:
+- support@megsyai.com
+- الدردشة المباشرة
+- [مركز المساعدة](https://megsyai.com/help)
