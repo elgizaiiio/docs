@@ -1,0 +1,64 @@
+---
+title: "Nano Banana Edit Pro"
+description: "Fast and efficient image editing for quick modifications"
+icon: "bolt"
+---
+
+<img src="https://i.ibb.co/PvD3shHp/nano-banana-edit-pro.png" alt="Nano Banana Edit Pro" />
+
+## Overview
+
+Nano Banana Edit Pro offers fast, efficient image editing capabilities perfect for quick modifications and batch processing. Optimized for speed without compromising essential quality.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Ultra Fast" icon="rocket">
+    Edit images in seconds
+  </Card>
+  <Card title="Batch Processing" icon="layer-group">
+    Process multiple images simultaneously
+  </Card>
+  <Card title="Efficient" icon="gauge-high">
+    Optimized for high-volume editing
+  </Card>
+  <Card title="Cost Effective" icon="coins">
+    Budget-friendly for bulk operations
+  </Card>
+</CardGroup>
+
+## How to Use
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")},
+    data={
+        "model": "nano-banana-edit-pro",
+        "instruction": "Remove background",
+        "speed_mode": "fast"
+    }
+)
+```
+
+## Common Edits
+
+- Background removal
+- Color adjustments
+- Simple object removal
+- Brightness/contrast
+- Cropping and resizing
+
+## Pricing
+
+| Operation | Price |
+|-----------|-------|
+| Basic Edit | $0.02 |
+| Batch (10+) | $0.015 each |
+
+## Support
+
+- Email: support@megsyai.com
