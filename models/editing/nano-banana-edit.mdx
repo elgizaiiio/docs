@@ -1,0 +1,65 @@
+---
+title: "Nano Banana Edit"
+description: "Fast and efficient basic image editing"
+---
+
+<img src="https://i.ibb.co/6R1LRQV4/nano-banana-edit.png" alt="Nano Banana Edit" />
+
+## Overview
+
+Nano Banana Edit is designed for quick, basic image editing tasks. Perfect for simple edits that need to be done fast without complex requirements.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="Ultra Fast" icon="rocket">
+    Edit images in 2-3 seconds
+  </Card>
+  <Card title="Simple" icon="circle-check">
+    Easy to use for basic edits
+  </Card>
+  <Card title="Efficient" icon="gauge">
+    Low resource consumption
+  </Card>
+  <Card title="Affordable" icon="coins">
+    Cost-effective for high volume
+  </Card>
+</Columns>
+
+## Editing Capabilities
+
+- **Basic Adjustments**: Brightness, contrast, saturation
+- **Simple Cropping**: Resize and crop images
+- **Quick Filters**: Apply basic filters
+- **Background Blur**: Simple background effects
+- **Basic Retouching**: Minor touch-ups
+
+## Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("photo.jpg", "rb")},
+    data={
+        "model": "nano-banana-edit",
+        "instruction": "Increase brightness and blur background"
+    }
+)
+
+edited_image_url = response.json()["data"]["url"]
+```
+
+## Best Use Cases
+
+- **Quick Fixes**: Fast photo corrections
+- **Batch Processing**: Edit many images quickly
+- **Social Media**: Quick content prep
+- **Testing**: Rapid prototyping of edits
+
+## Support
+
+- Email: support@megsyai.com
+- [Help Center](https://megsyai.com/help)
