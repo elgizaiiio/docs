@@ -1,0 +1,307 @@
+---
+title: "توليد الفيديوهات بالذكاء الاصطناعي"
+description: "أنشئ فيديوهات مذهلة من النصوص باستخدام أحدث تقنيات الذكاء الاصطناعي"
+---
+
+## نظرة عامة
+
+يوفر Megsy AI تقنيات متقدمة لتوليد الفيديوهات من النصوص باستخدام أحدث نماذج الذكاء الاصطناعي. يمكنك إنشاء فيديوهات قصيرة، تحريك الصور، وإنتاج محتوى فيديو احترافي بسهولة.
+
+## النماذج المدعومة
+
+<Columns cols={2}>
+  <Card title="Runway Gen-3" icon="film">
+    نموذج متقدم لتوليد فيديوهات عالية الجودة
+  </Card>
+  <Card title="Sora" icon="video">
+    نموذج OpenAI لتوليد فيديوهات واقعية
+  </Card>
+  <Card title="Pika Labs" icon="clapperboard">
+    نموذج متخصص في تحريك الصور
+  </Card>
+  <Card title="Megsy Video" icon="sparkles">
+    نموذجنا الخاص المحسّن للغة العربية
+  </Card>
+</Columns>
+
+## الميزات
+
+### توليد من النص
+أنشئ فيديو من وصف نصي:
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "runway-gen3",
+        "prompt": "موجات البحر تتكسر على الشاطئ عند الغروب، حركة بطيئة",
+        "duration": 5,
+        "resolution": "1080p",
+        "fps": 24
+    }
+)
+
+video_url = response.json()["data"]["url"]
+print(f"Video URL: {video_url}")
+```
+
+### تحريك الصور
+حوّل صورة ثابتة إلى فيديو متحرك:
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/animate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("image.png", "rb")},
+    data={
+        "motion_prompt": "الكاميرا تتحرك ببطء من اليسار إلى اليمين",
+        "duration": 3
+    }
+)
+```
+
+### تحرير الفيديو
+عدّل فيديو موجود بإضافة تأثيرات:
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"video": open("video.mp4", "rb")},
+    data={
+        "edit_prompt": "أضف تأثير الحركة البطيئة",
+        "start_time": 2,
+        "end_time": 5
+    }
+)
+```
+
+## المواصفات التقنية
+
+### الدقة المتاحة
+
+| الدقة | الأبعاد | الاستخدام |
+|-------|---------|-----------|
+| SD | 480p | معاينة سريعة |
+| HD | 720p | جودة جيدة |
+| Full HD | 1080p | جودة عالية |
+| 4K | 2160p | جودة احترافية |
+
+### المدة الزمنية
+
+- **قصير**: 1-3 ثواني
+- **متوسط**: 3-5 ثواني
+- **طويل**: 5-10 ثواني
+- **ممتد**: حتى 30 ثانية (للباقات المتقدمة)
+
+### معدل الإطارات (FPS)
+
+```python
+fps_options = [
+    24,  # سينمائي
+    30,  # قياسي
+    60   # سلس
+]
+```
+
+## أنواع الحركة
+
+### حركة الكاميرا
+```python
+camera_movements = [
+    "zoom-in",        # تقريب
+    "zoom-out",       # إبعاد
+    "pan-left",       # تحريك يسار
+    "pan-right",      # تحريك يمين
+    "tilt-up",        # إمالة لأعلى
+    "tilt-down",      # إمالة لأسفل
+    "orbit",          # دوران
+    "static"          # ثابت
+]
+```
+
+### سرعة الحركة
+```python
+motion_speeds = [
+    "slow",           # بطيء
+    "normal",         # عادي
+    "fast",           # سريع
+    "time-lapse"      # تصوير متسارع
+]
+```
+
+## أمثلة عملية
+
+### فيديو منتج
+```python
+prompt = """
+فيديو احترافي لساعة ذهبية فاخرة تدور ببطء على خلفية سوداء،
+إضاءة استوديو، حركة سلسة 360 درجة، جودة 4K
+"""
+
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "prompt": prompt,
+        "duration": 5,
+        "resolution": "4k",
+        "fps": 60
+    }
+)
+```
+
+### فيديو طبيعة
+```python
+prompt = """
+منظر طبيعي خلاب لشلال في غابة استوائية،
+الماء يتدفق بقوة، أشعة الشمس تخترق الأشجار،
+حركة كاميرا بطيئة من الأسفل للأعلى
+"""
+```
+
+### فيديو تسويقي
+```python
+prompt = """
+فيديو ترويجي لتطبيق موبايل، شاشة الهاتف تعرض واجهة التطبيق،
+انتقالات سلسة بين الشاشات، خلفية حديثة وملونة
+"""
+```
+
+## التأثيرات المتاحة
+
+### تأثيرات بصرية
+```python
+effects = {
+    "slow_motion": True,      # حركة بطيئة
+    "color_grade": "cinematic",  # تدرج لوني
+    "blur": "motion",         # ضبابية الحركة
+    "lighting": "dramatic"    # إضاءة درامية
+}
+```
+
+### تأثيرات الانتقال
+```python
+transitions = [
+    "fade",           # تلاشي
+    "dissolve",       # ذوبان
+    "wipe",           # مسح
+    "zoom",           # تكبير
+    "slide"           # انزلاق
+]
+```
+
+## معالجة متقدمة
+
+### إضافة نص
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/add-text",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"video": open("video.mp4", "rb")},
+    data={
+        "text": "Megsy AI",
+        "position": "center",
+        "font": "Arial",
+        "size": 48,
+        "color": "#FFFFFF",
+        "animation": "fade-in"
+    }
+)
+```
+
+### إضافة موسيقى
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/add-audio",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={
+        "video": open("video.mp4", "rb"),
+        "audio": open("music.mp3", "rb")
+    },
+    data={
+        "volume": 0.7,
+        "fade_in": 1,
+        "fade_out": 1
+    }
+)
+```
+
+### دمج الفيديوهات
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/merge",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={
+        "video1": open("video1.mp4", "rb"),
+        "video2": open("video2.mp4", "rb")
+    },
+    data={
+        "transition": "fade",
+        "transition_duration": 1
+    }
+)
+```
+
+## نصائح للحصول على أفضل النتائج
+
+<Steps>
+  <Step title="وصف دقيق">
+    اكتب وصفاً تفصيلياً للمشهد والحركة المطلوبة
+  </Step>
+  <Step title="حدد الحركة">
+    اذكر نوع حركة الكاميرا وسرعتها
+  </Step>
+  <Step title="الإضاءة والألوان">
+    حدد نوع الإضاءة والمزاج العام للفيديو
+  </Step>
+  <Step title="المدة المناسبة">
+    ابدأ بفيديوهات قصيرة (3-5 ثواني) للحصول على أفضل جودة
+  </Step>
+</Steps>
+
+## حالات الاستخدام
+
+<Columns cols={2}>
+  <Card title="التسويق" icon="bullhorn">
+    إنشاء إعلانات ومحتوى ترويجي
+  </Card>
+  <Card title="وسائل التواصل" icon="share-nodes">
+    محتوى لـ Instagram و TikTok و YouTube
+  </Card>
+  <Card title="التعليم" icon="graduation-cap">
+    فيديوهات تعليمية وشروحات
+  </Card>
+  <Card title="الترفيه" icon="masks-theater">
+    محتوى إبداعي وفني
+  </Card>
+</Columns>
+
+## الأسعار
+
+تختلف تكلفة توليد الفيديوهات حسب:
+- النموذج المستخدم
+- الدقة والجودة
+- المدة الزمنية
+- التأثيرات المضافة
+
+راجع [صفحة الأسعار](/pricing) للتفاصيل الكاملة.
+
+## حدود الاستخدام
+
+| الباقة | دقائق الفيديو/شهر | الدقة القصوى |
+|--------|-------------------|---------------|
+| مجاني | 5 دقائق | 720p |
+| أساسي | 30 دقيقة | 1080p |
+| احترافي | 120 دقيقة | 4K |
+| مؤسسات | غير محدود | 4K |
+
+## الدعم الفني
+
+هل تحتاج مساعدة؟
+- البريد الإلكتروني: support@megsyai.com
+- الدردشة المباشرة
+- [مركز المساعدة](https://megsyai.com/help)
