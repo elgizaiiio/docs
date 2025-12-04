@@ -22,43 +22,12 @@
             ]
           },
           {
-            "group": "Image Generation Models",
-            "pages": [
-              "models/images/megsy-images",
-              "models/images/nano-banana-2",
-              "models/images/seedream4",
-              "models/images/nano-banana-pro",
-              "models/images/flux-2-flex",
-              "models/images/ideogram-v3",
-              "models/images/flux-pro-ultra"
-            ]
-          },
-          {
-            "group": "Image Editing Models",
-            "pages": [
-              "models/editing/qwen-edit",
-              "models/editing/nano-banana-edit-pro",
-              "models/editing/seed-edit",
-              "models/editing/nano-banana-edit",
-              "models/editing/flux-edit"
-            ]
-          },
-          {
-            "group": "Image Tools",
-            "pages": [
-              "tools/clarity-upscaler",
-              "tools/aurasr"
-            ]
-          },
-          {
             "group": "Features",
             "pages": [
-              "features/megsy-models",
               "features/chat",
               "features/image-generation",
               "features/video-generation",
-              "features/app-builder",
-              "features/file-generation"
+              "features/app-builder"
             ]
           },
           {
