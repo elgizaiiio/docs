@@ -1,0 +1,86 @@
+---
+title: "Ideogram V3"
+description: "Advanced text rendering and typography in AI-generated images"
+---
+
+<img src="https://i.ibb.co/spv22J1k/ideogram-v3.png" alt="Ideogram V3" />
+
+## Overview
+
+Ideogram V3 is a specialized image generation model that excels at rendering text and typography within images. Perfect for creating logos, posters, and designs with readable text.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="Perfect Text" icon="font">
+    Accurate text rendering in images
+  </Card>
+  <Card title="Typography" icon="text">
+    Beautiful font and layout control
+  </Card>
+  <Card title="Design Ready" icon="pen-ruler">
+    Professional design outputs
+  </Card>
+  <Card title="Versatile" icon="palette">
+    Multiple design styles
+  </Card>
+</Columns>
+
+## Specifications
+
+| Feature | Details |
+|---------|---------|
+| Max Resolution | 1536x1536 |
+| Aspect Ratios | All standard ratios |
+| Generation Time | 8-15 seconds |
+| Styles | Logos, posters, typography |
+| Best For | Text-heavy designs |
+
+## Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "ideogram-v3",
+        "prompt": "Modern tech company logo with text 'MEGSY AI'",
+        "size": "1024x1024",
+        "style": "design"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+## Best Use Cases
+
+- **Logo Design**: Company and brand logos
+- **Posters**: Event and promotional posters
+- **Social Media**: Text-based graphics
+- **Typography Art**: Artistic text compositions
+- **Signage**: Store and business signs
+
+## Tips for Text Generation
+
+<Steps>
+  <Step title="Be Specific">
+    Clearly specify the exact text you want
+  </Step>
+  <Step title="Describe Style">
+    Mention font style, color, and layout
+  </Step>
+  <Step title="Context Matters">
+    Describe the background and overall design
+  </Step>
+  <Step title="Keep It Simple">
+    Shorter text renders more accurately
+  </Step>
+</Steps>
+
+## Support
+
+- Email: support@megsyai.com
+- [Help Center](https://megsyai.com/help)
