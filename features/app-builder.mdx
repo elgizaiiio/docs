@@ -1,32 +1,32 @@
 ---
-title: "إنشاء المواقع والتطبيقات بالذكاء الاصطناعي"
-description: "أنشئ مواقع وتطبيقات كاملة باستخدام الذكاء الاصطناعي"
+title: "Website & App Builder with AI"
+description: "Build complete websites and applications using artificial intelligence"
 ---
 
-## نظرة عامة
+## Overview
 
-يوفر Megsy AI أدوات متقدمة لإنشاء مواقع وتطبيقات كاملة باستخدام الذكاء الاصطناعي. من الفكرة إلى التطبيق الجاهز في دقائق.
+Megsy AI provides advanced tools for creating complete websites and applications using artificial intelligence. From idea to ready-to-use application in minutes.
 
-## الميزات الرئيسية
+## Key Features
 
 <Columns cols={2}>
-  <Card title="توليد الكود" icon="code">
-    إنشاء أكواد برمجية كاملة وجاهزة للاستخدام
+  <Card title="Code Generation" icon="code">
+    Generate complete, ready-to-use code
   </Card>
-  <Card title="تصميم واجهات" icon="palette">
-    تصميم واجهات مستخدم احترافية
+  <Card title="UI Design" icon="palette">
+    Design professional user interfaces
   </Card>
-  <Card title="قواعد البيانات" icon="database">
-    إنشاء وإدارة قواعد البيانات
+  <Card title="Databases" icon="database">
+    Create and manage databases
   </Card>
   <Card title="API Integration" icon="plug">
-    ربط التطبيقات بالخدمات الخارجية
+    Connect apps to external services
   </Card>
 </Columns>
 
-## إنشاء موقع ويب
+## Create a Website
 
-### من الوصف النصي
+### From Text Description
 ```python
 import requests
 
@@ -36,8 +36,8 @@ response = requests.post(
     json={
         "type": "website",
         "description": """
-        موقع لمطعم يعرض قائمة الطعام، نظام حجز الطاولات،
-        معرض صور، ونموذج تواصل. التصميم عصري وجذاب
+        A restaurant website displaying menu, table booking system,
+        photo gallery, and contact form. Modern and attractive design
         """,
         "features": [
             "menu_display",
@@ -54,7 +54,7 @@ project_id = response.json()["project_id"]
 download_url = response.json()["download_url"]
 ```
 
-### تخصيص التصميم
+### Customize Design
 ```python
 response = requests.post(
     f"https://api.megsyai.com/v1/apps/{project_id}/customize",
@@ -63,7 +63,7 @@ response = requests.post(
         "theme": {
             "primary_color": "#FF6B6B",
             "secondary_color": "#4ECDC4",
-            "font_family": "Cairo",
+            "font_family": "Inter",
             "layout": "modern"
         },
         "components": {
@@ -75,9 +75,9 @@ response = requests.post(
 )
 ```
 
-## إنشاء تطبيق موبايل
+## Create Mobile App
 
-### تطبيق iOS/Android
+### iOS/Android App
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/apps/generate",
@@ -86,18 +86,18 @@ response = requests.post(
         "type": "mobile_app",
         "platform": ["ios", "android"],
         "description": """
-        تطبيق توصيل طعام يتضمن:
-        - تصفح المطاعم والقوائم
-        - نظام طلبات وسلة تسوق
-        - تتبع الطلبات
-        - نظام دفع آمن
+        Food delivery app including:
+        - Browse restaurants and menus
+        - Order system and shopping cart
+        - Order tracking
+        - Secure payment system
         """,
         "framework": "react-native"
     }
 )
 ```
 
-### ميزات التطبيق
+### App Features
 ```python
 features = {
     "authentication": {
@@ -114,29 +114,29 @@ features = {
 }
 ```
 
-## أنواع التطبيقات المدعومة
+## Supported App Types
 
-### مواقع الويب
-- مواقع الشركات
-- المتاجر الإلكترونية
-- المدونات
-- المحافظ الشخصية
-- صفحات الهبوط
+### Websites
+- Corporate websites
+- E-commerce stores
+- Blogs
+- Portfolios
+- Landing pages
 
-### تطبيقات الموبايل
-- تطبيقات التجارة الإلكترونية
-- تطبيقات التواصل الاجتماعي
-- تطبيقات الإنتاجية
-- تطبيقات الألعاب
-- تطبيقات الخدمات
+### Mobile Apps
+- E-commerce apps
+- Social media apps
+- Productivity apps
+- Gaming apps
+- Service apps
 
-### تطبيقات الويب
-- لوحات التحكم (Dashboards)
-- أنظمة إدارة المحتوى (CMS)
-- أدوات SaaS
-- منصات التعلم الإلكتروني
+### Web Applications
+- Dashboards
+- Content Management Systems (CMS)
+- SaaS tools
+- E-learning platforms
 
-## التقنيات المدعومة
+## Supported Technologies
 
 ### Frontend
 ```javascript
@@ -160,7 +160,7 @@ backends = [
 ]
 ```
 
-### قواعد البيانات
+### Databases
 ```javascript
 databases = [
     "PostgreSQL",
@@ -171,17 +171,17 @@ databases = [
 ]
 ```
 
-## مثال عملي: متجر إلكتروني
+## Practical Example: E-commerce Store
 
-### الخطوة 1: إنشاء المشروع
+### Step 1: Create Project
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/apps/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
         "type": "ecommerce",
-        "name": "متجري",
-        "description": "متجر إلكتروني لبيع الملابس",
+        "name": "My Store",
+        "description": "E-commerce store for selling clothing",
         "features": [
             "product_catalog",
             "shopping_cart",
@@ -194,7 +194,7 @@ response = requests.post(
 )
 ```
 
-### الخطوة 2: إضافة المنتجات
+### Step 2: Add Products
 ```python
 products_api = requests.post(
     f"https://api.megsyai.com/v1/apps/{project_id}/generate-api",
@@ -216,7 +216,7 @@ products_api = requests.post(
 )
 ```
 
-### الخطوة 3: إضافة الدفع
+### Step 3: Add Payment
 ```python
 payment_integration = requests.post(
     f"https://api.megsyai.com/v1/apps/{project_id}/integrate",
@@ -228,16 +228,16 @@ payment_integration = requests.post(
 )
 ```
 
-## لوحة التحكم (Dashboard)
+## Dashboard
 
-### إنشاء لوحة تحكم
+### Create Dashboard
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/apps/generate",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
         "type": "dashboard",
-        "description": "لوحة تحكم لإدارة المبيعات والعملاء",
+        "description": "Dashboard for managing sales and customers",
         "widgets": [
             "sales_chart",
             "revenue_stats",
@@ -250,7 +250,7 @@ response = requests.post(
 )
 ```
 
-### تخصيص الويدجتس
+### Customize Widgets
 ```python
 widgets_config = {
     "sales_chart": {
@@ -267,7 +267,7 @@ widgets_config = {
 
 ## API Generation
 
-### إنشاء REST API
+### Create REST API
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/apps/generate-api",
@@ -299,7 +299,7 @@ response = requests.post(
 )
 ```
 
-### إنشاء GraphQL API
+### Create GraphQL API
 ```python
 response = requests.post(
     "https://api.megsyai.com/v1/apps/generate-api",
@@ -325,15 +325,15 @@ response = requests.post(
 )
 ```
 
-## النشر والاستضافة
+## Deployment & Hosting
 
-### نشر تلقائي
+### Auto Deploy
 ```python
 response = requests.post(
     f"https://api.megsyai.com/v1/apps/{project_id}/deploy",
     headers={"Authorization": "Bearer YOUR_API_KEY"},
     json={
-        "platform": "vercel",  # أو "netlify", "aws", "heroku"
+        "platform": "vercel",  # or "netlify", "aws", "heroku"
         "domain": "myapp.com",
         "environment": {
             "NODE_ENV": "production",
@@ -343,7 +343,7 @@ response = requests.post(
 )
 ```
 
-### مراقبة الأداء
+### Performance Monitoring
 ```python
 monitoring = requests.post(
     f"https://api.megsyai.com/v1/apps/{project_id}/monitoring",
@@ -361,9 +361,9 @@ monitoring = requests.post(
 )
 ```
 
-## الأمان والحماية
+## Security & Protection
 
-### إضافة المصادقة
+### Add Authentication
 ```python
 auth_config = {
     "type": "jwt",
@@ -376,7 +376,7 @@ auth_config = {
 }
 ```
 
-### حماية API
+### API Protection
 ```python
 security_config = {
     "rate_limiting": {
@@ -390,9 +390,9 @@ security_config = {
 }
 ```
 
-## التكامل مع الخدمات
+## Service Integration
 
-### خدمات البريد الإلكتروني
+### Email Services
 ```python
 email_integration = {
     "provider": "sendgrid",
@@ -400,7 +400,7 @@ email_integration = {
 }
 ```
 
-### خدمات التخزين
+### Storage Services
 ```python
 storage_integration = {
     "provider": "aws_s3",
@@ -408,19 +408,19 @@ storage_integration = {
 }
 ```
 
-## الأسعار
+## Pricing
 
-التكلفة تعتمد على:
-- نوع التطبيق
-- التعقيد والميزات
-- التقنيات المستخدمة
-- خدمات الاستضافة
+Cost depends on:
+- App type
+- Complexity and features
+- Technologies used
+- Hosting services
 
-راجع [صفحة الأسعار](/pricing) للتفاصيل.
+See the [pricing page](/pricing) for details.
 
-## الدعم
+## Support
 
-تواصل معنا:
+Contact us:
 - support@megsyai.com
-- الدردشة المباشرة
-- [مركز المساعدة](https://megsyai.com/help)
+- Live chat
+- [Help Center](https://megsyai.com/help)
