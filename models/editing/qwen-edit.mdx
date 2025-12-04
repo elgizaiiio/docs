@@ -1,0 +1,110 @@
+---
+title: "Qwen Edit"
+description: "Intelligent image editing with natural language instructions"
+---
+
+<img src="https://i.ibb.co/351rbH7P/qwen-edit.png" alt="Qwen Edit" />
+
+## Overview
+
+Qwen Edit is an advanced AI-powered image editing model that understands natural language instructions. Simply describe what you want to change, and the AI will make precise edits to your image.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="Natural Language" icon="message">
+    Edit images using simple text commands
+  </Card>
+  <Card title="Intelligent" icon="brain">
+    Understands context and intent
+  </Card>
+  <Card title="Precise" icon="crosshairs">
+    Accurate edits without affecting other areas
+  </Card>
+  <Card title="Fast" icon="bolt">
+    Quick processing for instant results
+  </Card>
+</Columns>
+
+## Capabilities
+
+- **Object Removal**: Remove unwanted objects or people
+- **Color Adjustment**: Change colors of specific elements
+- **Style Transfer**: Apply different artistic styles
+- **Background Change**: Replace or modify backgrounds
+- **Object Addition**: Add new elements to images
+- **Enhancement**: Improve lighting, contrast, and clarity
+
+## Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("original.jpg", "rb")},
+    data={
+        "model": "qwen-edit",
+        "instruction": "Remove the person in the background and make the sky more blue"
+    }
+)
+
+edited_image_url = response.json()["data"]["url"]
+```
+
+## Example Instructions
+
+### Object Removal
+```
+"Remove the car from the street"
+"Delete the watermark in the corner"
+"Erase the power lines from the sky"
+```
+
+### Color Changes
+```
+"Change the shirt color to red"
+"Make the grass greener"
+"Turn the sky into sunset colors"
+```
+
+### Background Edits
+```
+"Replace the background with a beach scene"
+"Blur the background"
+"Change the wall color to white"
+```
+
+### Enhancements
+```
+"Make the image brighter"
+"Increase the contrast"
+"Sharpen the details"
+```
+
+## Best Practices
+
+<Steps>
+  <Step title="Be Specific">
+    Clearly describe what you want to edit
+  </Step>
+  <Step title="One Change at a Time">
+    For best results, make one edit per request
+  </Step>
+  <Step title="Use Clear Language">
+    Simple, direct instructions work best
+  </Step>
+  <Step title="Specify Location">
+    Mention where in the image to make changes
+  </Step>
+</Steps>
+
+## Pricing
+
+Standard editing rates apply. See [pricing page](/pricing) for details.
+
+## Support
+
+- Email: support@megsyai.com
+- [Help Center](https://megsyai.com/help)
