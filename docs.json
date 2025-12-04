@@ -11,10 +11,10 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "الدليل",
+        "tab": "Guides",
         "groups": [
           {
-            "group": "البداية",
+            "group": "Getting Started",
             "pages": [
               "index",
               "quickstart",
@@ -22,7 +22,7 @@
             ]
           },
           {
-            "group": "الميزات",
+            "group": "Features",
             "pages": [
               "features/megsy-models",
               "features/chat",
@@ -33,7 +33,7 @@
             ]
           },
           {
-            "group": "التطوير",
+            "group": "Development",
             "pages": [
               "development",
               "essentials/settings",
@@ -41,7 +41,7 @@
             ]
           },
           {
-            "group": "كتابة المحتوى",
+            "group": "Writing Content",
             "pages": [
               "essentials/markdown",
               "essentials/code",
@@ -50,7 +50,7 @@
             ]
           },
           {
-            "group": "أدوات الذكاء الاصطناعي",
+            "group": "AI Tools",
             "pages": [
               "ai-tools/cursor",
               "ai-tools/claude-code",
