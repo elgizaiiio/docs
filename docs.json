@@ -102,13 +102,13 @@
   "navbar": {
     "links": [
       {
-        "label": "الدعم",
+        "label": "Support",
         "href": "mailto:support@megsyai.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "ابدأ الآن",
+      "label": "Get Started",
       "href": "https://megsyai.com/signup"
     }
   },
