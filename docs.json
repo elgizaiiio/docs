@@ -83,12 +83,12 @@
     "global": {
       "anchors": [
         {
-          "anchor": "الموقع الرسمي",
+          "anchor": "Official Website",
           "href": "https://megsyai.com",
           "icon": "house"
         },
         {
-          "anchor": "الدعم",
+          "anchor": "Support",
           "href": "https://megsyai.com/help",
           "icon": "headset"
         }
