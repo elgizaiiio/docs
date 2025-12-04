@@ -1,0 +1,111 @@
+---
+title: "Flux Edit"
+description: "Advanced image editing with maximum control and quality"
+---
+
+<img src="https://i.ibb.co/spGKHcPz/flux-edit.png" alt="Flux Edit" />
+
+## Overview
+
+Flux Edit is a premium image editing model offering maximum control and the highest quality results. Designed for professional editors who need precise, detailed edits.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="Maximum Quality" icon="crown">
+    Professional-grade editing results
+  </Card>
+  <Card title="Precise Control" icon="sliders">
+    Fine-tune every aspect of edits
+  </Card>
+  <Card title="Advanced Features" icon="wand-magic-sparkles">
+    Complex editing capabilities
+  </Card>
+  <Card title="Non-Destructive" icon="shield">
+    Preserve original image quality
+  </Card>
+</Columns>
+
+## Advanced Capabilities
+
+- **Layer-based Editing**: Complex multi-layer edits
+- **Selective Adjustments**: Edit specific areas precisely
+- **Advanced Masking**: Sophisticated selection tools
+- **Color Grading**: Professional color correction
+- **Detail Enhancement**: Preserve and enhance fine details
+- **Smart Object Removal**: Intelligent content-aware fill
+
+## Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("photo.jpg", "rb")},
+    data={
+        "model": "flux-edit",
+        "instruction": "Remove the person while preserving background details",
+        "quality": "ultra",
+        "preserve_details": True,
+        "mask_precision": "high"
+    }
+)
+
+edited_image_url = response.json()["data"]["url"]
+```
+
+## Professional Features
+
+### Advanced Masking
+```python
+{
+    "mask_type": "smart",
+    "edge_refinement": True,
+    "feather_radius": 5
+}
+```
+
+### Color Grading
+```python
+{
+    "color_profile": "cinematic",
+    "lut": "custom",
+    "grade_strength": 0.7
+}
+```
+
+### Detail Preservation
+```python
+{
+    "preserve_texture": True,
+    "sharpen_level": "medium",
+    "noise_reduction": "adaptive"
+}
+```
+
+## Best Use Cases
+
+- **Professional Photography**: High-end photo editing
+- **Commercial Work**: Advertising and marketing
+- **Print Production**: Magazine and billboard quality
+- **Fine Art**: Gallery-quality prints
+- **Film Production**: VFX and post-production
+
+## Quality Presets
+
+- **Standard**: Balanced speed and quality
+- **High**: Enhanced detail preservation
+- **Ultra**: Maximum quality, slower processing
+- **Professional**: Optimized for print
+
+## Pricing
+
+Premium editing tier - best for professional projects requiring maximum quality.
+
+## Support
+
+- Priority Email: pro-support@megsyai.com
+- Dedicated Support
+- [Pro Help Center](https://megsyai.com/help/pro)
