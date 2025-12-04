@@ -1,0 +1,426 @@
+---
+title: "إنشاء المواقع والتطبيقات بالذكاء الاصطناعي"
+description: "أنشئ مواقع وتطبيقات كاملة باستخدام الذكاء الاصطناعي"
+---
+
+## نظرة عامة
+
+يوفر Megsy AI أدوات متقدمة لإنشاء مواقع وتطبيقات كاملة باستخدام الذكاء الاصطناعي. من الفكرة إلى التطبيق الجاهز في دقائق.
+
+## الميزات الرئيسية
+
+<Columns cols={2}>
+  <Card title="توليد الكود" icon="code">
+    إنشاء أكواد برمجية كاملة وجاهزة للاستخدام
+  </Card>
+  <Card title="تصميم واجهات" icon="palette">
+    تصميم واجهات مستخدم احترافية
+  </Card>
+  <Card title="قواعد البيانات" icon="database">
+    إنشاء وإدارة قواعد البيانات
+  </Card>
+  <Card title="API Integration" icon="plug">
+    ربط التطبيقات بالخدمات الخارجية
+  </Card>
+</Columns>
+
+## إنشاء موقع ويب
+
+### من الوصف النصي
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/apps/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "website",
+        "description": """
+        موقع لمطعم يعرض قائمة الطعام، نظام حجز الطاولات،
+        معرض صور، ونموذج تواصل. التصميم عصري وجذاب
+        """,
+        "features": [
+            "menu_display",
+            "booking_system",
+            "gallery",
+            "contact_form"
+        ],
+        "style": "modern",
+        "colors": ["#FF6B6B", "#4ECDC4", "#45B7D1"]
+    }
+)
+
+project_id = response.json()["project_id"]
+download_url = response.json()["download_url"]
+```
+
+### تخصيص التصميم
+```python
+response = requests.post(
+    f"https://api.megsyai.com/v1/apps/{project_id}/customize",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "theme": {
+            "primary_color": "#FF6B6B",
+            "secondary_color": "#4ECDC4",
+            "font_family": "Cairo",
+            "layout": "modern"
+        },
+        "components": {
+            "navbar": "sticky",
+            "footer": "minimal",
+            "buttons": "rounded"
+        }
+    }
+)
+```
+
+## إنشاء تطبيق موبايل
+
+### تطبيق iOS/Android
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/apps/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "mobile_app",
+        "platform": ["ios", "android"],
+        "description": """
+        تطبيق توصيل طعام يتضمن:
+        - تصفح المطاعم والقوائم
+        - نظام طلبات وسلة تسوق
+        - تتبع الطلبات
+        - نظام دفع آمن
+        """,
+        "framework": "react-native"
+    }
+)
+```
+
+### ميزات التطبيق
+```python
+features = {
+    "authentication": {
+        "methods": ["email", "phone", "social"],
+        "providers": ["google", "facebook", "apple"]
+    },
+    "notifications": {
+        "push": True,
+        "in_app": True
+    },
+    "offline_mode": True,
+    "analytics": True,
+    "crash_reporting": True
+}
+```
+
+## أنواع التطبيقات المدعومة
+
+### مواقع الويب
+- مواقع الشركات
+- المتاجر الإلكترونية
+- المدونات
+- المحافظ الشخصية
+- صفحات الهبوط
+
+### تطبيقات الموبايل
+- تطبيقات التجارة الإلكترونية
+- تطبيقات التواصل الاجتماعي
+- تطبيقات الإنتاجية
+- تطبيقات الألعاب
+- تطبيقات الخدمات
+
+### تطبيقات الويب
+- لوحات التحكم (Dashboards)
+- أنظمة إدارة المحتوى (CMS)
+- أدوات SaaS
+- منصات التعلم الإلكتروني
+
+## التقنيات المدعومة
+
+### Frontend
+```javascript
+frameworks = [
+    "React",
+    "Vue.js",
+    "Angular",
+    "Next.js",
+    "Svelte"
+]
+```
+
+### Backend
+```javascript
+backends = [
+    "Node.js",
+    "Python (Django/Flask)",
+    "PHP (Laravel)",
+    "Ruby on Rails",
+    "Go"
+]
+```
+
+### قواعد البيانات
+```javascript
+databases = [
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB",
+    "Firebase",
+    "Supabase"
+]
+```
+
+## مثال عملي: متجر إلكتروني
+
+### الخطوة 1: إنشاء المشروع
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/apps/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "ecommerce",
+        "name": "متجري",
+        "description": "متجر إلكتروني لبيع الملابس",
+        "features": [
+            "product_catalog",
+            "shopping_cart",
+            "checkout",
+            "payment_gateway",
+            "order_tracking",
+            "admin_panel"
+        ]
+    }
+)
+```
+
+### الخطوة 2: إضافة المنتجات
+```python
+products_api = requests.post(
+    f"https://api.megsyai.com/v1/apps/{project_id}/generate-api",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "endpoints": [
+            {
+                "path": "/api/products",
+                "methods": ["GET", "POST", "PUT", "DELETE"],
+                "authentication": True
+            },
+            {
+                "path": "/api/orders",
+                "methods": ["GET", "POST"],
+                "authentication": True
+            }
+        ]
+    }
+)
+```
+
+### الخطوة 3: إضافة الدفع
+```python
+payment_integration = requests.post(
+    f"https://api.megsyai.com/v1/apps/{project_id}/integrate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "service": "stripe",
+        "features": ["checkout", "subscriptions", "refunds"]
+    }
+)
+```
+
+## لوحة التحكم (Dashboard)
+
+### إنشاء لوحة تحكم
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/apps/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "dashboard",
+        "description": "لوحة تحكم لإدارة المبيعات والعملاء",
+        "widgets": [
+            "sales_chart",
+            "revenue_stats",
+            "customer_list",
+            "recent_orders",
+            "analytics"
+        ],
+        "data_source": "postgresql"
+    }
+)
+```
+
+### تخصيص الويدجتس
+```python
+widgets_config = {
+    "sales_chart": {
+        "type": "line",
+        "period": "monthly",
+        "metrics": ["revenue", "orders", "customers"]
+    },
+    "revenue_stats": {
+        "display": "cards",
+        "comparisons": True
+    }
+}
+```
+
+## API Generation
+
+### إنشاء REST API
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/apps/generate-api",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "rest",
+        "resources": [
+            {
+                "name": "users",
+                "fields": {
+                    "name": "string",
+                    "email": "string",
+                    "role": "enum"
+                },
+                "endpoints": ["list", "create", "read", "update", "delete"]
+            },
+            {
+                "name": "posts",
+                "fields": {
+                    "title": "string",
+                    "content": "text",
+                    "author_id": "reference"
+                }
+            }
+        ],
+        "authentication": "jwt",
+        "documentation": True
+    }
+)
+```
+
+### إنشاء GraphQL API
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/apps/generate-api",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "type": "graphql",
+        "schema": """
+        type User {
+            id: ID!
+            name: String!
+            email: String!
+            posts: [Post]
+        }
+        
+        type Post {
+            id: ID!
+            title: String!
+            content: String!
+            author: User!
+        }
+        """
+    }
+)
+```
+
+## النشر والاستضافة
+
+### نشر تلقائي
+```python
+response = requests.post(
+    f"https://api.megsyai.com/v1/apps/{project_id}/deploy",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "platform": "vercel",  # أو "netlify", "aws", "heroku"
+        "domain": "myapp.com",
+        "environment": {
+            "NODE_ENV": "production",
+            "DATABASE_URL": "postgresql://..."
+        }
+    }
+)
+```
+
+### مراقبة الأداء
+```python
+monitoring = requests.post(
+    f"https://api.megsyai.com/v1/apps/{project_id}/monitoring",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "metrics": ["uptime", "response_time", "errors"],
+        "alerts": {
+            "email": "admin@example.com",
+            "threshold": {
+                "response_time": 1000,
+                "error_rate": 0.01
+            }
+        }
+    }
+)
+```
+
+## الأمان والحماية
+
+### إضافة المصادقة
+```python
+auth_config = {
+    "type": "jwt",
+    "providers": ["email", "google", "github"],
+    "features": {
+        "two_factor": True,
+        "password_reset": True,
+        "email_verification": True
+    }
+}
+```
+
+### حماية API
+```python
+security_config = {
+    "rate_limiting": {
+        "requests_per_minute": 60
+    },
+    "cors": {
+        "allowed_origins": ["https://myapp.com"]
+    },
+    "encryption": True,
+    "ssl": True
+}
+```
+
+## التكامل مع الخدمات
+
+### خدمات البريد الإلكتروني
+```python
+email_integration = {
+    "provider": "sendgrid",
+    "templates": ["welcome", "reset_password", "order_confirmation"]
+}
+```
+
+### خدمات التخزين
+```python
+storage_integration = {
+    "provider": "aws_s3",
+    "buckets": ["images", "documents", "backups"]
+}
+```
+
+## الأسعار
+
+التكلفة تعتمد على:
+- نوع التطبيق
+- التعقيد والميزات
+- التقنيات المستخدمة
+- خدمات الاستضافة
+
+راجع [صفحة الأسعار](/pricing) للتفاصيل.
+
+## الدعم
+
+تواصل معنا:
+- support@megsyai.com
+- الدردشة المباشرة
+- [مركز المساعدة](https://megsyai.com/help)
