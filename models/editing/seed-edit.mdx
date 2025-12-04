@@ -1,0 +1,73 @@
+---
+title: "Seed Edit"
+description: "Creative image editing with artistic control"
+---
+
+<img src="https://i.ibb.co/cKXTXMhf/seed-edit.png" alt="Seed Edit" />
+
+## Overview
+
+Seed Edit specializes in creative and artistic image editing. Perfect for transforming photos into artistic masterpieces or applying unique creative effects.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="Artistic" icon="palette">
+    Creative and artistic transformations
+  </Card>
+  <Card title="Style Control" icon="wand-magic-sparkles">
+    Fine-tune artistic styles
+  </Card>
+  <Card title="Creative Effects" icon="sparkles">
+    Unique visual effects
+  </Card>
+  <Card title="Flexible" icon="sliders">
+    Adjustable intensity and parameters
+  </Card>
+</Columns>
+
+## Editing Capabilities
+
+- **Artistic Filters**: Apply painting and art styles
+- **Creative Transformations**: Unique visual effects
+- **Style Mixing**: Combine multiple artistic styles
+- **Mood Adjustment**: Change the emotional tone
+- **Texture Overlay**: Add artistic textures
+
+## Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/images/edit",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    files={"image": open("photo.jpg", "rb")},
+    data={
+        "model": "seed-edit",
+        "instruction": "Transform into oil painting style with vibrant colors",
+        "style_strength": 0.8
+    }
+)
+
+edited_image_url = response.json()["data"]["url"]
+```
+
+## Creative Styles
+
+- **Painting Styles**: Oil, watercolor, acrylic
+- **Artistic Movements**: Impressionism, cubism, abstract
+- **Digital Art**: Cyberpunk, vaporwave, glitch
+- **Traditional**: Sketch, charcoal, ink
+
+## Best Use Cases
+
+- **Art Projects**: Creative visual experiments
+- **Social Media**: Eye-catching content
+- **Album Covers**: Unique artwork
+- **Digital Art**: Artistic compositions
+
+## Support
+
+- Email: support@megsyai.com
+- [Help Center](https://megsyai.com/help)
