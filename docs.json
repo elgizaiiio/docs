@@ -1,35 +1,47 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Megsy AI Documentation",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#FF6B6B",
+    "light": "#4ECDC4",
+    "dark": "#45B7D1"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "الدليل",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "البداية",
             "pages": [
               "index",
               "quickstart",
-              "development"
+              "pricing"
             ]
           },
           {
-            "group": "Customization",
+            "group": "الميزات",
             "pages": [
+              "features/megsy-models",
+              "features/chat",
+              "features/image-generation",
+              "features/video-generation",
+              "features/app-builder",
+              "features/file-generation"
+            ]
+          },
+          {
+            "group": "التطوير",
+            "pages": [
+              "development",
               "essentials/settings",
               "essentials/navigation"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "كتابة المحتوى",
             "pages": [
               "essentials/markdown",
               "essentials/code",
@@ -38,7 +50,7 @@
             ]
           },
           {
-            "group": "AI tools",
+            "group": "أدوات الذكاء الاصطناعي",
             "pages": [
               "ai-tools/cursor",
               "ai-tools/claude-code",
@@ -48,7 +60,7 @@
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "API Reference",
         "groups": [
           {
             "group": "API documentation",
@@ -71,14 +83,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "الموقع الرسمي",
+          "href": "https://megsyai.com",
+          "icon": "house"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "الدعم",
+          "href": "https://megsyai.com/help",
+          "icon": "headset"
         }
       ]
     }
@@ -90,14 +102,14 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "الدعم",
+        "href": "mailto:support@megsyai.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "ابدأ الآن",
+      "href": "https://megsyai.com/signup"
     }
   },
   "contextual": {
@@ -114,9 +126,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/megsy_ai",
+      "github": "https://github.com/megsyai",
+      "linkedin": "https://linkedin.com/company/megsyai"
     }
   }
 }
