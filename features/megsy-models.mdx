@@ -1,0 +1,133 @@
+---
+title: "نماذج Megsy الخاصة"
+description: "تعرف على نماذج الذكاء الاصطناعي الخاصة المطورة من Megsy"
+---
+
+## نماذج Megsy
+
+طورنا في Megsy مجموعة من نماذج الذكاء الاصطناعي الخاصة المصممة خصيصاً لتلبية احتياجات المستخدمين العرب والعالميين. نماذجنا مدربة على بيانات متنوعة ومحسّنة للأداء العالي.
+
+## نماذج الشات
+
+### Megsy Chat
+نموذج محادثة متقدم يدعم:
+- فهم السياق العميق
+- الإجابة على الأسئلة المعقدة
+- دعم اللغة العربية والإنجليزية
+- القدرة على التفكير المنطقي
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.megsyai.com/v1/chat",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "megsy-chat",
+        "messages": [
+            {"role": "user", "content": "ما هي أفضل طريقة لتعلم البرمجة؟"}
+        ]
+    }
+)
+
+print(response.json()["choices"][0]["message"]["content"])
+```
+
+## نماذج الصور
+
+### Megsy Image
+نموذج توليد صور متقدم يتميز بـ:
+- جودة عالية تصل إلى 4K
+- فهم النصوص العربية والإنجليزية
+- أنماط فنية متعددة
+- سرعة توليد عالية
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/images/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "megsy-image",
+        "prompt": "منظر طبيعي خلاب للأهرامات عند الغروب",
+        "size": "1024x1024",
+        "quality": "hd"
+    }
+)
+
+image_url = response.json()["data"][0]["url"]
+```
+
+### Megsy Image Edit
+تعديل الصور الموجودة بالذكاء الاصطناعي:
+- إزالة الخلفية
+- تغيير الألوان
+- إضافة عناصر جديدة
+- تحسين الجودة
+
+## نماذج الفيديو
+
+### Megsy Video
+توليد فيديوهات قصيرة بجودة عالية:
+- مدة تصل إلى 10 ثواني
+- دقة 1080p
+- حركة سلسة وطبيعية
+- دعم النصوص العربية
+
+```python
+response = requests.post(
+    "https://api.megsyai.com/v1/videos/generate",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "model": "megsy-video",
+        "prompt": "موجات البحر تتكسر على الشاطئ عند الغروب",
+        "duration": 5,
+        "resolution": "1080p"
+    }
+)
+
+video_url = response.json()["data"]["url"]
+```
+
+## نماذج الملفات
+
+### Megsy Code
+توليد وتحليل الأكواد البرمجية:
+- دعم أكثر من 50 لغة برمجة
+- شرح الأكواد
+- اكتشاف الأخطاء
+- تحسين الأداء
+
+### Megsy Document
+معالجة المستندات:
+- استخراج النصوص
+- تلخيص المحتوى
+- الترجمة
+- التحليل
+
+## المميزات التقنية
+
+<Columns cols={2}>
+  <Card title="أداء عالي" icon="gauge-high">
+    نماذجنا محسّنة للسرعة والكفاءة
+  </Card>
+  <Card title="دقة عالية" icon="bullseye">
+    نتائج دقيقة وموثوقة
+  </Card>
+  <Card title="دعم العربية" icon="language">
+    فهم متقدم للغة العربية
+  </Card>
+  <Card title="تحديثات مستمرة" icon="arrows-rotate">
+    نحسّن نماذجنا باستمرار
+  </Card>
+</Columns>
+
+## الاستخدام
+
+جميع نماذج Megsy متاحة عبر:
+- واجهة الويب على [megsyai.com](https://megsyai.com)
+- تطبيقات الموبايل (iOS و Android)
+- API للمطورين
+
+## الأسعار
+
+نماذج Megsy متاحة بأسعار تنافسية ضمن جميع الباقات. راجع [صفحة الأسعار](/pricing) لمزيد من التفاصيل.
